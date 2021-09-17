@@ -2109,7 +2109,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/waifu`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2120,7 +2120,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/neko`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2131,7 +2131,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/trap`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2142,7 +2142,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/blowjob`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2993,7 +2993,7 @@ if (error){ return reply('_[ ! ] *Intentalo de nuevo*_')}
 else {
 var gugWp = result
 var randomWp =  gugWp[Math.floor(Math.random() * gugWp.length)].url
-sendFileFromUrl(randomWp, image, {quoted: sam, caption: `*espero que te guste✅*`})
+sendFileFromUrl(randomWp, image, {quoted: sam, caption: `*espero que te guste✅*, ☠️Team SkullForce  500☠️ | skullgirls`})
 }
 }
 addFilter(from)
@@ -4431,8 +4431,8 @@ const serialUser = createSerial(20)
 const momento = require('moment-timezone')
 const time = momento.tz('America/Mexico_City').format('HH:mm:ss')
 if(isNaN(edad)) return await reply('*La edad es un numero🙄*!!')
-if (nombre.length >= 15) return reply(`*Tu nombre es acaso un tren?*\nUn nombre no puede tener mas de *15* letras`)
-if (edad > 40) return reply(`Uuuu, yastas viejito:c\n*Lo siento pero no puedo registrarte si eres mayor de 40 años*`)
+if (nombre.length >= 10) return reply(`*Tu nombre es acaso un tren?*\nUn nombre no puede tener mas de *10* letras`)
+if (edad > 30) return reply(`Uuuu, yastas viejito:c\n*Lo siento pero no puedo registrarte si eres mayor de 30 años*`)
 if (edad < 13) return reply(`Eres menor de 13 años, no puedo hacer un registro tuyo lo siento.\n*Si quieres muestrame una autorizacion de tus padres diciendo que puedes pasar tiempo usando este bot para que pueda aceptarte:d*`)
 try {
 ppimg = await samu330.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
