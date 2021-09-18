@@ -13,20 +13,20 @@
 <p align="center">
 <img src="https://www.crackingpro.com/uploads/team_VIP.gif" width="200" height="80"/>
 </p>
-<img src="https://i.imgur.com/n1zo2wL.gif" width="30" height="30"/> NyanBot🐬
+<img src="https://i.imgur.com/n1zo2wL.gif" width="30" height="30"/> TselyBot
 </p>
 <br />
     Clona este repositorio</h3><img src="https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/images/logo.png" alt="Logo" width="20" height="20">
   </a>
 
 ```bash
-> git clone https://github.com/Samu330/NyanBot
+> git clone https://github.com/TeamSkullForce500/TselyBot
 ```
 
 ## Inicia la Instalacion:
 
 ```bash
-> cd NyanBot
+> cd TselyBot
 > bash install.sh
 ```
 
