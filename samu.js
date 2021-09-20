@@ -789,7 +789,7 @@ key:
 { fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ?
 { remoteJid: "status@broadcast" } : {}) },
-message: { "imageMessage": { "mimetype": "image/jpeg","caption": `🥀Sαм y Perry`, 'jpegThumbnail': fs.readFileSync('./src/help.jpg')}}
+message: { "imageMessage": { "mimetype": "image/jpeg","caption": `TselyBot`, 'jpegThumbnail': fs.readFileSync('./src/help.jpg')}}
 }
 contextInfo: {
 mentionedJid: [sender]}
@@ -798,7 +798,7 @@ key:
 { fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ?
 { remoteJid: "status@broadcast" } : {}) },
-message: { "documentMessage": { "title":"🔥𝒩𝓎𝒶𝓃𝐵𝑜𝓉 | 𝚂𝚊𝚖 𝚢 𝙿𝚎𝚛𝚛𝚢💓", 'jpegThumbnail': fs.readFileSync('./src/fake.jpg')}}
+message: { "documentMessage": { "title":"TselyBot | TeamSkullForce500", 'jpegThumbnail': fs.readFileSync('./src/fake.jpg')}}
 }
 contextInfo: {
 mentionedJid: [sender]}
@@ -807,7 +807,7 @@ key:
 { fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ?
 { remoteJid: "status@broadcast" } : {}) },
-message: { "locationMessage": { "caption":"🥀𝓝𝔂𝓪𝓷𝓑𝓸💞", 'jpegThumbnail': fs.readFileSync('./src/samyperry.png')}}
+message: { "locationMessage": { "caption":"TselyBot", 'jpegThumbnail': fs.readFileSync('./src/samyperry.png')}}
 }
 contextInfo: {
 mentionedJid: [sender]}
@@ -816,7 +816,7 @@ key:
 { fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ?
 { remoteJid: "status@broadcast" } : {}) },
-message: { "liveLocationMessage": { "caption":"🍒𝒮𝒶𝓂 𝓎 𝒫𝑒𝓇𝓇𝓎 | 𝙉𝙮𝙖𝙣𝘽𝙤𝙩🔥", 'jpegThumbnail': fs.readFileSync('./src/img.jpg')}}
+message: { "liveLocationMessage": { "caption":"TeamSkullForce500 | TselyBot", 'jpegThumbnail': fs.readFileSync('./src/img.jpg')}}
 }
 contextInfo: {
 mentionedJid: [sender]}
@@ -825,7 +825,7 @@ key:
 { fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ?
 { remoteJid: "status@broadcast" } : {}) },
-message: { "videoMessage": { "caption":"🌺Ｓａｍ ｙ Ｐｅｒｒｙ🌺", 'jpegThumbnail': fs.readFileSync('./src/help.jpg')}}
+message: { "videoMessage": { "caption":"☠️TeamSkullForce500☠️", 'jpegThumbnail': fs.readFileSync('./src/help.jpg')}}
 }
 contextInfo: {
 mentionedJid: [sender]}
@@ -850,7 +850,7 @@ message: {
 "mimetype": "image/jpeg",
 "jpegThumbnail": fs.readFileSync(`./src/fake.jpg`)
 },
-"title": `🐉𝗦𝗮𝗺𝘂𝟯𝟯𝟬🔥 | 📌𝑵𝒚𝒂𝒏𝑩𝒐𝒕🌹 ${timeFt}`,
+"title": `TeamSkullForce500 | TselyBot ${timeFt}`,
 "description": "",
 "currencyCode": "SYP",
 "priceAmount1000": "999999999999999999",
@@ -1701,7 +1701,7 @@ reply(`*Si no ves la lista de comandos, o no puedes hacer click en el boton, des
 _Si siges teniendo problemas, usa el menu antiguo, escribiendo: ${prefix}menuofc_`)
 let newmenu = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
-"title": "*✍🏻MENU | Tsely-Bot| ☠️TEAM SKULLFORCE 500☠️*",
+"title": "*✍🏻MENU | Tsely-chan| ☠️TEAM SKULLFORCE 500☠️*",
 "description": `\n➫BOT PARA SKULLGIRLS MOBILE
 🔐Hola *${pushname}* ${timeFt}
 _Tipo de usuario:_ ${tipoDeUsr}
@@ -1723,14 +1723,14 @@ ${samu}◦ 🪀version de${samu} *WhatsApp* : *${samu330.user.phone.wa_version}*
 ༶•┈┈⛧┈♛ ♛┈⛧┈┈•༶
 Hola, soy Tsetsiliya pero puedes llamarme Tsely, te ayudare en todo lo que necesites 
 *RECUERDA LEER LAS REGLAS*
-att: Tsely-chan
+
 
 UNETE A NUESTRAS REDES:
 - YOUTUBE: https://youtube.com/channel/UCXTq1tujjskc6gav25gfViA
 - DISCORD: https://discord.gg/Drj7K5Km6k
 - TELEGRAM: https://t.me/joinchat/njRnJG1UCMJjNDcx
 - WHATSAPP+18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ
-- WHATSAPP PRINCIPAL: 
+
 ¡¡DISFRUTA TU TIEMPO EN EL GRUPO!!
 
 ${opcion}`,
@@ -2190,7 +2190,7 @@ uptime = process.uptime()
 if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
 try {		
 Menu = `
-➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙😈.li Oℱịcιɑl.li
+➫TselyBot
 🔐Hola *${pushname}* ${timeFt}
 
 _Tipo de usuario:_ ${tipoDeUsr}
@@ -2239,7 +2239,7 @@ ${samu} ✅Modo:${samu} *ON*
 ${samu} 👥Grupo:${samu} *${groupName}*
 ${samu} 🏆Numero del Dueño wa.link/wpnz32${samu}
 
-𝗠𝗬 𝗖𝗔𝗡𝗔𝗟 𝗗𝗘 𝗬𝗢𝗨𝗧𝗨.𝗕𝗘: shrtco.de/CanalDeSamu
+ 𝗖𝗔𝗡𝗔𝗟 𝗗𝗘 𝗬𝗢𝗨𝗧𝗨𝗕𝗘: 
 
 ⍣ *BOT INFO* ⍣
 ${samu}◦ 🌐Navegador :${samu} *${samu330.browserDescription[1]}*
@@ -2329,7 +2329,7 @@ uptime = process.uptime()
 addFilter(from)
 addLevelingLevel(sender, 5)		
 samu330.sendMessage(from, Menug, MessageType.text, {
-quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": "➫𝑴𝒆𝒏𝒖 𝑫𝒆 𝑮𝒓𝒖𝒑𝒐𝒔\n❣️⃞🔥𝙎꯭𝙖͠𝙢꯭ 𝙔 ꯭𝙋꯭𝙚𝙧𝙧꯭𝙮🔥❣️" ,"jpegThumbnail": fs.readFileSync(`./NyanBot.jpg`)}}}})
+quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": "➫𝑴𝒆𝒏𝒖 𝑫𝒆 𝑮𝒓𝒖𝒑𝒐𝒔\n❣️⃞🔥??꯭𝙖͠𝙢꯭ 𝙔 ꯭𝙋꯭𝙚𝙧𝙧꯭𝙮🔥❣️" ,"jpegThumbnail": fs.readFileSync(`./NyanBot.jpg`)}}}})
 break
 
 case 'menu4':
@@ -4492,7 +4492,7 @@ reply(e)
 break
         
 case 'exif':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (args.length < 1) return reply(`Forma de uso: *${prefix}exif nombre|autor*`)
 if (!arg.split('|')) return reply(`Forma de uso: *${prefix}exif nombre|autor*`)
 exif.create(q.split('|')[0], q.split('|')[1])
@@ -4795,27 +4795,27 @@ jpegThumbnail: ddatae }, 'extendedTextMessage', { detectLinks: false })
 break
 
 case 'setstatus':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!arg) return reply('Escribe algo almenos')
 wa.setBio(arg)
 .then((res) => wa.sendFakeStatus2(from, JSON.stringify(res), fake))
 .catch((err) => wa.sendFakeStatus2(from, JSON.stringify(err), fake))
 break
 case 'setname':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!arg) return reply('Escribe algo almenos')
 wa.setName(arg)
 .then((res) => wa.sendFakeStatus2(from, JSON.stringify(res), fake))
 .catch((err) => wa.sendFakeStatus2(from, JSON.stringify(err), fake))
 break
 case 'setreply':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!arg) return reply(`Uso: ${prefix}setreply texto`)
 fake = arg
 wa.sendFakeStatus2(from, `𝗦𝗮𝗺 𝘆 𝗣𝗲𝗿𝗿𝘆🍒`, fake)
 break
 case 'term':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!arg) return
 exec(arg, (err, stdout) => {
 if (err) return reply(err)
@@ -4823,7 +4823,7 @@ if (stdout) reply(stdout)
 })
 break
 case 'contacto':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 argz = arg.split('|')
 if (!argz) return reply(`Uso ${prefix}contacto @tag o escribe el numero|nombre`)
 if (sam.message.extendedTextMessage != undefined){
@@ -4857,13 +4857,13 @@ message: {
 }}                                                                                                                                                                                                                                                                        })
 break
 case 'desfijar':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 samu330.modifyChat(from, ChatModification.unpin)
 reply('*succes unpin this chat*')
 console.log('unpin chat = ' + from)
 break
 case 'fijar':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 samu330.modifyChat(from, ChatModification.pin)
 reply('*Este chat se ah fijado*')
 console.log('Se fijo el chat = ' + from)
@@ -4874,7 +4874,7 @@ samu330.sendMessage(from, `Total de mensajes sin leer: ${unread.length}`, Messag
 
 break
 case 'desarchivar':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 reply('*Todos los chats archivados fueron desarchivados*')
 console.log('succes unarchive chat = ' + from)
 anu = await samu330.chats.all()
@@ -4883,7 +4883,7 @@ samu330.modifyChat(_.jid, ChatModification.unarchive)
 }
 break
 case 'archivar':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 reply('*Vale, espera..*')
 console.log('succes archive chat = ' + from)
 await sleep(3000)
@@ -4891,7 +4891,7 @@ samu330.modifyChat(from, ChatModification.archive)
 reply('*Yap*')
 break
 case 'vaciartodo':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 reply('*Todos los chats han sido vaciados*')
 smyprry = await samu330.chats.all()
 for (let _ of smyprry) {
@@ -4900,20 +4900,20 @@ samu330.modifyChat(_.jid, ChatModification.delete)
 }
 break
 case 'vaciar':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 reply('*Este chat a sido vaciado*')
 console.log('succes delete chat = ' + from)
 await sleep(4000)
 samu330.modifyChat(from, ChatModification.delete)
 break
 case 'silencio':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 samu330.modifyChat(from, ChatModification.mute, 24*60*60*1000)
 reply('*Este chat a sido silenciado*')
 console.log('succes mute chat = ' + from)
 break
 case 'desilenciar':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 samu330.modifyChat(from, ChatModification.unmute)
 reply('*Este chat a dejado de silenciarse*')
 console.log('succes unmute chat = ' + from)
@@ -4976,7 +4976,7 @@ fs.unlinkSync(ranm)
 addFilter(from)
 break
 case 'estadopic':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 var textodestatusxd = args.join(' ')
 reply('*Espera un momento...*')
 var foto = isQuotedImage ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
@@ -4986,7 +4986,7 @@ samu330.sendMessage('status@broadcast', inisiap2, MessageType.image, {quoted: ft
 reply('*SE ENVIO LA IMAGEN COMO ESTADO*')
 break
 case 'estadovid':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 reply('*Espera un momento...*')
 var foto = isQuotedVideo ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
 var inisiap = await samu330.downloadAndSaveMediaMessage(foto)
@@ -4995,13 +4995,13 @@ samu330.sendMessage('status@broadcast', inisiap2, MessageType.video, {quoted: ft
 reply('Se envio el video al estado!')
 break
 case 'estado':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 var estadotxt = args.join(' ')
 samu330.sendMessage('status@broadcast', estadotxt, MessageType.text)
 reply('*SE ENVIO EL ESTADO*')
 break
 case 'marcarsinleer':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 var chats11 = await samu330.chats.all()
 chats11.map( async ({ jid }) => {
 await samu330.chatRead(jid, 'unread')
@@ -5011,7 +5011,7 @@ await samu330.sendMessage(from, teks, MessageType.text, {quoted: fdoc})
 console.log(chats.length)
 break
 case 'leertodo':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 var chats12 = await samu330.chats.all()
 chats12.map( async ({ jid }) => {
 await samu330.chatRead(jid)
@@ -5285,7 +5285,7 @@ await samu330.sendMessage(from, ini_buffer, sticker, { quoted: ftoko })
 break
 
 case 'chat':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 var pc = budy.slice(6)
 var nomor = pc.split("|")[0];
 var org = pc.split("|")[1];
@@ -5293,7 +5293,7 @@ samu330.sendMessage(nomor+'@s.whatsapp.net', org, MessageType.text)
 reply(`*El memsaje:* ${org} *Se envio a:* ${nomor}`)
 break
 case 'setpic':
-if (!itsMe) return reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!itsMe) return reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 samu330.updatePresence(from, Presence.composing)
 if (!isQuotedImage) return reply(`Envia una imagen con el comando: *${prefix}setpp*`)
 var media1 = JSON.parse(JSON.stringify(sam).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -5384,7 +5384,7 @@ samu330.sendMessage(from, res.video, video, { quoted: ftoko, caption: res.teks.t
 reply(err)
 })
 } else {
-reply('Envia la magen para poder buscar el anime')
+reply('Envia la imagen para poder buscar el anime')
 }
 break
 case 'colores':
@@ -5410,7 +5410,7 @@ return samu330.sendMessage(from, 'Modo privado dice:v', MessageType.text)
 break
 
 case 'public':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (public) return await reply('*El modo publico Ya esta activado*')
 config["public"] = true
 public = true
@@ -5418,7 +5418,7 @@ fs.writeFileSync("./config.json", JSON.stringify(config, null, 4))
 await wa.sendFakeStatus(from, "*Se activo el modo publico*", "Public : true")
 break
 case 'self':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!public) return await reply('El modo privado ya estaba activado')
 config["public"] = false
 public = false
@@ -5438,13 +5438,13 @@ samu330.sendMessage(_.jid, buff, image, {caption: `${body.slice(4)}\n\n ͏͏͏͏
 reply('Anuncio dado')
 } else {
 for (let _ of anu) {
-sendMess(_.jid, `	°𝑩𝑹𝑶𝑨𝑫𝑪𝑨𝑺𝑻°\n	[🪀 _NyanBot_]\n🕐Son las *${hora}*\n\n🍃Hoy es *${week1}  ${calender1}*\n\n${args.join(' ')}`)}
+sendMess(_.jid, `	°𝑩𝑹𝑶𝑨𝑫𝑪𝑨𝑺𝑻°\n	[🪀 _TselyBot_]\n🕐Son las *${hora}*\n\n🍃Hoy es *${week1}  ${calender1}*\n\n${args.join(' ')}`)}
 }
 reply('Anuncio dado')
 
 break
 case 'stats':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 texxt = await msg.stats(totalChat1)
 await wa.sendFakeStatus(from, texxt, "BOT STATS")
 break
@@ -5458,7 +5458,7 @@ quoted: fliveLoc
   })
   break
 case 'desbloquear':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (isGroup) {
 if (mentionUser.length == 0) return await reply("Tag targer!")
 mentioned = sam.message.extendedTextMessage.contextInfo.mentionedJid
@@ -5466,7 +5466,7 @@ await samu330.blockUser (mentioned, "remove")
 }
 break
 case 'salir':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!isGroup) return await reply(mess.only.group)
 reply(`Saldre de este grupo: ${groupName} en 3 segundos`).then(async() => {
 await help.sleep(3000)
@@ -5492,7 +5492,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : 
 }, message: {"documentMessage": { "title": `${subject}`, 'jpegThumbnail': fs.readFileSync('./src/ara.png')}}}})
 break
 case 'clearall':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 for (let chat of totalChat) {
 await samu330.modifyChat(chat.jid, "delete")
 }
@@ -5500,7 +5500,7 @@ await wa.sendFakeStatus(from, "Success clear all chat", "success")
 break
 
 case 'hidetag':
-if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Samu330* ⚙')
+if (!isOwner && !itsMe) return await reply('Este comando solo puede ser usado por *Tsely-chan* ⚙')
 if (!isAdmin && !isOwner && !itsMe) return await reply(mess.only.admin)
 await wa.hideTag(from, args.join(" "))
 break
