@@ -268,8 +268,8 @@ samu330.sendMessage(mdata.id, `😙Hola, @${num.split('@')[0]}, _*Bienvenido a $
 }  else if (anu.action == 'remove') {
 num = anu.participants[0]
 teks = `_Weno ps.... amm😪...  @${num.split('@')[0]} se nos fue, ni llorar es bueno:)_
-_*Ojala y le baya bien, y mas despues..... que lo atropelle un tren!!🚉🤣*_
-*No se awiten gente, esten seguros que nadie lo extrañara:D*`
+_*Ojala y le vaya bien, y mas despues..... que la Skullgirls lo encuentre!!🤣*_
+*No esten tristes amigos, esten seguros que estara bien,...talvez:D*`
 samu330.sendMessage(mdata.id, teks, MessageType.text,{ contextInfo: {"mentionedJid": [num]}})
 
 } else if (anu.action == 'promote') {
@@ -1695,13 +1695,13 @@ No promovemos estas actividades, cualquier intento de usar estos comandos sera s
 			switch (commandstik) {
 	
 				case "paxuDk3LoZENYGIbqq0jI7+xHaEaDfGaWGtVJt/Vyzg=":
-					redes = ['respeta las reglas del grupo', 'disfrutemos de este maravilloso juego']
+					redes = ['respeta las reglas del grupo', 'disfrutemos de este maravilloso juego', 'recuerda leer las reglas del grupo', 'registate para usar el bot']
 					opcion = redes[Math.floor(Math.random() * redes.length)]
 reply(`*Si no ves la lista de comandos, o no puedes hacer click en el boton, desactiva la funcion de hacer el texto seleccionable en las configuraciones de tu whatsapp Mod.*
 _Si siges teniendo problemas, usa el menu antiguo, escribiendo: ${prefix}menuofc_`)
 let newmenu = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
-"title": "*✍🏻MENU | Tsely-chan| ☠️TEAM SKULLFORCE 500☠️*",
+"title": "*✍🏻MENU | TselyBot | ☠️TEAM SKULLFORCE 500☠️*",
 "description": `\n➫BOT PARA SKULLGIRLS MOBILE
 🔐Hola *${pushname}* ${timeFt}
 _Tipo de usuario:_ ${tipoDeUsr}
@@ -1721,9 +1721,7 @@ ${samu}◦ 📲Sistema operativo :${samu} *${samu330.user.phone.device_manufactu
 ${samu}◦ 🪀version de${samu} *WhatsApp* : *${samu330.user.phone.wa_version}*
 
 ༶•┈┈⛧┈♛ ♛┈⛧┈┈•༶
-Hola, soy Tsetsiliya pero puedes llamarme Tsely, te ayudare en todo lo que necesites 
-*RECUERDA LEER LAS REGLAS*
-
+Hola, soy Tsely, te ayudare en todo lo que necesites 
 
 UNETE A NUESTRAS REDES:
 - YOUTUBE: https://youtube.com/channel/UCXTq1tujjskc6gav25gfViA
@@ -1731,7 +1729,9 @@ UNETE A NUESTRAS REDES:
 - TELEGRAM: https://t.me/joinchat/njRnJG1UCMJjNDcx
 - WHATSAPP+18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ
 
-¡¡DISFRUTA TU TIEMPO EN EL GRUPO!!
+
+
+
 
 ${opcion}`,
 							"buttonText": "Selecciona tu menu",
@@ -1904,7 +1904,7 @@ ${opcion}`,
                                     "imageMessage": { 
                                     "mimetype": 
                                     "image/jpeg", 
-                                    "caption": "➫'*👑Samu330 Crashing Groups!!🔥*'\n'😈Samu330 Domina🥀'" ,
+                                    "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
                                     "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
 			}
 			}
@@ -1918,7 +1918,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 				if (test.includes(`+18`)){
 					addFilter(from)
 					addLevelingLevel(sender, 5)		
-					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '🔥Samu330 | NyanBot🍒', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
 					let nopor = samu330.prepareMessageFromContent(from, {
 					"listMessage":  {
 					"title": "*😏Bienvenido al menu 6*",
@@ -1929,11 +1929,11 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					{
 					"rows": [
 					{
-					"title": "Imagenes Filtradas De la Hermosa Belle Delphine😏!!",
+					"title": "Imagenes Skullgirls😏!!",
 					"rowId": `${prefix}belle`
 					},
 					{
-					"title": "🍑VIDEO UNICO Y EXCLUSIVO PARA LOS USUARIOS DE NYANBOT👑✍🏻",
+					"title": "🍑VIDEO UNICO Y EXCLUSIVO PARA LOS USUARIOS DE TSELYBOT👑✍🏻",
 					"rowId": `VIP`
 					},	
 					{
@@ -2176,7 +2176,7 @@ break
 
 case 'menuofc':
 
-redes = ['recuerda respetar las reglas', 'disfrutemos juntos de este maravilloso juego']
+redes = ['recuerda respetar las reglas', 'disfrutemos juntos de este maravilloso juego', 'recuerda leer las reglas', 'registrate para usar el bot']
 opcion = redes[Math.floor(Math.random() * redes.length)]
 
 var num = sam.participant
@@ -2383,7 +2383,7 @@ samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: {
 				"imageMessage": { 
 				"mimetype": 
 				"image/jpeg", 
-				"caption": "➫'*👑Samu330 Crashing Groups!!🔥*'\n'😈Samu330 Domina🥀'" ,
+				"caption": "➫'*☠️ Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
 				"jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
 break
 
@@ -3148,7 +3148,7 @@ if (!net) return reply('Porfavor aegurate que el link sea de un grupo de whatsap
 var { id, owner, subject, subjectOwner, desc, descId, participants, size, descOwner, descTime, creation} = await samu330.query({ 
 json: ["query", "invite", net],
 expect200:true })
-let insSm = `_*Inspección By Samu330💎*_
+let insSm = `_*Inspección By ☠️ Team SkullForce 500 ☠️ | TselyBot*_
 
 🪀 *Id* : _${id}_
 
@@ -5044,7 +5044,7 @@ for (let mem of groupMembers) {
 teks += `┃ @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
-mentions('*〈 Mención grupal 〉*\n╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┝ ● '+teks+'┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊────🪀 *Samu330* 🪀────\n╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈', members_id, true)
+mentions('*〈 Mención grupal 〉*\n╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┝ ● '+teks+'┊┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┊────*☠️Team SkullForce 500☠️*────\n╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈', members_id, true)
 addFilter(from)
 break 
 		
@@ -5486,7 +5486,7 @@ samu330.query({
 json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]
 })
 reply('Ya entre al grupo😉')
-samu330.sendMessage(id, `*Hola* 🙋🏻‍♂️\nSoy Samu _(NyanBot)_ [ @${samunum.split('@')[0]} ],\n@${sender.split('@')[0]} me ha asignado como *BOT* para este grupo *(@${subject.split('@')[0]})*\n\n*Informacion de este grupo:*\n\👑Creador: @${owner.split('@')[0]}\n📚 Fecha de creacion: ${Date(creation * 1000)}\n\nTotal de participantes: ${participants}*\nQuien escribio la descripcion? ${descOwner}\n✏ Descripcion:\n${desc}\n\n*Porfavor sige mis reglas, para leer mis reglas escribe:*\n${prefix}reglas\nPorfavor sigelas o atente a las consecuencias⚠\n*Quedo a su dispocicion, no me agan sentir mal.... por que yo tambien tengo corazon😣*`, MessageType.text, {quoted: { key: {
+samu330.sendMessage(id, `*Hola* 🙋🏻‍♂️\nSoy Tsely _(TselyBot)_ [ @${samunum.split('@')[0]} ],\n@${sender.split('@')[0]} me ha asignado como *BOT* para este grupo *(@${subject.split('@')[0]})*\n\n*Informacion de este grupo:*\n\👑Creador: @${owner.split('@')[0]}\n📚 Fecha de creacion: ${Date(creation * 1000)}\n\nTotal de participantes: ${participants}*\nQuien escribio la descripcion? ${descOwner}\n✏ Descripcion:\n${desc}\n\n*Porfavor sige mis reglas, para leer mis reglas escribe:*\n${prefix}reglas\nPorfavor sigelas o atente a las consecuencias⚠\n*Quedo a su dispocicion, no me hagan sentir mal.... por que yo tambien tengo corazon😣*`, MessageType.text, {quoted: { key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
 }, message: {"documentMessage": { "title": `${subject}`, 'jpegThumbnail': fs.readFileSync('./src/ara.png')}}}})
