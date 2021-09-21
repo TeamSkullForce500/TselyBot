@@ -1701,7 +1701,7 @@ reply(`*Si no ves la lista de comandos, o no puedes hacer click en el boton, des
 _Si siges teniendo problemas, usa el menu antiguo, escribiendo: ${prefix}menuofc_`)
 let newmenu = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
-"title": "*✍🏻MENU | Tsely-Bot| ☠️TEAM SKULLFORCE 500☠️*",
+"title": "*✍🏻MENU | Tsely-chan| ☠️TEAM SKULLFORCE 500☠️*",
 "description": `\n➫BOT PARA SKULLGIRLS MOBILE
 🔐Hola *${pushname}* ${timeFt}
 _Tipo de usuario:_ ${tipoDeUsr}
@@ -1723,14 +1723,14 @@ ${samu}◦ 🪀version de${samu} *WhatsApp* : *${samu330.user.phone.wa_version}*
 ༶•┈┈⛧┈♛ ♛┈⛧┈┈•༶
 Hola, soy Tsetsiliya pero puedes llamarme Tsely, te ayudare en todo lo que necesites 
 *RECUERDA LEER LAS REGLAS*
-att: Tsely-chan
+
 
 UNETE A NUESTRAS REDES:
 - YOUTUBE: https://youtube.com/channel/UCXTq1tujjskc6gav25gfViA
 - DISCORD: https://discord.gg/Drj7K5Km6k
 - TELEGRAM: https://t.me/joinchat/njRnJG1UCMJjNDcx
 - WHATSAPP+18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ
-- WHATSAPP PRINCIPAL: 
+
 ¡¡DISFRUTA TU TIEMPO EN EL GRUPO!!
 
 ${opcion}`,
