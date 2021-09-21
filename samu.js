@@ -1701,7 +1701,7 @@ reply(`*Si no ves la lista de comandos, o no puedes hacer click en el boton, des
 _Si siges teniendo problemas, usa el menu antiguo, escribiendo: ${prefix}menuofc_`)
 let newmenu = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
-"title": "*✍🏻MENU | Tsely-chan| ☠️TEAM SKULLFORCE 500☠️*",
+"title": "*✍🏻MENU | SKULLGIRLS | TEAM SKULLFORCE 500*",
 "description": `\n➫BOT PARA SKULLGIRLS MOBILE
 🔐Hola *${pushname}* ${timeFt}
 _Tipo de usuario:_ ${tipoDeUsr}
@@ -1721,7 +1721,7 @@ ${samu}◦ 📲Sistema operativo :${samu} *${samu330.user.phone.device_manufactu
 ${samu}◦ 🪀version de${samu} *WhatsApp* : *${samu330.user.phone.wa_version}*
 
 ༶•┈┈⛧┈♛ ♛┈⛧┈┈•༶
-Hola, soy Tsetsiliya pero puedes llamarme Tsely, te ayudare en todo lo que necesites 
+
 *RECUERDA LEER LAS REGLAS*
 
 
@@ -2109,7 +2109,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/waifu`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2120,7 +2120,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/neko`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2131,7 +2131,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/trap`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2142,7 +2142,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/blowjob`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '💎 *Samu330 | NyanBot* 💠', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2993,7 +2993,7 @@ if (error){ return reply('_[ ! ] *Intentalo de nuevo*_')}
 else {
 var gugWp = result
 var randomWp =  gugWp[Math.floor(Math.random() * gugWp.length)].url
-sendFileFromUrl(randomWp, image, {quoted: sam, caption: `*espero que te guste✅*, ☠️Team SkullForce  500☠️ | skullgirls`})
+sendFileFromUrl(randomWp, image, {quoted: sam, caption: `*espero que te guste✅*`})
 }
 }
 addFilter(from)
