@@ -1200,7 +1200,7 @@ ${bodyM} ${prefix}leerimagen
  ********************************`
  const Menu7 = ` ☠️ Team SkullForce 500 ☠️                                            
 
- si quieres apoyar al creador del bot y a quienes lo editores para skullgirls, puedes hacerlo por paypal:
+ si quieres apoyar al creador del bot y a quienes lo editaron para skullgirls, puedes hacerlo por paypal:
  
  https://www.paypal.me/samu330
  https://www.paypal.me/RoozMauro
@@ -2109,7 +2109,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/waifu`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2120,7 +2120,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/neko`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2131,7 +2131,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/trap`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2142,7 +2142,7 @@ _Ps DADOS!!_`)
 					if (!isNsfw) return reply(mess.nsfw)
 					reply('*Buscando una buena imagen...*')
 					waifu = await getJson(`https://api.waifu.pics/nsfw/blowjob`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '☠️*Team SkullForce 500*☠️ | skullgirls', sendEphemeral: true})
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
 					addFilter(from)
 			}
 			}
@@ -2993,7 +2993,7 @@ if (error){ return reply('_[ ! ] *Intentalo de nuevo*_')}
 else {
 var gugWp = result
 var randomWp =  gugWp[Math.floor(Math.random() * gugWp.length)].url
-sendFileFromUrl(randomWp, image, {quoted: sam, caption: `*espero que te guste✅*, ☠️Team SkullForce  500☠️ | skullgirls`})
+sendFileFromUrl(randomWp, image, {quoted: sam, caption: `*espero que te guste✅*, ☠️Team SkullForce  500☠️ | Tsely-chan`})
 }
 }
 addFilter(from)
