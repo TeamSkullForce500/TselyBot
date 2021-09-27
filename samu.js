@@ -1123,7 +1123,7 @@ ${bodyM} ${prefix}nuevogrupo
 ${bodyM} ${prefix}grupo abrir/cerrar
 ${bodyM} ${prefix}getpic
 ${bodyM} ${prefix}salir
-${bodyM} ${prefix}tagstick
+${bodyM} ${prefix}stickertag
 ${bodyM} ${prefix}totag
 ${bodyM} ${prefix}imagetag
 ${bodyM} ${prefix}hidetag
