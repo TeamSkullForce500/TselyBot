@@ -5717,11 +5717,11 @@ if (!isAdmin) return await reply(mess.only.admin)
 if (!botAdmin) return await reply(mess.only.Badmin)
 if (args[0] === 'abrir') {
 samu330.groupSettingChange(from, GroupSettingChange.messageSend, false).then(() => {
-wa.sendFakeStatus(from, "*Success open group*", "GROUP SETTING")
+wa.sendFakeStatus(from, "*Genial banda, el chat esta abierto*", "T.S.F 500 VUELVE A ESTAR EN LINEA, EL GRUPO SE HA ABIERTO")
 })
 } else if (args[0] === 'cerrar') {
 samu330.groupSettingChange(from, GroupSettingChange.messageSend, true).then(() => {
-wa.sendFakeStatus(from, "*Succes close group*", "GROUP SETTING")
+wa.sendFakeStatus(from, "*Lo lamento chic@s, el chat esta cerrado*", "COLORIN COLORADO, ESTE GRUPO SE HA CERRADO")
 })
 } else {
 await reply(`Example: ${prefix}${command} open/close`)
