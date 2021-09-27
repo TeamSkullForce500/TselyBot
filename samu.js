@@ -1132,7 +1132,7 @@ ${bodyM} ${prefix}setdesc
 ${bodyM} ${prefix}nombre
 ${bodyM} ${prefix}adminlist
 ${bodyM} ${prefix}setpic
-${bodyM} ${prefix}enlinea
+${bodyM} ${prefix}online
 ${bodyM} ${prefix}promote
 ${bodyM} ${prefix}demote
 ${bodyM} ${prefix}eliminar
@@ -2422,7 +2422,7 @@ scarcel: Stickers con efecto de carcel.
 - Otros comandos:
 
 _grupos_
-_enlinea_
+_online_
 _Adminlist_`
 reply(nuevo)
 break
