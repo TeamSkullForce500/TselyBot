@@ -6300,3 +6300,11 @@ return
 console.log(chalk.greenBright("├"), chalk.keyword("yellow")("[  ERROR  ]"), chalk.keyword("red")(e))
 }
 })
+
+//============ NyanBot ============\\
+// + Favor de mantener este codigo
+//   tal y como esta.
+// + Si modificaras, manten los
+//   creditos:
+//   _MankBarBar & Samu & LolHuman_
+//============ Samu330 ============\\
