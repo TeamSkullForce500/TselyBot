@@ -102,7 +102,7 @@ const sleep = async (ms) => {
 ////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
 api = 'CONTACTAME PARA OBTENER LA API'
 fak = 'samu3300'
-prefix = '.'
+prefix = '/'
 apikey = 'LindowApi'
 hit_today = []
 blocked = []
@@ -6300,11 +6300,3 @@ return
 console.log(chalk.greenBright("├"), chalk.keyword("yellow")("[  ERROR  ]"), chalk.keyword("red")(e))
 }
 })
-
-//============ NyanBot ============\\
-// + Favor de mantener este codigo
-//   tal y como esta.
-// + Si modificaras, manten los
-//   creditos:
-//   _MankBarBar & Samu & LolHuman_
-//============ Samu330 ============\\
