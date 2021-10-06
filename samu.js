@@ -2961,7 +2961,7 @@ ggsm += `
 `
 }
 var nyangg = ggsm.trim()
-reply(`*🔍Busqueda realizada por* 🐉Samu330🐉\n\n${nyangg}`)
+reply(`*🔍Busqueda realizada por* Tsely-chan\n\n${nyangg}`)
 addFilter(from)
 break
 			
@@ -5190,7 +5190,7 @@ let nopor = samu330.prepareMessageFromContent(from, {
 {
 "rows": [
 {
-"title": "Imagenes Filtradas De la Hermosa Belle Delphine😏!!",
+"title": "Imagenes Skullgirls😏!!",
 "rowId": `${prefix}belle`
 },
 {
@@ -5427,7 +5427,7 @@ fs.writeFileSync("./config.json", JSON.stringify(config, null, 4))
 await wa.sendFakeStatus(from, "*Se a cambiado a modo PRIVADO*", "Self : true")
 break
 case 'bc':
-if (!isOwner) return reply('Solo *Samu* puede usar este comando')
+if (!isOwner) return reply('Solo *Tsely* puede usar este comando')
 if (args.length < 1) return reply('Y el anuncio?')
 anu = await samu330.chats.all()
 if (isMedia && !sam.message.videoMessage || isQuotedImage) {
@@ -6301,3 +6301,16 @@ console.log(chalk.greenBright("├"), chalk.keyword("yellow")("[  ERROR  ]"), ch
 }
 })
 
+
+//--𝗔𝗨𝗧𝗢 𝗥𝗘𝗦𝗣𝗨𝗘𝗦𝗧𝗔
+        switch(is) {
+ 
+case 'bot':
+buf = fs.readFileSync(`./mp3/bot.mp3`)
+Fg.sendMessage(from, buf, audio, {
+  mimetype: 'audio/mp4', quoted: mek, ptt: true
+})
+break
+
+    
+}  
