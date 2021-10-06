@@ -3001,7 +3001,7 @@ break
 
 case 'apagar':
 if (!isOwner) return reply('tu quien eres para decirme que hacer!?🤔')
-reply('Me apagare en 3 Segundos....')
+reply('Me voy a dormir, nos vemos al rato chicos....bye')
 setTimeout( () => {
 samu330.close() }, 3000)
 break
@@ -3018,7 +3018,7 @@ break
 case 'actualizar':
 case 'update':
 if (!itsMe) return reply('tu quien eres para decirme que hacer!?🤔')
-reply('*ESPERE UN MOMENTO... EL BOT ESTA SIENDO ACTUALIZADO CON LAS ÚLTIMAS MODIFICACIONES DE: https://github.com/Samu330/NyanBot*')
+reply('*ESPERE UN MOMENTO... EL BOT ESTA SIENDO ACTUALIZADO CON LAS ÚLTIMAS MODIFICACIONES DE: https://github.com/TeamSkullForce500/TselyBot*')
 exec(`bash update.sh`, (err, stdout) => {
 if (err) return reply(err)
 if (stdout) reply(`*El bot se ah actualizado de forma satisfactoria*\n Informe de la actualización:\n\n${stdout}\n\nLos cambios se mostraran despues de volver a iniciar el bot!.`)
