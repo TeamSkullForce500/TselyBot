@@ -1933,7 +1933,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					"rowId": `${prefix}belle`
 					},
 					{
-					"title": "🍑VIDEO UNICO Y EXCLUSIVO PARA LOS USUARIOS DE TSELYBOT👑✍🏻",
+					"title": "🍑VIDEO EXCLUSIVO PARA  USUARIOS DE TSELYBOT👑✍🏻",
 					"rowId": `VIP`
 					},	
 					{
@@ -5193,7 +5193,7 @@ let nopor = samu330.prepareMessageFromContent(from, {
 "rowId": `${prefix}belle`
 },
 {
-"title": "🍑VIDEO UNICO Y EXCLUSIVO PARA LOS USUARIOS DE NYANBOT👑✍🏻",
+"title": "🍑VIDEO EXCLUSIVO PARA USUARIOS DE TSELYBOT👑✍🏻",
 "rowId": `VIP`
 },	
 {
