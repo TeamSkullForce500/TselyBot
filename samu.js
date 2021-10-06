@@ -3000,6 +3000,7 @@ addFilter(from)
 break
 
 case 'apagar':
+case 'dormir':
 if (!isOwner) return reply('tu quien eres para decirme que hacer!?🤔')
 reply('Me voy a dormir, nos vemos al rato chicos....bye')
 setTimeout( () => {
