@@ -917,6 +917,20 @@ function _0xd037(_0x1fea26,_0x25290c){const _0x49fad6=_0x33d3();return _0xd037=f
 			}
 		}
 
+	    if(body.includes('tsetsiliya')) {
+client.sendMessage(from, 'Hola!', MessageType.text, {quoted: { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+},
+message: {
+"documentMessage": { "title": "tselybot", 'jpegThumbnail': fs.readFileSync('./media/fake.jpg')}}
+}})
+}
+        
+if(body == ('hola')) {
+client.sendMessage(from, 'como estas!', MessageType.text, {quoted: sam})
+}
+	    
 //Menus
 const mda = `
 ╔════════════════╗
