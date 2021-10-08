@@ -2008,60 +2008,60 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 				if (test.includes(`skullgirls`)){
 					addFilter(from)
 					addLevelingLevel(sender, 5)		
-					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/skg1.jpg')}, MessageType.liveLocation, {quoted : sam})
 					let skullgirls1 = samu330.prepareMessageFromContent(from, {
-					"listMessage":  {
-					"title": "*😏Bienvenido al menu 6*",
-					"description": `\n\nQue es lo que buscas🍒?\n\n	*Si no puedes ver, o selccionar la lista de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod. link grupo +18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ*`,
-					"buttonText": "Click Aqui",
-					"listType": "SINGLE_SELECT",
-					"sections": [
-					{
-					"rows": [
-					{
-					"title": "Imagenes Skullgirls😏!!",
-					"rowId": `${prefix}belle`
-					},
-					{
-					"title": "🍑VIDEO EXCLUSIVO PARA  USUARIOS DE TSELYBOT👑✍🏻",
-					"rowId": `VIP`
-					},	
-					{
-					"title": `Porno Real🔥`,
-					"rowId": `${prefix}porno`
-					},
-					{
-					"title": "Porno de Lesbianas😊",
-					"rowId": `${prefix}lesbian`
-					},
-					{
-						"title": `Bonitas Tetas🍇`,
-						"rowId": `${prefix}tetas`
-						},
-						{
-						"title": "Culos Hermosos🍑",
-						"rowId": `${prefix}ass`
-						},
-						{
-							"title": `Pussy's🥟`,
-							"rowId": `${prefix}pussy`
-							},
-							{
-							"title": "Waifu Hentai🌸",
-							"rowId": `${prefix}xwaifu`
-							},
-							{
-								"title": "Neko Hentai🍒",
-								"rowId": `${prefix}xneko`
-								},
-								{
-								"title": "Trap Hentai🍌",
-								"rowId": `${prefix}trap`
-								},
-								{
-									"title": "Blow Hentai🍆",
-									"rowId": `${prefix}blow`
-									}
+					"listMessage":  
+"title": "*Bienvenido al menu para Skullgirls Mobile*",
+"description": `\n\nQue es lo que buscas?\n\n	*Si no puedes ver, o selccionar la lsita de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod.*`,
+"buttonText": "Click Aqui",
+"listType": "SINGLE_SELECT",
+"sections": [
+{
+"rows": [
+{
+"title": "Lista de variantes",
+"rowId": `${prefix}belle`
+},
+{
+"title": "sitios web oficiales skullgirls Mobile",
+"rowId": `VIP`
+},	
+{
+"title": `editor de cartas y personajes`,
+"rowId": `${prefix}porno`
+},
+{
+"title": "wiki skullgirls",
+"rowId": `${prefix}lesbian`
+},
+{
+	"title": `tier list`,
+	"rowId": `${prefix}tetas`
+	},
+	{
+	"title": "ciclo eventos",
+	"rowId": `${prefix}ass`
+	},
+	{
+		"title": `costo mejoras`,
+		"rowId": `${prefix}pussy`
+		},
+		{
+		"title": "reportar hackers",
+		"rowId": `${prefix}xwaifu`
+		},
+		{
+			"title": "Neko Hentai🍒",
+			"rowId": `${prefix}xneko`
+			},
+			{
+			"title": "Trap Hentai🍌",
+			"rowId": `${prefix}trap`
+			},
+			{
+				"title": "Blow Hentai🍆",
+				"rowId": `${prefix}blow`
+				}
 					]
 					}
 					]
@@ -5270,7 +5270,7 @@ case 'menu6':
 addFilter(from)
 if (!isNsfw) return reply(mess.nsfw)
 addLevelingLevel(sender, 5)		
-samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/skg1.jpg')}, MessageType.liveLocation, {quoted : sam})
 let nopor = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
 "title": "*😏Bienvenido al menu 6*",
@@ -5333,9 +5333,10 @@ samu330.relayWAMessage(nopor, {waitForAck: true})
 break
 
 case 'skg':
+addFilter(from)
 if (!isRegister) return reply(mess.only.usrReg)
 addLevelingLevel(sender, 5)		
-samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
 let skullgirls1 = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
 "title": "*Bienvenido al menu para Skullgirls Mobile*",
