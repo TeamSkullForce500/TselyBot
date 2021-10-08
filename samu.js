@@ -2168,10 +2168,9 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}belle`)){
+				if (test.includes(`${prefix}desafiossg`)){
 					if (!isGroup) return reply(mess.only.group)
-					if (!isNsfw) return reply(mess.nsfw)
-					bd = ["https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-23.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-27.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-43.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-33.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-47.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-59.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-65.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-67.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-71.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-85.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-87.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-96.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-98.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-98.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-99.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-1.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-1.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-2.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-2.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-3.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-4.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-6.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-8.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-10.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-12.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-16.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-1.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-4.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-8.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-10.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-11.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-12.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-21.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-31.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-35.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-43.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-49.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-60.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-62.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-76.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-88.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-31.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-33.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-41.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-51.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-54.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-64.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-77.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-88.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-59.jpg"]
+					bd = ["https://static.wikia.nocookie.net/skullgirlsmobile/images/b/b3/Star_Child.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/7/73/Solar_Flair.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/1/1b/Galactic_Glamour.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/5/59/Triple_Threat.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/c/c0/Ninja_Star.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/7/7f/Ageless_Wonder.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/e/e4/Materia_Girl.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/e/ee/Moonstruck.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/9/91/Timeless_Hero.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/1/19/Model_Leader.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/e/ec/Fire_Branded.png", "https://static.wikia.nocookie.net/skullgirlsmobile/images/3/39/Star_Shine.png", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-98.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-98.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-99.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-1.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-1.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-2.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-2.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-3.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-4.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-6.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-8.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-10.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-12.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-16.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-1.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-4.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-8.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-10.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-11.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-12.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-21.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-31.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-35.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-43.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-49.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-60.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-62.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-76.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-88.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-31.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-33.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-41.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-51.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-54.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-64.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-77.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-88.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-59.jpg"]
 					bdp = bd[Math.floor(Math.random() * bd.length)]
 					sendFileFromUrl(bdp, image, {quoted: fimg, caption: `*Imagenes skullgirls*\n\n_By @${'573504310048@s.whatsapp.net'.split("@")[0]}_`, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
 			}
@@ -2233,7 +2232,157 @@ _Ps DADOS!!_`)
 			
 			}
 			}*/
-			
+
+            
+
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}lesbian`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					porn = await getJson('https://meme-api.herokuapp.com/gimme/lesbians', {
+					method: 'get'
+					})
+					reply(mess.wait)
+					buffer = await getBuffer(`${porn.url}`)
+					samu330.sendMessage(from, buffer, image, {
+					fimg})
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}tetas`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					pw = ["https://meme-api.herokuapp.com/gimme/tits",
+					"https://meme-api.herokuapp.com/gimme/BestTits",
+					"https://meme-api.herokuapp.com/gimme/boobs",
+					"https://meme-api.herokuapp.com/gimme/amazingtits",
+					"https://meme-api.herokuapp.com/gimme/TinyTits"]
+					nk = pw[Math.floor(Math.random() * pw.length)]
+					porn = await getJson(`${nk}`, {
+					method: 'get'
+					})
+					reply(mess.wait)
+					buffer = await getBuffer(`${porn.url}`)
+					samu330.sendMessage(from, buffer, image, {
+					quoted: fimg
+					})
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}ass`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					pw = ["https://meme-api.herokuapp.com/gimme/CuteLittleButts",
+					"https://meme-api.herokuapp.com/gimme/ass",
+					"https://meme-api.herokuapp.com/gimme/boobs",
+					"https://meme-api.herokuapp.com/gimme/ass"]
+					nk = pw[Math.floor(Math.random() * pw.length)]
+					porn = await getJson(`${nk}`, {
+					method: 'get'
+					})
+					reply(mess.wait)
+					buffer = await getBuffer(`${porn.url}`)
+					samu330.sendMessage(from, buffer, image, {
+					quoted: fimg
+					})
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}porno`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					pornito = ["https://fxc7-api.herokuapp.com/api/amateur?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/anal?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/anal_gape?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/asian?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/ass?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/ass-fucking?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/japanese?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/babe?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/ball_licking?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/bath?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/sex/anal?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/sex/anal_penetration?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/sex/areolae?apikey=Fxc7"]
+					nopor = pornito[Math.floor(Math.random() * pornito.length)]
+					reply('*Espera un momento porfavor*')
+					iwant = await getJson(`${nopor}`, {method: 'get'})
+					you = await getBuffer(`${iwant.result}`)
+					sendFile(you, sam, '🍒')
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}pussy`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					pw = ["https://meme-api.herokuapp.com/gimme/pussy",
+					"https://meme-api.herokuapp.com/gimme/LegalTeens"
+					]
+					nk = pw[Math.floor(Math.random() * pw.length)]
+					porn = await getJson(`${nk}`, {
+					method: 'get'
+					})
+					reply(mess.wait)
+					buffer = await getBuffer(`${porn.url}`)
+					samu330.sendMessage(from, buffer, image, {
+					quoted: fimg
+					})
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}belle`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					bd = ["https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-23.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-27.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-43.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-33.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-47.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-59.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-65.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-67.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-71.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-85.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-87.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-96.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-98.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-98.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-01/KawaiiHentai.com-Skullgirls-Pack-99.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-1.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-1.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-2.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-2.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-3.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-4.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-6.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-8.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-10.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-12.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-16.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-1.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-4.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-8.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-10.jpeg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-11.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-12.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-21.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-31.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-35.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-43.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-49.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-60.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-62.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-76.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-03/KawaiiHentai.com-Skullgirls-Pack-88.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-31.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-33.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-41.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-51.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-54.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-64.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-77.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-88.jpg", "https://kawaiihentai.com/wp-content/gallery/skullgirls-pack-2/KawaiiHentai.com-Skullgirls-Pack-59.jpg"]
+					bdp = bd[Math.floor(Math.random() * bd.length)]
+					sendFileFromUrl(bdp, image, {quoted: fimg, caption: `*Imagenes skullgirls*\n\n_By @${'573504310048@s.whatsapp.net'.split("@")[0]}_`, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}xwaifu`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					reply('*Buscando una buena imagen...*')
+					waifu = await getJson(`https://api.waifu.pics/nsfw/waifu`)
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
+					addFilter(from)
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}xneko`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					reply('*Buscando una buena imagen...*')
+					waifu = await getJson(`https://api.waifu.pics/nsfw/neko`)
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
+					addFilter(from)
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}trap`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					reply('*Buscando una buena imagen...*')
+					waifu = await getJson(`https://api.waifu.pics/nsfw/trap`)
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
+					addFilter(from)
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}blow`)){
+					if (!isGroup) return reply(mess.only.group)
+					if (!isNsfw) return reply(mess.nsfw)
+					reply('*Buscando una buena imagen...*')
+					waifu = await getJson(`https://api.waifu.pics/nsfw/blowjob`)
+					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
+					addFilter(from)
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`VIP`)){
+					reply('*Espera porfavor...*')
+			samu330.sendMessage(from, fs.readFileSync('./media/vip.mp4'), video, {quoted: sam, mimetype: 'video/gif', caption: `👑 *REGALITO PARA LOS USUARIOS DE TSELYBOT POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* 🍑`, sendEphemeral: true, duration: -6666666, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+			}
+			}
 	    
 	//Zona de Comandos🛵
 switch (command) {
