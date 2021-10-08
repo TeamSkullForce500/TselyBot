@@ -2009,7 +2009,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					addFilter(from)
 					addLevelingLevel(sender, 5)		
 					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
-					let nopor = samu330.prepareMessageFromContent(from, {
+					let skullgirls1 = samu330.prepareMessageFromContent(from, {
 					"listMessage":  {
 					"title": "*😏Bienvenido al menu 6*",
 					"description": `\n\nQue es lo que buscas🍒?\n\n	*Si no puedes ver, o selccionar la lista de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod. link grupo +18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ*`,
@@ -2067,7 +2067,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					]
 					}
 					}, {})
-					samu330.relayWAMessage(nopor, {waitForAck: true})
+					samu330.relayWAMessage(skullgirls1, {waitForAck: true})
 			}
 			}
             if (sam.message.listResponseMessage){
@@ -5336,7 +5336,7 @@ case 'skg':
 if (!isRegister) return reply(mess.only.usrReg)
 addLevelingLevel(sender, 5)		
 samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
-let nopor = samu330.prepareMessageFromContent(from, {
+let skullgirls1 = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
 "title": "*Bienvenido al menu para Skullgirls Mobile*",
 "description": `\n\nQue es lo que buscas?\n\n	*Si no puedes ver, o selccionar la lsita de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod.*`,
@@ -5394,7 +5394,7 @@ let nopor = samu330.prepareMessageFromContent(from, {
 ]
 }
 }, {})
-samu330.relayWAMessage(nopor, {waitForAck: true})
+samu330.relayWAMessage(skullgirls1, {waitForAck: true})
 break
 
 case 'simi':
