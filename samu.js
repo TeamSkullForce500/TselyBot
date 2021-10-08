@@ -5332,47 +5332,47 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 "rows": [
 {
 "title": "Lista de variantes",
-"rowId": `${prefix}belle`
+"rowId": `${prefix}cartassg`
 },
 {
 "title": "sitios web oficiales skullgirls Mobile",
-"rowId": `VIP`
+"rowId": `websg`
 },	
 {
 "title": `editor de cartas y personajes`,
-"rowId": `${prefix}porno`
+"rowId": `${prefix}editsg`
 },
 {
 "title": "wiki skullgirls",
-"rowId": `${prefix}lesbian`
+"rowId": `${prefix}wikisg`
 },
 {
 	"title": `tier list`,
-	"rowId": `${prefix}tetas`
+	"rowId": `${prefix}tlsg`
 	},
 	{
 	"title": "ciclo eventos",
-	"rowId": `${prefix}ass`
+	"rowId": `${prefix}ciclosg`
 	},
 	{
 		"title": `costo mejoras`,
-		"rowId": `${prefix}pussy`
+		"rowId": `${prefix}costosg`
 		},
 		{
-		"title": "reportar hackers",
-		"rowId": `${prefix}xwaifu`
+		"title": "desafios skullgirls",
+		"rowId": `${prefix}desafiossg`
 		},
 		{
-			"title": "Neko Hentai🍒",
-			"rowId": `${prefix}xneko`
+			"title": "sets movimientos",
+			"rowId": `${prefix}movsg`
 			},
 			{
-			"title": "Trap Hentai🍌",
-			"rowId": `${prefix}trap`
+			"title": "canal de youtube",
+			"rowId": `${prefix}ytsg`
 			},
 			{
-				"title": "Blow Hentai🍆",
-				"rowId": `${prefix}blow`
+				"title": "reportar hackers",
+				"rowId": `${prefix}reportsg`
 				}
 ]
 }
