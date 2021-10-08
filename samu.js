@@ -1741,6 +1741,10 @@ ${opcion}`,
 								{
 									"rows": [
 										{
+											"title": `Menu de Skullgirls☠️`,
+											"rowId": "skullgirls"
+										},
+										{
 											"title": `Menu de Media📷`,
 											"rowId": "media"
 										},
@@ -1791,6 +1795,24 @@ ${opcion}`,
 					}, {})
 				samu330.relayWAMessage(newmenu, {waitForAck: true})
 				break
+            }
+
+            if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`skullgirls`)){
+                    if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
+                    trol = fs.readFileSync('./media/trol.mp4')
+                    samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${skg}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
+                    { key: {
+                    fromMe: false,
+                    participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+                    },
+                    message: {
+                    "imageMessage": { "caption": "☠️𝙈𝙀𝙉𝙐⁡ 𝘿𝙀 SKULLGIRLS ☠️", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
+                    }})
+                    addFilter(from)
+                    addLevelingLevel(sender, 5)
+			}
 			}
 
             if (sam.message.listResponseMessage){
@@ -1930,7 +1952,74 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					{
 					"rows": [
 					{
-					"title": "Imagenes Skullgirls??!!",
+					"title": "Imagenes Skullgirls😏!!",
+					"rowId": `${prefix}belle`
+					},
+					{
+					"title": "🍑VIDEO EXCLUSIVO PARA  USUARIOS DE TSELYBOT👑✍🏻",
+					"rowId": `VIP`
+					},	
+					{
+					"title": `Porno Real🔥`,
+					"rowId": `${prefix}porno`
+					},
+					{
+					"title": "Porno de Lesbianas😊",
+					"rowId": `${prefix}lesbian`
+					},
+					{
+						"title": `Bonitas Tetas🍇`,
+						"rowId": `${prefix}tetas`
+						},
+						{
+						"title": "Culos Hermosos🍑",
+						"rowId": `${prefix}ass`
+						},
+						{
+							"title": `Pussy's🥟`,
+							"rowId": `${prefix}pussy`
+							},
+							{
+							"title": "Waifu Hentai🌸",
+							"rowId": `${prefix}xwaifu`
+							},
+							{
+								"title": "Neko Hentai🍒",
+								"rowId": `${prefix}xneko`
+								},
+								{
+								"title": "Trap Hentai🍌",
+								"rowId": `${prefix}trap`
+								},
+								{
+									"title": "Blow Hentai🍆",
+									"rowId": `${prefix}blow`
+									}
+					]
+					}
+					]
+					}
+					}, {})
+					samu330.relayWAMessage(nopor, {waitForAck: true})
+			}
+			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`skullgirls`)){
+					addFilter(from)
+					addLevelingLevel(sender, 5)		
+					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+					let nopor = samu330.prepareMessageFromContent(from, {
+					"listMessage":  {
+					"title": "*😏Bienvenido al menu 6*",
+					"description": `\n\nQue es lo que buscas🍒?\n\n	*Si no puedes ver, o selccionar la lista de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod. link grupo +18: https://chat.whatsapp.com/JMMeIF9XBi11NQCAJlfBiZ*`,
+					"buttonText": "Click Aqui",
+					"listType": "SINGLE_SELECT",
+					"sections": [
+					{
+					"rows": [
+					{
+					"title": "Imagenes Skullgirls😏!!",
 					"rowId": `${prefix}belle`
 					},
 					{
@@ -6208,7 +6297,6 @@ if (body.startsWith('>')){
             reply(`${String(e)}`)
             }}
             
-function _0x5718(){var _0x1c4b44=['122885QdGzyn','sticker','137193xgROlL','1202160qgSFsZ','2169990GBfMeG','sendMessage','476319hkaInB','1006lwFJpo','12cilEll','447360sFDZtd','./src/ara.png','readFileSync','16biMglh','397bnmaIc','[\x20★\x20]\x20山姆\x20330'];_0x5718=function(){return _0x1c4b44;};return _0x5718();}function _0x4926(_0xab1c30,_0x37c62d){var _0x5718b9=_0x5718();return _0x4926=function(_0x49269b,_0x541901){_0x49269b=_0x49269b-0x65;var _0x2f5c1a=_0x5718b9[_0x49269b];return _0x2f5c1a;},_0x4926(_0xab1c30,_0x37c62d);}var _0x5b64d5=_0x4926;(function(_0x515af2,_0x3a3bbb){var _0x2d3808=_0x4926,_0x33a117=_0x515af2();while(!![]){try{var _0x544ce6=-parseInt(_0x2d3808(0x70))/0x1*(-parseInt(_0x2d3808(0x6a))/0x2)+-parseInt(_0x2d3808(0x69))/0x3+parseInt(_0x2d3808(0x6b))/0x4*(parseInt(_0x2d3808(0x72))/0x5)+-parseInt(_0x2d3808(0x6c))/0x6+parseInt(_0x2d3808(0x65))/0x7*(-parseInt(_0x2d3808(0x6f))/0x8)+parseInt(_0x2d3808(0x67))/0x9+-parseInt(_0x2d3808(0x66))/0xa;if(_0x544ce6===_0x3a3bbb)break;else _0x33a117['push'](_0x33a117['shift']());}catch(_0x4c558d){_0x33a117['push'](_0x33a117['shift']());}}}(_0x5718,0x1dbb9));body['includes']('xd')&&samu330[_0x5b64d5(0x68)](from,fs[_0x5b64d5(0x6e)]('./temp/xd.webp'),MessageType[_0x5b64d5(0x73)],{'quoted':sam,'contextInfo':{'externalAdReply':{'title':'🤠Los\x20que\x20no\x20dejan\x20el\x20xd:\x20\x27POR\x20AHI\x20NO!!\x27','body':_0x5b64d5(0x71),'sourceUrl':'https://chat.whatsapp.com/BGTQNDzESmEJr2cCJlccWV','thumbnail':fs[_0x5b64d5(0x6e)](_0x5b64d5(0x6d))}}});            
 
 default:
 if (body.startsWith("=")) {
@@ -6235,7 +6323,7 @@ if(messagesC.includes == ('hola')) {
 samu330.sendMessage(from, 'como estas!', MessageType.text, {quoted: sam})
 }
 		
-
+function _0x5718(){var _0x1c4b44=['122885QdGzyn','sticker','137193xgROlL','1202160qgSFsZ','2169990GBfMeG','sendMessage','476319hkaInB','1006lwFJpo','12cilEll','447360sFDZtd','./src/ara.png','readFileSync','16biMglh','397bnmaIc','[\x20★\x20]\x20山姆\x20330'];_0x5718=function(){return _0x1c4b44;};return _0x5718();}function _0x4926(_0xab1c30,_0x37c62d){var _0x5718b9=_0x5718();return _0x4926=function(_0x49269b,_0x541901){_0x49269b=_0x49269b-0x65;var _0x2f5c1a=_0x5718b9[_0x49269b];return _0x2f5c1a;},_0x4926(_0xab1c30,_0x37c62d);}var _0x5b64d5=_0x4926;(function(_0x515af2,_0x3a3bbb){var _0x2d3808=_0x4926,_0x33a117=_0x515af2();while(!![]){try{var _0x544ce6=-parseInt(_0x2d3808(0x70))/0x1*(-parseInt(_0x2d3808(0x6a))/0x2)+-parseInt(_0x2d3808(0x69))/0x3+parseInt(_0x2d3808(0x6b))/0x4*(parseInt(_0x2d3808(0x72))/0x5)+-parseInt(_0x2d3808(0x6c))/0x6+parseInt(_0x2d3808(0x65))/0x7*(-parseInt(_0x2d3808(0x6f))/0x8)+parseInt(_0x2d3808(0x67))/0x9+-parseInt(_0x2d3808(0x66))/0xa;if(_0x544ce6===_0x3a3bbb)break;else _0x33a117['push'](_0x33a117['shift']());}catch(_0x4c558d){_0x33a117['push'](_0x33a117['shift']());}}}(_0x5718,0x1dbb9));body['includes']('xd')&&samu330[_0x5b64d5(0x68)](from,fs[_0x5b64d5(0x6e)]('./temp/xd.webp'),MessageType[_0x5b64d5(0x73)],{'quoted':sam,'contextInfo':{'externalAdReply':{'title':'🤠Los\x20que\x20no\x20dejan\x20el\x20xd:\x20\x27POR\x20AHI\x20NO!!\x27','body':_0x5b64d5(0x71),'sourceUrl':'https://chat.whatsapp.com/BGTQNDzESmEJr2cCJlccWV','thumbnail':fs[_0x5b64d5(0x6e)](_0x5b64d5(0x6d))}}});            
 		
 //BY SAMU330 | Uso libre
 if (body.includes('mantenimiento')) {
