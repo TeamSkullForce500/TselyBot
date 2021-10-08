@@ -1797,23 +1797,7 @@ ${opcion}`,
 				break
             }
 
-            if (sam.message.listResponseMessage){
-				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`skullgirls`)){
-                    if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
-                    trol = fs.readFileSync('./media/trol.mp4')
-                    samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${skg}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
-                    { key: {
-                    fromMe: false,
-                    participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-                    },
-                    message: {
-                    "imageMessage": { "caption": "☠️𝙈𝙀𝙉𝙐⁡ 𝘿𝙀 SKULLGIRLS ☠️", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
-                    }})
-                    addFilter(from)
-                    addLevelingLevel(sender, 5)
-			}
-			}
+            
 
             if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
@@ -5336,7 +5320,7 @@ case 'skg':
 addFilter(from)
 if (!isRegister) return reply(mess.only.usrReg)
 addLevelingLevel(sender, 5)		
-samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/skg1.jpg')}, MessageType.liveLocation, {quoted : sam})
 let skullgirls1 = samu330.prepareMessageFromContent(from, {
 "listMessage":  {
 "title": "*Bienvenido al menu para Skullgirls Mobile*",
