@@ -2350,7 +2350,8 @@ ${samu}◦ 🪀version de${samu} *WhatsApp* : *${samu330.user.phone.wa_version}*
 
 _Lista de MENUs_
 
-${bodyM} ${prefix}menu1 *(Menu de Media*
+${bodyM} ${prefix}skg *(Menu de skullgirls)*
+${bodyM} ${prefix}menu1 *(Menu de Media)*
 ${bodyM} ${prefix}menu2 *(Menu de Sticker)*
 ${bodyM} ${prefix}menu3 *(Menu de Grupos)*
 ${bodyM} ${prefix}menu4 *(Menu de descargas)*
@@ -5309,6 +5310,71 @@ let nopor = samu330.prepareMessageFromContent(from, {
 		},
 		{
 		"title": "Waifu Hentai🌸",
+		"rowId": `${prefix}xwaifu`
+		},
+		{
+			"title": "Neko Hentai🍒",
+			"rowId": `${prefix}xneko`
+			},
+			{
+			"title": "Trap Hentai🍌",
+			"rowId": `${prefix}trap`
+			},
+			{
+				"title": "Blow Hentai🍆",
+				"rowId": `${prefix}blow`
+				}
+]
+}
+]
+}
+}, {})
+samu330.relayWAMessage(nopor, {waitForAck: true})
+break
+
+case 'skg':
+if (!isRegister) return reply(mess.only.usrReg)
+addLevelingLevel(sender, 5)		
+samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Samu330`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/+18.jpg')}, MessageType.liveLocation, {quoted : sam})
+let nopor = samu330.prepareMessageFromContent(from, {
+"listMessage":  {
+"title": "*Bienvenido al menu para Skullgirls Mobile*",
+"description": `\n\nQue es lo que buscas?\n\n	*Si no puedes ver, o selccionar la lsita de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod.*`,
+"buttonText": "Click Aqui",
+"listType": "SINGLE_SELECT",
+"sections": [
+{
+"rows": [
+{
+"title": "Lista de variantes",
+"rowId": `${prefix}belle`
+},
+{
+"title": "sitios web oficiales skullgirls Mobile",
+"rowId": `VIP`
+},	
+{
+"title": `editor de cartas y personajes`,
+"rowId": `${prefix}porno`
+},
+{
+"title": "wiki skullgirls",
+"rowId": `${prefix}lesbian`
+},
+{
+	"title": `tier list`,
+	"rowId": `${prefix}tetas`
+	},
+	{
+	"title": "ciclo eventos",
+	"rowId": `${prefix}ass`
+	},
+	{
+		"title": `costo mejoras`,
+		"rowId": `${prefix}pussy`
+		},
+		{
+		"title": "reportar hackers",
 		"rowId": `${prefix}xwaifu`
 		},
 		{
