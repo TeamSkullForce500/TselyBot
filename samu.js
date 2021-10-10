@@ -2516,14 +2516,6 @@ var _0x56da=['367342lxQRgg','relayWAMessage','52224EUhLvZ','readFileSync','31843
 samu330.sendMessage(from, fs.readFileSync('./src/ara.png'), image, {quoted: ftoko, caption: Menu, thumbnail: fs.readFileSync('./src/ara.png'), sendEphemeral: true})
 }
 break
-
-case 'desafio':
-respuesta = ['Si', 'No', 'Tal vez', 'Puede ser', 'hay una probabilidad del 99.99999999991.01%', 'Puede que no', 'Yo que se', 'mmmm🤔.... Dejame lo pienso un poco']
-answer = respuesta[Math.floor(Math.random() * respuesta.length)]
-if (!q) return reply('coloca un 1')
-reply(answer)
-addFilter(from)
-break
 		
 case 'menu2':
 if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
@@ -2948,6 +2940,14 @@ case 'pregunta':
 respuesta = ['Si', 'No', 'Tal vez', 'Puede ser', 'hay una probabilidad del 99.99999999991.01%', 'Puede que no', 'Yo que se', 'mmmm🤔.... Dejame lo pienso un poco']
 answer = respuesta[Math.floor(Math.random() * respuesta.length)]
 if (!q) return reply('Y la pregunta?')
+reply(answer)
+addFilter(from)
+break
+
+case 'desafio':
+respuesta = ['Si', 'No', 'Tal vez', 'Puede ser', 'hay una probabilidad del 99.99999999991.01%', 'Puede que no', 'Yo que se', 'mmmm🤔.... Dejame lo pienso un poco']
+answer = respuesta[Math.floor(Math.random() * respuesta.length)]
+if (!q) return reply('coloca un 1')
 reply(answer)
 addFilter(from)
 break
