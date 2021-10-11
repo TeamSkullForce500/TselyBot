@@ -2216,9 +2216,8 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`ciclosg`)){
-					if (!isGroup) return reply(mess.only.group)
-					bd = ["https://pbs.twimg.com/media/EtQv31yWYAA_CTG?format=jpg"]
-					sendFileFromUrl(bdp, image, {quoted: fimg, caption: `*PELEAS PREMIADAS Y PELEAS ELEMENTALES*\n\n_By @${'573504310048@s.whatsapp.net'.split("@")[0]}_`, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+					reply('*PELEAS PREMIADAS Y ELEMENTALES*')
+			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image)
 			}
 			}
 			/*if (sam.message.listResponseMessage){
