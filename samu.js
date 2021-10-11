@@ -2215,9 +2215,8 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`VIP`)){
-					reply('*Espera porfavor...*')
-			samu330.sendMessage(from, fs.readFileSync('./media/vip.mp4'), video, {quoted: sam, mimetype: 'video/gif', caption: `👑 *REGALITO PARA LOS USUARIOS DE TSELYBOT POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* 🍑`, sendEphemeral: true, duration: -6666666, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+				if (test.includes(`${prefix}ciclosg`)){
+			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), imagen, {quoted: sam, mimetype: 'imagen/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
 			}
 			}
 			/*if (sam.message.listResponseMessage){
