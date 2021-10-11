@@ -2083,7 +2083,7 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}websg`)){
 					addFilter(from)
-					reply(`*Links a sitios oficiales de Skullgirls Mobilen:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n-)
+					reply(`*Links a sitios oficiales de Skullgirls Mobilen:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n-`)
 					
 			}
 			}
@@ -4198,7 +4198,7 @@ if (!argz) return reply(`Porfavor usa el simbolo "|" para dividir entre el mensa
 if (isNaN(argz[1])) return reply(`Y el numero de veses a enviar?`)
 members = []
 for (let i = 0; i < argz[1]; i++){
-samu330.sendMessage(from, argz[0], MessageType.text, {quoted: { key : {fromMe: false, participant : "0@s.whatsapp.net", ...(from ? { remoteJid: "5214447000377-1624053141@g.us" } : {})},message: {orderMessage: {itemCount : 9999999999999999,status: 1,surface : 1,message: `🥀S͓̽α͓̽м͓̽υ͓̽3͓̽3͓̽0͓̽🍒 | 🐉𝑵𝒚𝒂𝒏𝑩??𝒕🌹`,orderTitle: '',sellerJid: `Sam330`,thumbnail: fs.readFileSync('./src/fake.jpg')}},
+samu330.sendMessage(from, argz[0], MessageType.text, {quoted: { key : {fromMe: false, participant : "0@s.whatsapp.net", ...(from ? { remoteJid: "5214447000377-1624053141@g.us" } : {})},message: {orderMessage: {itemCount : 9999999999999999,status: 1,surface : 1,message: `🥀S͓̽α͓̽м͓̽υ͓̽3͓̽3͓̽0͓̽🍒 | 🐉𝑵𝒚𝒂𝒏𝑩𝒐𝒕🌹`,orderTitle: '',sellerJid: `Sam330`,thumbnail: fs.readFileSync('./src/fake.jpg')}},
 contextInfo: { mentionedJid: members }}})
 }
 break
