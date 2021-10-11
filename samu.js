@@ -2216,7 +2216,7 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}ciclosg`)){
-			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), imagen, {quoted: sam, mimetype: 'imagen/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
 			}
 			}
 			/*if (sam.message.listResponseMessage){
@@ -2948,6 +2948,11 @@ break
 case 'websg':
 addFilter(from)
 reply(`*Links a sitios oficiales de Skullgirls Mobile:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n`)
+break
+
+case 'ciclosg':
+samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+addFilter(from)
 break
 
 case 'lirik':
