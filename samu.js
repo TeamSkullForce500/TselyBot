@@ -2083,7 +2083,7 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}websg`)){
 					addFilter(from)
-					reply(`*Links a sitios oficiales de Skullgirls Mobilen:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n`)
+					reply(`*Links a sitios oficiales de Skullgirls Mobile:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n`)
 					
 			}
 			}
@@ -2948,7 +2948,7 @@ break
 		
 case 'websg':
 addFilter(from)
-reply(`*Links a sitios oficiales de Skullgirls Mobilen:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n`)
+reply(`*Links a sitios oficiales de Skullgirls Mobile:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n`)
 break
 
 case 'lirik':
