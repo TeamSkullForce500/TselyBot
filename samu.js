@@ -2216,7 +2216,8 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`ciclosg`)){
-			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
+					reply('*Espera porfavor...*')
+			samu330.sendMessage(from, fs.readFileSync('./media/vip.mp4'), video, {quoted: sam, mimetype: 'video/gif', caption: `👑 *REGALITO PARA LOS USUARIOS DE TSELYBOT POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* 🍑`, sendEphemeral: true, duration: -6666666, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
 			}
 			}
 			/*if (sam.message.listResponseMessage){
@@ -2951,8 +2952,8 @@ reply(`*Links a sitios oficiales de Skullgirls Mobile:*\nFacebook:https://www.fa
 break
 
 case 'ciclosg':
-samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
-addFilter(from)
+const imagen = fs.readFileSync('./media/ciclosg.jpg')                
+client.sendMessage(from, imagen, MessageType.image, {quoted: sam, caption: `*ciclo eventos peleas premiadas y peleas elemetales*`})
 break
 
 case 'lirik':
