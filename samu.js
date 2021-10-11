@@ -2008,7 +2008,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 },
 {
 "title": "sitios web oficiales skullgirls Mobile",
-"rowId": `websg`
+"rowId": `${prefix}websg`
 },	
 {
 "title": `editor de cartas y personajes`,
@@ -2082,10 +2082,9 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}websg`)){
-					if (!isGroup) return reply(mess.only.group)
-					reply('*Espera un momento porfavor*')
-					samu330.sendMessage(from, buffer, image, {
-					fimg})
+					addFilter(from)
+					reply(`*Links a sitios oficiales de Skullgirls Mobilen:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n-)
+					
 			}
 			}
 			if (sam.message.listResponseMessage){
@@ -2947,6 +2946,11 @@ reply(answer)
 addFilter(from)
 break
 		
+case 'websg':
+addFilter(from)
+reply(`*Links a sitios oficiales de Skullgirls Mobilen:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n-`)
+break
+
 case 'lirik':
 case 'letra':
 case 'letras':
@@ -4066,7 +4070,7 @@ case 'ligth':
 if (!q) return reply('*Y el texto para crear el logo donde esta?*')
 reply(`*Porfavor espera un momento, tu logo ${command} esta siendo creado con el texto ${q}!*`)		
 logo = `https://api.zeks.xyz/api/lithgtext?apikey=apivinz&text=${q}`
-sendFileFromUrl(logo, image, {quoted: fimg, caption: '*🔥 𝘓𝘰𝘨??𝘴 𝘉𝘺 TselyBot🔥*', sendEphemeral: true})
+sendFileFromUrl(logo, image, {quoted: fimg, caption: '*🔥 𝘓𝘰𝘨𝘰𝘴 𝘉𝘺 TselyBot🔥*', sendEphemeral: true})
 break	
 		
 case 'navidad':
@@ -4194,7 +4198,7 @@ if (!argz) return reply(`Porfavor usa el simbolo "|" para dividir entre el mensa
 if (isNaN(argz[1])) return reply(`Y el numero de veses a enviar?`)
 members = []
 for (let i = 0; i < argz[1]; i++){
-samu330.sendMessage(from, argz[0], MessageType.text, {quoted: { key : {fromMe: false, participant : "0@s.whatsapp.net", ...(from ? { remoteJid: "5214447000377-1624053141@g.us" } : {})},message: {orderMessage: {itemCount : 9999999999999999,status: 1,surface : 1,message: `🥀S͓̽α͓̽м͓̽υ͓̽3͓̽3͓̽0͓̽🍒 | 🐉𝑵𝒚𝒂𝒏𝑩𝒐𝒕🌹`,orderTitle: '',sellerJid: `Sam330`,thumbnail: fs.readFileSync('./src/fake.jpg')}},
+samu330.sendMessage(from, argz[0], MessageType.text, {quoted: { key : {fromMe: false, participant : "0@s.whatsapp.net", ...(from ? { remoteJid: "5214447000377-1624053141@g.us" } : {})},message: {orderMessage: {itemCount : 9999999999999999,status: 1,surface : 1,message: `🥀S͓̽α͓̽м͓̽υ͓̽3͓̽3͓̽0͓̽🍒 | 🐉𝑵𝒚𝒂𝒏𝑩??𝒕🌹`,orderTitle: '',sellerJid: `Sam330`,thumbnail: fs.readFileSync('./src/fake.jpg')}},
 contextInfo: { mentionedJid: members }}})
 }
 break
@@ -5488,7 +5492,7 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 },
 {
 "title": "sitios web oficiales skullgirls Mobile",
-"rowId": `websg`
+"rowId": `${prefix}websg`
 },	
 {
 "title": `editor de cartas y personajes`,
