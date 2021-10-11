@@ -2217,7 +2217,7 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`ciclosg`)){
 					reply('*PELEAS PREMIADAS Y ELEMENTALES*')
-			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), video)
+			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image)
 			}
 			}
 			/*if (sam.message.listResponseMessage){
