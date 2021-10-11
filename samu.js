@@ -2024,7 +2024,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 	},
 	{
 	"title": "ciclo eventos",
-	"rowId": `${prefix}ciclosg`
+	"rowId": `ciclosg`
 	},
 	{
 		"title": `costo mejoras`,
@@ -2215,7 +2215,7 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}ciclosg`)){
+				if (test.includes(`ciclosg`)){
 			samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpg', caption: `CICLO DE PELEAS PREMIADAS Y PELEAS ELEMENTALES POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* `, sendEphemeral: true, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
 			}
 			}
@@ -5512,7 +5512,7 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 	},
 	{
 	"title": "ciclo eventos",
-	"rowId": `${prefix}ciclosg`
+	"rowId": `ciclosg`
 	},
 	{
 		"title": `costo mejoras`,
