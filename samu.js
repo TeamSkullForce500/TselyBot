@@ -2216,7 +2216,6 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				       if (test.includes(`ciclosg`)){
-				       reply('*PELEAS PREMIADAS Y ELEMENTALES*')
 			               samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpeg', sendEphemeral: true})
 				       addFilter(from)       
 			}
