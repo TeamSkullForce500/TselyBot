@@ -2217,7 +2217,7 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				       if (test.includes(`ciclosg`)){
 				       reply('*PELEAS PREMIADAS Y ELEMENTALES*')
-			               samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image)
+			               samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpeg', caption: `👑 *REGALITO PARA LOS USUARIOS DE TSELYBOT POR PARTE DE @${'573504310048@s.whatsapp.net'.split("@")[0]}* 🍑`, sendEphemeral: true, duration: -6666666, contextInfo: {mentionedJid: ['573504310048@s.whatsapp.net']}})
 				       addFilter(from)       
 			}
 			}
