@@ -2039,8 +2039,8 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 			"rowId": `${prefix}movsg`
 			},
 			{
-			"title": "canal de youtube",
-			"rowId": `${prefix}ytsg`
+			"title": "Team Skullforce 500",
+			"rowId": `${prefix}tsf500`
 			},
 			{
 				"title": "reportar hackers",
@@ -2206,13 +2206,10 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}blow`)){
-					if (!isGroup) return reply(mess.only.group)
-					if (!isNsfw) return reply(mess.nsfw)
-					reply('*Buscando una buena imagen...*')
-					waifu = await getJson(`https://api.waifu.pics/nsfw/blowjob`)
-					sendFileFromUrl(waifu.url, image, {quoted: fimg, caption: '*☠️Team SkullForce 500☠️* | TselyBot', sendEphemeral: true})
+				if (test.includes(`${prefix}reportsg`)){
 					addFilter(from)
+					reply(`PROCESO PARA REPORTAR HACKERS:\n 1-tomar captura de la pelea sospechosa\n 2-tener en cuenta la hora y la zona horaria de tu pais\n 3-ir al foro de skullgirls mobile: https://forum.skullgirlsmobile.com/\n 4-registrarte (solo requiere una vez)\n 5-ir al apartado de reportes y subir la imagen con tu hora y zona horaria: https://forum.skullgirlsmobile.com/threads/cheater-hacker-reporting.2943/`)
+			
 			}
 			}
 			if (sam.message.listResponseMessage){
