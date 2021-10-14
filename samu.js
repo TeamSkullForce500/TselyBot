@@ -1381,11 +1381,28 @@ _Estos comandos solo pueden ser utilizados en grupos, y solo los puede usar ${bo
 
 No promovemos estas actividades, cualquier intento de usar estos comandos sera sancionado...
 
-
-
-
-
 `
+
+const editsg = `*${pushname}*
+
+_Usa tu imaginacion y creatividad para crear nuevas variantes, quizas algun dia tu carta forme parte oficial del juego_
+
+🔥 editor de paletas:
+🔥 https://sgmpalette.netlify.app/
+🔥 editor de cartas:
+🔥 https://sgmcard.netlify.app/
+🔥 foro de creacion de cartas:
+🔥 https://forum.skullgirlsmobile.com/threads/sg-custom-fighters.2720/
+
+💠recuerda que puedes subir tus creaciones al discord del grupo,hay quedaran guardadas para la posteridad:
+
+
+un agradecimiento a krazete por esta increible herramienta para crear paletas y cartas de skullgirls mobile puedes apoyarlo donando aqui:
+https://ko-fi.com/krazete
+
+*☠️ Team SkullForce 500 ☠️*`
+
+
 
         if (isAntiBot && m.message && !m.key.fromMe && m.isBaileys) {
             reply(`*✏Bot detectado!!*\n\nEN ESTE GRUPO ESTAN PROHIBIDOS OTROS BOTS!!\n\n🌬 Bye.....`)
@@ -2816,23 +2833,20 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}tetas`)){
-					if (!isGroup) return reply(mess.only.group)
-					if (!isNsfw) return reply(mess.nsfw)
-					pw = ["https://meme-api.herokuapp.com/gimme/tits",
-					"https://meme-api.herokuapp.com/gimme/BestTits",
-					"https://meme-api.herokuapp.com/gimme/boobs",
-					"https://meme-api.herokuapp.com/gimme/amazingtits",
-					"https://meme-api.herokuapp.com/gimme/TinyTits"]
-					nk = pw[Math.floor(Math.random() * pw.length)]
-					porn = await getJson(`${nk}`, {
-					method: 'get'
-					})
-					reply(mess.wait)
-					buffer = await getBuffer(`${porn.url}`)
-					samu330.sendMessage(from, buffer, image, {
-					quoted: fimg
-					})
+				if (test.includes(`${prefix}editsg`)){
+                    if (!isRegister) return reply(mess.only.usrReg)
+                    reply('*OBTENIENDO INFORMACION...*')
+                    smww = fs.readFileSync(`./media/SmWW.png`)
+                    samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: { 
+                        fromMe: false, 
+                        participant: `0@s.whatsapp.net`, ...(from ? {
+                            remoteJid: "status@broadcast" } : {}) }, 
+                                message: { 
+                                    "imageMessage": { 
+                                    "mimetype": 
+                                    "image/jpeg", 
+                                    "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
+                                    "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
 			}
 			}
 			if (sam.message.listResponseMessage){
