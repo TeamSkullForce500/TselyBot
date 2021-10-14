@@ -2949,7 +2949,7 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}reportsg`)){
 					addFilter(from)
-					reply(`PROCESO PARA REPORTAR HACKERS:\n 1-tomar captura de la pelea sospechosa\n 2-tener en cuenta la hora y la zona horaria de tu pais\n 3-ir al foro de skullgirls mobile: https://forum.skullgirlsmobile.com/\n 4-registrarte (solo requiere una vez)\n 5-ir al apartado de reportes y subir la imagen con tu hora y zona horaria: https://forum.skullgirlsmobile.com/threads/cheater-hacker-reporting.2943/`)
+					reply(`PROCESO PARA REPORTAR HACKERS:\n 1-tomar captura de la pelea sospechosa\n 2-tener en cuenta la hora y la zona horaria de tu pais\n 3-Únase a Discord aquí: www.discord.gg/skullgirls\n 4-Ingrese al canal # sgm-cheat-report\n 5-Lea el mensaje de instrucciones anclado para obtener instrucciones sobre cómo hacer un informe.`)
 			
 			}
 			}
