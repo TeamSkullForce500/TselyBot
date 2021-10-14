@@ -2059,7 +2059,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 				if (test.includes(`${prefix}cartassg`)){
 					addFilter(from)
 					addLevelingLevel(sender, 5)		
-					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/skg1.jpg')}, MessageType.liveLocation, {quoted : sam})
+					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/skg2.jpg')}, MessageType.liveLocation, {quoted : sam})
 					let cartassg1 = samu330.prepareMessageFromContent(from, {
 					"listMessage": {
 "title": "*Variantes/cartas de Skullgirls Mobile*",
