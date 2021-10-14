@@ -2070,49 +2070,709 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 {
 "rows": [
 {
-"title": "1",
+"title": "🥉⭐FURIA SOLAR",
 "rowId": `${prefix}cartassg`
 },
 {
-"title": "2",
+"title": "🥉⭐NIÑA DE LAS ESTRELLAS",
 "rowId": `${prefix}websg`
 },	
 {
-"title": `3`,
+"title": `🥉🐺COLD STONES`,
 "rowId": `${prefix}editsg`
 },
 {
-"title": "4",
+"title": "🥉🐺PERRO CALLEJERO",
 "rowId": `${prefix}wikisg`
 },
 {
-"title": `5`,
+"title": `🥉🎷BEAT BOX`,
 "rowId": `${prefix}tlsg`
 },
 {
-"title": "6",
+"title": "🥉🎷BEMOL",
 "rowId": `ciclosg`
 },
 {
-"title": `7`,
+"title": `🥉♦️SUPLENTE`,
 "rowId": `${prefix}costosg`
 },
 {
-"title": "8",
+"title": "🥉♦️TESTARUDA",
 "rowId": `${prefix}desafiossg`
 },
 {
-"title": "9",
+"title": "🥉🎭SUNDAE MORNING",
 "rowId": `${prefix}movsg`
 },
 {
-"title": "10",
+"title": "🥉🎭MONJERIAS",
 "rowId": `${prefix}tsf500`
 },
 {
-"title": "11",
+"title": "🥉🎗️NILOMENCIONES",
 "rowId": `${prefix}reportsg`
-}	
+},
+{
+"title": "🥉🎗️DESENCRIPTADA",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥉🙃PUNTAS QUEMADAS`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥉🙃DESCABELLADA",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥉😈GEMELA INFERNAL`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥉😈BORRADOR",
+"rowId": `ciclosg`
+},
+{
+"title": `🥉🐱GATO ENDIABLADO`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥉🐱GATA CALLEJERA",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥉⚔️ACERO TEMPLADO",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥉⚔️OXIDADA",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥉✝️LA PROTEGIDA",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥉✝️REINADO PESADO",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥉🎱REPLICA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥉🎱INCOMPLETA",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥉‼️PROTOTIPO`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥉‼️M-14U",
+"rowId": `ciclosg`
+},
+{
+"title": `🥉🐲PANICO ESCÉNICO`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥉🐲MUERTA DE MIEDO",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥉⚕️CALOR FRIO",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥉⚕️DR. NADIE",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥈⭐GLAMOUR GALACTICO",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥈⭐ESTRELLA NINJA",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥈⭐TRIPLE AMENAZA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥈🐺NUMERO UNO",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥈🐺PROMOTOR`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥈🐺LUCHADOR X",
+"rowId": `ciclosg`
+},
+{
+"title": `🥈🎷VIRTUOSO VINTAGE`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥈🎷ROBOCOPIA",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥈🎷RESONANCIA VIL",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥈🎷NOTA DISCORDANTE",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥈♦️GUERRERO SAPO",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥈♦️MATERIA GRIS",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥈♦️VERDUGO`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥈🎭TIRANA DEL TEMPLO",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥈🎭MISTIFORME`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥈🎭DOBLELICIOSO",
+"rowId": `ciclosg`
+},
+{
+"title": `🥈🎗️VIPER ESCARLATA`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥈🎗️VALENTIN ROJO",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥈🎗️CURVO SIN ALAS",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥈🙃BAD MS FROSTY",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥈🙃HEREDERA APELANTE",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥈🙃ROCA ESTELAR",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥈😈DESALMADA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥈😈RAIN SHADOW",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥈😈REPTILIANA`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥈😸SRTA. JUSTICIA",
+"rowId": `ciclosg`
+},
+{
+"title": `🥈😸GATA NEGRA`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥈😸MANEKO",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥈⚔️SED DE SANGRE",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥈⚔️DAÑOS MENORES",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥈⚔️PONTE EN MI LUGAR",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥈✝️DESENGARZADA",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥈✝️HIEDRA VENENOSA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥈✝️COMANDO SOMBRA",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥈🎱PLUMAJE PRISMÁTICO`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥈🎱COMODÍN",
+"rowId": `ciclosg`
+},
+{
+"title": `🥈🎱TIRAGUISANTES`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥈🎱ENTINTADA",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥈‼️GATOTECH",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥈‼️BOMBARDERO AZUL",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥈‼️TRRRMINATOR",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "??🐲CALCINADA",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥈🐲GAMBERRA VERDE`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥈🐲CASI DIFUNTA",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥈🐲NECROBREAKER`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥈⚕️AY MI MAI",
+"rowId": `ciclosg`
+},
+{
+"title": `🥈⚕️TURNO MORTAL`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥈⚕️ASESINA JOY",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇⭐MATERIA GIRL",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇⭐HEROINA DEL TIEMPO",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇⭐GUERRERA LUNAR",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇⭐MARAVILLA ATEMPORAL",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥇🐺LUCHADOR DRAGON`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥇🐺GUERRERO LIBERADOR",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥇🐺AZOTE DE WULF`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥇🐺ULTIMATE WULF",
+"rowId": `ciclosg`
+},
+{
+"title": `🥇🎷DETECTIVE DICK`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥇🎷G.I. JAZZ",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇🎷MEGASONIC",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇🎷SAXO EPICO",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇♦️ARLEQUIN",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇♦️CEREBRO DE HIELO",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥇♦️LA ARMADA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥇♦️CEREBRO MALÉFICO",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥇🎭PLAGA ARCOIRIS`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥇🎭FIBRA INMORAL",
+"rowId": `ciclosg`
+},
+{
+"title": `🥇🎭MALDAD VERDE`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥇🎭XENOMORFA",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇🎗️CAOS INTERIOR",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇🎗️MAQUIA-VELVET",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇🎗️LAZULITA",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇🎗️SANGRIA",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥇🎗️ INTERVENCIÓN DIVINA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥇🙃 PARÁSITO INFERNAL",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥇🙃IDOLATRADA`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥇🙃CABALLEIROSA",
+"rowId": `ciclosg`
+},
+{
+"title": `🥇🙃CABELLOS DORADOS`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥇😈FAISAN AZUL",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇😈 VAPORWAVE & CHILL",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇😈TERROR NOCTURNO",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇😈COLETAS FANTASMA",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇😸LADRONA DEL TIEMPO",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥇😸GATA AL AGUA`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥇😸CRIMEN Y LAMIDO",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥇😸AGENTE PICARA`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥇😸CON ZARPAS Y A LO LOCO",
+"rowId": `ciclosg`
+},
+{
+"title": `🥇⚔️FIREFLY`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥇⚔️DIENTES CALADOS",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇⚔️ZUMBADA",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇⚔️NERVIOSA",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇⚔️TERROR AZTECA",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇✝️UNA RUBIA MUY REAL",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥇✝️DESVENTURADO`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥇✝️LA PRIMERA",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥇✝️ORGULLO SOBERANO`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥇✝️HIGH RULER",
+"rowId": `ciclosg`
+},
+{
+"title": `🥇🎱LADRON DE LA NAVIDAD`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥇🎱INTOCABLE",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇🎱ULTRAVIOLETA",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇🎱ESO ES TODO AMIGOS",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇‼️CAZACABEZAS",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇‼️PANTALLA AZUL",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `🥇‼️TERROR BYTE`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "🥇‼️PERSONA GRATA",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `🥇🐲THRILLER`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "🥇🐲MUERTE INVERNAL",
+"rowId": `ciclosg`
+},
+{
+"title": `🥇🐲VENTISTA ESPECTRAL`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "🥇🐲BIOEXORSISTA",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "🥇⚕️PIROTECNICA",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "🥇⚕️SILENT KILL",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "🥇⚕️CIRUJANA GENERAL",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "🥇⚕️LAST HOPE",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `💎⭐MARCADA POR EL FUEGO`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "💎⭐LIDER MODELO",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `💎⭐BRILLO DE ESTRELLAS`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "💎🐺REY DE LAS BESTIAS",
+"rowId": `ciclosg`
+},
+{
+"title": `💎🐺SERPIENTE SOLIDA`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "💎🐺 PODERÍO OSCURO",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "💎🎷HEAVY METAL",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "💎🎷DREAM BAND",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "💎♦️MANOS PESADAS",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "💎♦️ESTRELLADA",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `💎🎭CRIATURA DE HABITOS`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "💎🎭CORAZÓN TENEBROSO",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `💎🎭ROMPEMANDIBULAS`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "💎🎗️SOBRESALIENTE",
+"rowId": `ciclosg`
+},
+{
+"title": `💎🎗️DIVA MOMIFICADA`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "💎🙃RIZOS GENIALES",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "💎🙃NOTA DE CORTE",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "💎😈SOL Y SOMBRA",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "💎😈REFLEJO MALDITO",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "💎😸FURIA ARDILLA",
+"rowId": `ciclosg`
+},
+{
+"title": `💎😸SUCUBO DE VIENTO`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "💎⚔️ATRAPAMOSCAS",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "💎⚔️NEUROMANTE",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "💎✝️PELIROJA PELIGROSA",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "💎✝️HERMANA SALADA",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "💎🎱CUADRO HELADO",
+"rowId": `ciclosg`
+},
+{
+"title": `💎🎱CAZADORA DE SUEÑOS`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "💎‼️ACELERADA",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "💎‼️X-BOT",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "💎🐲MADRIGUERA CONEJIL",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "💎🐲CAOS PRIMORDIAL",
+"rowId": `${prefix}reportsg`
+},
+{
+"title": "💎⚕️BAÑO DE SANGRE",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "💎⚕️SHEIKOPATA",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "💎⚕️CODICIA ASESINA",
+"rowId": `${prefix}tsf500`
+}
 					]
 					}
 					]
