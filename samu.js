@@ -2837,7 +2837,7 @@ _Ps DADOS!!_`)
                     if (!isRegister) return reply(mess.only.usrReg)
                     reply('*OBTENIENDO INFORMACION...*')
                     smww = fs.readFileSync(`./media/SmWW.png`)
-                    samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: { 
+                    samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
                         fromMe: false, 
                         participant: `0@s.whatsapp.net`, ...(from ? {
                             remoteJid: "status@broadcast" } : {}) }, 
