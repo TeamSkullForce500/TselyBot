@@ -2956,8 +2956,18 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				       if (test.includes(`ciclosg`)){
-			               samu330.sendMessage(from, fs.readFileSync('./media/ciclosg.jpg'), image, {quoted: sam, mimetype: 'image/jpeg', sendEphemeral: true})
-				       addFilter(from)       
+				       ciclosg = fs.readFileSync(`./media/ciclosg.jpg`)       
+			               samu330.sendMessage(from, ciclosg, image, {caption: `PELEAS PREMIADAS Y ELEMENTALES`, quoted: { key: { 
+                        fromMe: false, 
+                        participant: `0@s.whatsapp.net`, ...(from ? {
+                            remoteJid: "status@broadcast" } : {}) }, 
+                                message: { 
+                                    "imageMessage": { 
+                                    "mimetype": 
+                                    "image/jpeg", 
+                                    "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
+                                    "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
+				          
 			}
 			}
 			/*if (sam.message.listResponseMessage){
