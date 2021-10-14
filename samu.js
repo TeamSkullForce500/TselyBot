@@ -2054,6 +2054,73 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					samu330.relayWAMessage(skullgirls1, {waitForAck: true})
 			}
 			}
+			if (sam.message.listResponseMessage){
+				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
+				if (test.includes(`${prefix}cartassg`)){
+					addFilter(from)
+					addLevelingLevel(sender, 5)		
+					samu330.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: '☠️ Team SkullForce 500 ☠️ | TselyBot', address : `🗡Created by Rooz`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./src/skg1.jpg')}, MessageType.liveLocation, {quoted : sam})
+					let cartassg1 = samu330.prepareMessageFromContent(from, {
+					"listMessage": {
+"title": "*Variantes/cartas de Skullgirls Mobile*",
+"description": `\n\nQue variante buscas?\n\n	*Si no puedes ver, o selccionar la lsita de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod.*`,
+"buttonText": "Click Aqui",
+"listType": "SINGLE_SELECT",
+"sections": [
+{
+"rows": [
+{
+"title": "1",
+"rowId": `${prefix}cartassg`
+},
+{
+"title": "2",
+"rowId": `${prefix}websg`
+},	
+{
+"title": `3`,
+"rowId": `${prefix}editsg`
+},
+{
+"title": "4",
+"rowId": `${prefix}wikisg`
+},
+{
+"title": `5`,
+"rowId": `${prefix}tlsg`
+},
+{
+"title": "6",
+"rowId": `ciclosg`
+},
+{
+"title": `7`,
+"rowId": `${prefix}costosg`
+},
+{
+"title": "8",
+"rowId": `${prefix}desafiossg`
+},
+{
+"title": "9",
+"rowId": `${prefix}movsg`
+},
+{
+"title": "10",
+"rowId": `${prefix}tsf500`
+},
+{
+"title": "11",
+"rowId": `${prefix}reportsg`
+}	
+					]
+					}
+					]
+					}
+					}, {})
+					samu330.relayWAMessage(cartassg1, {waitForAck: true})
+			}
+			}
             if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`juegos`)){
@@ -2083,7 +2150,7 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}websg`)){
 					addFilter(from)
-					reply(`*Links a sitios oficiales de Skullgirls Mobile:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n`)
+					reply(`*Links a sitios oficiales de Skullgirls Mobile:*\nFacebook:https://www.facebook.com/skullgirlsmobile/\n- YouTube:https://youtube.com/c/SkullgirlsMobile\n- Twitter:https://twitter.com/sgmobile?t=HiEV2bqB3ma9IneaxaixYg&s=09\n- Discord:https://discord.com/invite/skullgirls\n- Instagram:https://instagram.com/skullgirlsmobile?utm_medium=copy_link\n- Web:https://skullgirlsmobile.com/\n- Foro:https://forum.skullgirlsmobile.com/\n- Wiki:https://skullgirlsmobile.fandom.com/wiki/SkullgirlsMobile_Wiki`)
 					
 			}
 			}
@@ -2590,7 +2657,7 @@ break
 		
 case 'menu9':
 if (!isRegister) return reply(mess.only.usrReg)
-reply('*Gathering information...*')
+reply('*registrando datos...*')
 smww = fs.readFileSync(`./media/SmWW.png`)
 samu330.sendMessage(from, smww, image, {caption: `${menu9}`, quoted: { key: { 
 	fromMe: false, 
@@ -5522,7 +5589,7 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 			"rowId": `${prefix}movsg`
 			},
 			{
-			"title": "canal de youtube",
+			"title": "Team SkullForce 500",
 			"rowId": `${prefix}ytsg`
 			},
 			{
