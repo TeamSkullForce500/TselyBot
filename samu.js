@@ -2836,7 +2836,7 @@ _Ps DADOS!!_`)
 				if (test.includes(`${prefix}editsg`)){
                     if (!isRegister) return reply(mess.only.usrReg)
                     reply('*OBTENIENDO INFORMACION...*')
-                    smww = fs.readFileSync(`./media/SmWW.png`)
+                    smww = fs.readFileSync(`./media/editsg1.jpg`)
                     samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
                         fromMe: false, 
                         participant: `0@s.whatsapp.net`, ...(from ? {
