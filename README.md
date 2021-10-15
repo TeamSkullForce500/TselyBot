@@ -26,8 +26,17 @@
 ## Informacion del bot:
 
 ```
-> bot modificado para brindar opciones de entretenimiento y ayuda de skullgirls mobile
-la base de bot es el nyanbot de samu330.
+> bot modificado para brindar opciones de entretenimiento
+y ayuda de skullgirls mobile la base de bot es el nyanbot
+de samu330.
+algunas de las opciones disponibles son:
+> lista de variantes
+> desafios skullgils (juego)
+> reportar hackers
+> ciclo eventos
+> sitios oficiales skullgirls mobile 
+> editor de cartas y variantes
+ 
 ```
 
 ## Inicia la Instalacion:
