@@ -23,6 +23,13 @@
 > git clone https://github.com/TeamSkullForce500/TselyBot
 ```
 
+## Informacion del bot:
+
+```
+> bot modificado para brindar opciones de entretenimiento y ayuda de skullgirls mobile
+la base de bot es el nyanbot de samu330.
+```
+
 ## Inicia la Instalacion:
 
 ```bash
