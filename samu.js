@@ -1402,6 +1402,20 @@ https://ko-fi.com/krazete
 
 *☠️ Team SkullForce 500 ☠️*`
 
+const costosg = `*${pushname}*
+
+_Valores y costos de las diferentes mejoras que ofrece el juego, variantes, movimientos, catalizadores._
+
+☠️ mejora de variantes:
+☠️ https://krazete.github.io/sgmtree/
+☠️ mejora de movimientos:
+☠️ https://sgminvestmentcalc.netlify.app/
+
+💠 ante cualquier duda pregunta a los miembros del grupo para pedir consejos.
+
+
+*☠️ Team SkullForce 500 ☠️*`
+
 const tlsg = `╔══════════════════╗
 ╠  ◈            TIER LIST            ◈  ╣
 ╠══════════════════╝
@@ -2300,10 +2314,6 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 "rowId": `${prefix}editsg`
 },
 {
-"title": "wiki skullgirls",
-"rowId": `${prefix}wikisg`
-},
-{
 	"title": `tier list`,
 	"rowId": `${prefix}tlsg`
 	},
@@ -3103,7 +3113,6 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}editsg`)){
                     if (!isRegister) return reply(mess.only.usrReg)
-                    reply('*OBTENIENDO INFORMACION...*')
                     smww = fs.readFileSync(`./media/editsg1.jpg`)
                     samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
                         fromMe: false, 
@@ -3136,15 +3145,19 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}porno`)){
-					if (!isGroup) return reply(mess.only.group)
-					if (!isNsfw) return reply(mess.nsfw)
-					pornito = ["https://fxc7-api.herokuapp.com/api/amateur?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/anal?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/anal_gape?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/asian?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/ass?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/ass-fucking?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/japanese?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/babe?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/ball_licking?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/porn/bath?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/sex/anal?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/sex/anal_penetration?apikey=Fxc7", "https://fxc7-api.herokuapp.com/api/sex/areolae?apikey=Fxc7"]
-					nopor = pornito[Math.floor(Math.random() * pornito.length)]
-					reply('*Espera un momento porfavor*')
-					iwant = await getJson(`${nopor}`, {method: 'get'})
-					you = await getBuffer(`${iwant.result}`)
-					sendFile(you, sam, '🍒')
+				if (test.includes(`${prefix}costosg`)){
+                    if (!isRegister) return reply(mess.only.usrReg)
+                    smww = fs.readFileSync(`./media/costosg1.jpg`)
+                    samu330.sendMessage(from, smww, image, {caption: `${costosg}`, quoted: { key: { 
+                        fromMe: false, 
+                        participant: `0@s.whatsapp.net`, ...(from ? {
+                            remoteJid: "status@broadcast" } : {}) }, 
+                                message: { 
+                                    "imageMessage": { 
+                                    "mimetype": 
+                                    "image/jpeg", 
+                                    "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
+                                    "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
 			}
 			}
 			if (sam.message.listResponseMessage){
@@ -6512,10 +6525,6 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 {
 "title": `editor de cartas y personajes`,
 "rowId": `${prefix}editsg`
-},
-{
-"title": "wiki skullgirls",
-"rowId": `${prefix}wikisg`
 },
 {
 	"title": `tier list`,
