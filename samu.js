@@ -3141,14 +3141,15 @@ _Ps DADOS!!_`)
                     }})
                     addFilter(from)
                     addLevelingLevel(sender, 5)
+                    
 			}
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}costosg`)){
                     if (!isRegister) return reply(mess.only.usrReg)
-                    smww = fs.readFileSync(`./media/costosg1.jpg`)
-                    samu330.sendMessage(from, smww, image, {caption: `${costosg}`, quoted: { key: { 
+                    smww = fs.readFileSync(`./media/editsg1.jpg`)
+                    samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
                         fromMe: false, 
                         participant: `0@s.whatsapp.net`, ...(from ? {
                             remoteJid: "status@broadcast" } : {}) }, 
