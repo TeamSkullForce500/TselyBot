@@ -1402,6 +1402,274 @@ https://ko-fi.com/krazete
 
 *☠️ Team SkullForce 500 ☠️*`
 
+const tlsg = `╔══════════════════╗
+╠  ◈            TIER LIST            ◈  ╣
+╠══════════════════╝
+║ ATAQUE:   🗡️
+║ DEFENSA: 🛡️
+║ BRECHAS: ⚔️
+║SS: Alto
+║S:Medio alto
+║A: Medio
+║B: Medio bajo
+║C: Bajo 
+╠═════════🗡️/ 🛡️/⚔️           
+║
+║⭐Annie.        
+║
+╠══════════════════╗
+║Star Child	                 B/C/C
+║Solar Flair  	               A/C/C
+║Galactic Glamour     A/S/A
+║Triple Threat	             A/A/A
+║Ninja Star                 	A/A/C
+║Ageless Wonder       S/S/A
+║Materia Girl	              A/A/A
+║Moonstruck	            S/A/B
+║Timeless Hero        	S/A/B
+║Model Leader	          A/A/S
+║Fire Branded	            S/A/C
+╠══════════════════╝
+║
+║🐺Beowolf
+║
+╠══════════════════╗
+║Cold Stones	            A/B/B
+║Underdog                  C/B/B
+║Hype Man	                B/B/C
+║Number One            	B/C/C
+║Wrestler X	                 B/B/B
+║Wulfsbane	                 A/S/B
+║Weekend Warrior    	 B/S/A
+║Dragon Brawler         	A/S/C
+║Freedom Fighter	      B/C/B
+║Dark Might                  A/A/B
+║Snake Bite	                 S/S/B
+╠══════════════════╝
+║
+║🎷Big Band
+║
+╠══════════════════╗
+║Bassline	                  B/C/C
+║Beat Box.                  B/B/C
+║Robocopy	               B/C/B
+║Resonant Evil	         C/C/S
+║Treble Maker	          B/C/B
+║Epic Sax	                   S/A/B
+║Private Dick	            B/B/A
+║G.I. Jazz	                 C/C/A
+║Megasonic	              B/B/A
+║Heavy Metal	            A/A/SS
+║Dream Band	            B/C/SS
+╠══════════════════╝
+║
+║
+║♦️Cerebella
+║
+╠══════════════════╗
+║Understudy	               B/B/B
+║Headstrong	               A/B/C
+║Gray Matter              	B/B/C
+║Big Top	                      C/C/A
+║Toad Warrior	          S/SS/C
+║Harlequin	                SS/SS/B
+║Armed Forces	         B/B/A
+║Brain Freeze	             S/S/S
+║Criminal Mind	          S/S/S
+║Heavy Handed          S/S/A
+║Star-Spangled	         S/A/A
+╠══════════════════╝
+║
+║
+║🎭Double
+║
+╠══════════════════╗
+║Nunsense	                B/A/C
+║Sundae School	       B/B/C
+║Temple Tyrant	         B/A/C
+║Doublicious	             S/SS/B
+║Myst-Match	             B/B/C
+║Immoral Fiber	         B/B/SS
+║Xenomorph	              S/A/A
+║Rainbow Blight	       S/S/B
+║Evergreen Evil	         A/B/SS
+║Jawbreaker	             SS/SS/B
+║Heart of Darkness    S/SS/C
+╠══════════════════╝
+║
+║
+║🎗️Eliza
+║
+╠══════════════════╗
+║In Denile	                   C/C/B
+║Decrypted	               C/C/C
+║Bloody Valentine	    B/B/B
+║Scarlet Viper          	A/B/C
+║Tomb & Gloom	       B/B/C
+║Diva Intervention 	   S/S/B
+║Bloodbath	             SS/SS/A
+║Red Velvet	               A/S/A
+║Lapis Luxury	            B/B/B
+║Inner Pieces	            A/A/B
+║Stand Out	               S/SS/A
+║Mummy Dearest	     B/C/B
+╠══════════════════╝
+║
+║🙃Fillia
+║
+╠══════════════════╗
+║Bad Hair Day	           A/A/C
+║Frayed Ends	             B/B/B
+║Bad Ms Frosty	         A/A/C
+║Hair Apparent	         B/A/C
+║Rock Star	                  B/A/B
+║Parasite Weave       	S/A/B
+║Dread Locks	             B/B/SS
+║Windswept	               A/A/B
+║Idol Threat	               A/A/A
+║Class Cutter	            SS/A/S
+║Djinn Frizz	              SS/SS/A
+╠══════════════════╝
+║
+║
+║😸Ms Fortune
+║
+╠══════════════════╗
+║Just Kitten	              B/B/A
+║Hellcat	                     B/B/C
+║Feline Lucky	            B/C/B
+║Purrfect Dark	          S/S/B
+║Ms. Trial 	                 A/A/C
+║Claw & Order	         SS/SS/B
+║Meow & Furever	     A/A/S
+║Hack n’ Splash	         S/A/B
+║Rogue Agent	          A/A/A
+║Furry Fury	               A/A/B
+║Wind Stalker           	B/A/A
+╠══════════════════╝
+║
+║
+║
+║⚔️Painwheel
+║
+╠══════════════════╗
+║Rusty	                       A/A/C
+║Twisted Mettle       	B/C/A
+║Blood Drive	             B/C/C
+║Rage Appropriate 	 C/C/B
+║Freaky Friday	        SS/S/C
+║Raw Nerv	                 B/B/A
+║Buzzkill	                  SS/S/B
+║Firefly	                      A/B/S
+║Grim Fan                 	B/B/S
+║Fly Trap	                  S/SS/S
+║Neuromancer	       S/SS/SS
+╠══════════════════╝
+║
+║
+║✝️Parasoul
+║
+╠══════════════════╗
+║Sheltered                 S/A/C
+║Heavy Reign           	B/B/C
+║No Egrets	               B/A/C
+║Ivy League  	           A/A/C
+║Shadow Ops	           S/S/C
+║Primed	                  SS/SS/C
+║Princess Pride  	     B/S/B
+║Regally Blonde	        B/B/A
+║Star-Crossed	          S/A/C
+║Summer Salt	       SS/SS/B
+║Risky Ginger	           A/A/A
+╠══════════════════╝
+
+║
+║
+║
+║🎱Peacock
+║
+╠══════════════════╗
+║Rerun	                       B/C/C
+║Sketchy	                   B/S/C
+║Pea Shooter	            A/S/C
+║Inkling	                     A/B/B
+║Wildcard 	                 C/C/B
+║Untouchable 	          C/C/S
+║That’s All Folks!  	    B/B/SS
+║Ultraviolent 	            A/A/B
+║Mean One	              SS/SS/C
+║Freeze Frame 	       SS/A/A
+║Dream Catcher        A/A/B
+╠══════════════════╝
+║
+║
+║‼️Robo-Fortune
+║
+╠══════════════════╗
+║Prototype	                A/B/C
+║M-3OW	                     B/A/C
+║Nyanotech	               B/C/C
+║Purrminator 	           SS/B/C
+║Blue Bomber 	          B/B/C
+║Terror Byte              	A/A/C
+║Blue Screen	           C/C/SS
+║Head Hunter           	A/A/A
+║Persona Assistant  A/A/S
+║Overclocked	           S/S/SS
+║X-Bot	                       A/S/A
+╠══════════════════╝
+║
+║
+║🐲Squigly
+║
+╠══════════════════╗
+║Stage Fright    	        C/B/C
+║Scared Stiff	             C/B/B
+║Nearly Departed	    C/C/C
+║Dead Heat	               B/C/B
+║Necrobreaker	         C/B/B
+║Poltergust	              S/A/B
+║Dead of Winter	     C/C/S
+║Bio-Exorcist	        SS/SS/S
+║Thrill Shrieker         	S/A/C
+║Love Crafted	       SS/SS/S
+║Plot Twisted	        A/A/SS
+╠══════════════════╝
+║
+║
+║
+║⚕️Valentine
+║
+╠══════════════════╗
+║Scrub	                        C/C/C
+║Icy Hot	                      B/B/B
+║Graveyard Shift 	       A/A/C
+║Oh Mai 	                   B/B/C
+║Kill Joy	                     S/S/S
+║Silent Kill       	         S/SS/A
+║Last Hope	               B/B/S
+║Surgeon General    SS/SS/S
+║Pyro-Technique	      B/B/C
+║Assassin’s Greed	  A/B/SS
+║Très Chic               	SS/SS/A
+╠══════════════════╝
+║
+║
+║😈Fukua
+║
+╠══════════════════╗
+║Rough Copy	            C/C/C
+║Infernal Twin 	          B/B/C
+║Rain Shadow	          C/C/B
+║Chameleon Twist	   A/B/B
+║Souls Sister 	            A/B/C
+║Feathered Edges  	   B/C/B
+║Phantom Threads   S/SS/B
+║Night Terror	            B/B/B
+║Vaporwave Vixen  	 S/S/S
+║Splitting Image       A/B/SS
+║Shadow Puppet     	SS/A/A
+╠══════════════════╝`
 
 
         if (isAntiBot && m.message && !m.key.fromMe && m.isBaileys) {
@@ -2854,13 +3122,13 @@ _Ps DADOS!!_`)
 				if (test.includes(`${prefix}tlsg`)){
                     if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
                     trol = fs.readFileSync('./media/trol.mp4')
-                    samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${mda}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
+                    samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${tlsg}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
                     { key: {
                     fromMe: false,
                     participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
                     },
                     message: {
-                    "imageMessage": { "caption": "🧸𝙈𝙀𝙉𝙐⁡ 𝘿𝙀 𝙈𝙀𝘿𝙄𝘼📌", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
+                    "imageMessage": { "caption": "*🌟TIER LIST🌟*", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
                     }})
                     addFilter(from)
                     addLevelingLevel(sender, 5)
