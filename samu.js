@@ -2849,24 +2849,21 @@ _Ps DADOS!!_`)
                                     "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
 			}
 			}
-			if (sam.message.listResponseMessage){
+			            if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}ass`)){
-					if (!isGroup) return reply(mess.only.group)
-					if (!isNsfw) return reply(mess.nsfw)
-					pw = ["https://meme-api.herokuapp.com/gimme/CuteLittleButts",
-					"https://meme-api.herokuapp.com/gimme/ass",
-					"https://meme-api.herokuapp.com/gimme/boobs",
-					"https://meme-api.herokuapp.com/gimme/ass"]
-					nk = pw[Math.floor(Math.random() * pw.length)]
-					porn = await getJson(`${nk}`, {
-					method: 'get'
-					})
-					reply(mess.wait)
-					buffer = await getBuffer(`${porn.url}`)
-					samu330.sendMessage(from, buffer, image, {
-					quoted: fimg
-					})
+				if (test.includes(`${prefix}tlsg`)){
+                    if (!isRegister) return samu330.sendMessage(from, assistant, image, { quoted: noreg, caption: `😊Hola, ${timeFt}.\n*Yo soy Sam330*, Asistente de *Samu330*!.\n\nAl parecer no estas registrado en _*NyanBot*_, Para registrarte usa el comando: *${prefix}reg*.`, thumbnail: assistant, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
+                    trol = fs.readFileSync('./media/trol.mp4')
+                    samu330.sendMessage(from, trol, video, {mimetype: 'video/mp4', caption: `${mda}`, duration: -9999999, thumbnail: fs.readFileSync('./media/reply.png'), sendEphemeral: true, quoted:
+                    { key: {
+                    fromMe: false,
+                    participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+                    },
+                    message: {
+                    "imageMessage": { "caption": "🧸𝙈𝙀𝙉𝙐⁡ 𝘿𝙀 𝙈𝙀𝘿𝙄𝘼📌", 'jpegThumbnail': fs.readFileSync('./src/assistant.jpg')}}
+                    }})
+                    addFilter(from)
+                    addLevelingLevel(sender, 5)
 			}
 			}
 			if (sam.message.listResponseMessage){
