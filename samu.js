@@ -3149,7 +3149,7 @@ _Ps DADOS!!_`)
 				if (test.includes(`${prefix}costosg`)){
                     if (!isRegister) return reply(mess.only.usrReg)
                     smww = fs.readFileSync(`./media/costosg1.jpg`)
-                    samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
+                    samu330.sendMessage(from, smww, image, {caption: `${costosg}`, quoted: { key: { 
                         fromMe: false, 
                         participant: `0@s.whatsapp.net`, ...(from ? {
                             remoteJid: "status@broadcast" } : {}) }, 
