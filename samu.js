@@ -3163,21 +3163,19 @@ _Ps DADOS!!_`)
 			}
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
-				if (test.includes(`${prefix}pussy`)){
-					if (!isGroup) return reply(mess.only.group)
-					if (!isNsfw) return reply(mess.nsfw)
-					pw = ["https://meme-api.herokuapp.com/gimme/pussy",
-					"https://meme-api.herokuapp.com/gimme/LegalTeens"
-					]
-					nk = pw[Math.floor(Math.random() * pw.length)]
-					porn = await getJson(`${nk}`, {
-					method: 'get'
-					})
-					reply(mess.wait)
-					buffer = await getBuffer(`${porn.url}`)
-					samu330.sendMessage(from, buffer, image, {
-					quoted: fimg
-					})
+				if (test.includes(`${prefix}tsf500`)){
+                    if (!isRegister) return reply(mess.only.usrReg)
+                    smww = fs.readFileSync(`./media/editsg1.jpg`)
+                    samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
+                        fromMe: false, 
+                        participant: `0@s.whatsapp.net`, ...(from ? {
+                            remoteJid: "status@broadcast" } : {}) }, 
+                                message: { 
+                                    "imageMessage": { 
+                                    "mimetype": 
+                                    "image/jpeg", 
+                                    "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
+                                    "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})
 			}
 			}
 			if (sam.message.listResponseMessage){
@@ -4572,7 +4570,7 @@ _${ipbot.isp}_
 ${samu}©${ipbot.as}™${samu}`
 samu330.sendMessage(from, datosbot, MessageType.text, {quoted: fliveLoc})
 await sleep(300)
-samu330.sendMessage(from, { degreesLatitude: `${ipbot.lat}`, degreesLongitude: `${ipbot.lon}`, name: '📌Búsqueda por 🐉Samu330🐉', address : `${ipbot.city}`}, MessageType.liveLocation, {quoted : fliveLoc})
+samu330.sendMessage(from, { degreesLatitude: `${ipbot.lat}`, degreesLongitude: `${ipbot.lon}`, name: '📌Búsqueda por ??Samu330🐉', address : `${ipbot.city}`}, MessageType.liveLocation, {quoted : fliveLoc})
 break
 //localizacion IP Creado por Samu
 case 'ip':
@@ -6549,7 +6547,7 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 			},
 			{
 			"title": "☠️Team SkullForce 500☠️",
-			"rowId": `${prefix}ytsg`
+			"rowId": `${prefix}tsf500`
 			},
 			{
 				"title": "☠️reportar hackers😡🤬📢",
