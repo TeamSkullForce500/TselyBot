@@ -2302,43 +2302,43 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 {
 "rows": [
 {
-"title": "Lista de variantes",
+"title": "☠️Lista de variantes🥉🥈🥇💎",
 "rowId": `${prefix}cartassg`
 },
 {
-"title": "sitios web oficiales skullgirls Mobile",
+"title": "☠️sitios web oficiales skullgirls Mobile🏢",
 "rowId": `${prefix}websg`
 },	
 {
-"title": `editor de cartas y personajes`,
+"title": `☠️editor de cartas y personajes🃏🎨🖌️`,
 "rowId": `${prefix}editsg`
 },
 {
-	"title": `tier list`,
+	"title": `☠️tier list💯👑📊`,
 	"rowId": `${prefix}tlsg`
 	},
 	{
-	"title": "ciclo eventos",
+	"title": "☠️ciclo eventos🕔⚔️🕖",
 	"rowId": `ciclosg`
 	},
 	{
-		"title": `costo mejoras`,
+		"title": `☠️costo mejoras💸💰💵`,
 		"rowId": `${prefix}costosg`
 		},
 		{
-		"title": "desafios skullgirls",
+		"title": "☠️desafios skullgirls💪👾🎮",
 		"rowId": `${prefix}desafiossg`
 		},
 		{
-			"title": "sets movimientos",
+			"title": "☠️sets movimientos🧩♟️🧮",
 			"rowId": `${prefix}movsg`
 			},
 			{
-			"title": "Team Skullforce 500",
+			"title": "☠️Team Skullforce 500☠️",
 			"rowId": `${prefix}tsf500`
 			},
 			{
-				"title": "reportar hackers",
+				"title": "☠️reportar hackers😡🤬📢",
 				"rowId": `${prefix}reportsg`
 				}
 					]
@@ -2557,7 +2557,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 "rowId": `${prefix}desafiossg`
 },
 {
-"title": "🥈🎗️CURVO SIN ALAS",
+"title": "🥈🎗️CUERVO SIN ALAS",
 "rowId": `${prefix}movsg`
 },
 {
@@ -6516,43 +6516,43 @@ let skullgirls1 = samu330.prepareMessageFromContent(from, {
 {
 "rows": [
 {
-"title": "Lista de variantes",
+"title": "☠️Lista de variantes🥉🥈🥇💎",
 "rowId": `${prefix}cartassg`
 },
 {
-"title": "sitios web oficiales skullgirls Mobile",
+"title": "☠️sitios web oficiales skullgirls Mobile🏢",
 "rowId": `${prefix}websg`
 },	
 {
-"title": `editor de cartas y personajes`,
+"title": `☠️editor de cartas y personajes🃏🎨🖌️`,
 "rowId": `${prefix}editsg`
 },
 {
-	"title": `tier list`,
+	"title": `☠️tier list💯👑📊`,
 	"rowId": `${prefix}tlsg`
 	},
 	{
-	"title": "ciclo eventos",
+	"title": "☠️ciclo eventos🕔⚔️🕖",
 	"rowId": `ciclosg`
 	},
 	{
-		"title": `costo mejoras`,
+		"title": `☠️costo mejoras💸💰💵`,
 		"rowId": `${prefix}costosg`
 		},
 		{
-		"title": "desafios skullgirls",
+		"title": "☠️desafios skullgirls💪👾🎮",
 		"rowId": `${prefix}desafiossg`
 		},
 		{
-			"title": "sets movimientos",
+			"title": "☠️sets movimientos🧩♟️🧮",
 			"rowId": `${prefix}movsg`
 			},
 			{
-			"title": "Team SkullForce 500",
+			"title": "☠️Team SkullForce 500☠️",
 			"rowId": `${prefix}ytsg`
 			},
 			{
-				"title": "reportar hackers",
+				"title": "☠️reportar hackers😡🤬📢",
 				"rowId": `${prefix}reportsg`
 				}
 ]
