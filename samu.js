@@ -3250,18 +3250,18 @@ _Ps DADOS!!_`)
 			if (sam.message.listResponseMessage){
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`StarChild`)){
-                    if (!isRegister) return reply(mess.only.usrReg)
-                    bd = ["https://static.wikia.nocookie.net/skullgirlsmobile/images/b/b3/Star_Child.png"]
-                    samu330.sendMessage(from, bd, image, {caption: `${editsg}`, quoted: { key: { 
-                        fromMe: false, 
-                        participant: `0@s.whatsapp.net`, ...(from ? {
-                            remoteJid: "status@broadcast" } : {}) }, 
-                                message: { 
-                                    "imageMessage": { 
-                                    "mimetype": 
-                                    "image/jpeg", 
-                                    "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
-                                    "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})		       
+                                if (!isRegister) return reply(mess.only.usrReg)
+                                bd = ["https://static.wikia.nocookie.net/skullgirlsmobile/images/b/b3/Star_Child.png"]
+                                sendFileFromUrl(from, bd, image, {caption: `${editsg}`, quoted: { key: { 
+                                 fromMe: false, 
+                                  participant: `0@s.whatsapp.net`, ...(from ? {
+                                   remoteJid: "status@broadcast" } : {}) }, 
+                                     message: { 
+                                     "imageMessage": { 
+                                     "mimetype": 
+                                     "image/jpeg", 
+                                     "caption": "➫'*☠️Team SkullForce 500 ☠️*'\n'༺{❤️}༻𝑻𝒔𝒆𝒍𝒚-𝑩𝒐𝒕༺{❤️}༻ '" ,
+                                     "jpegThumbnail": fs.readFileSync(`./src/ara.png`)}}}})		       
 			}
 			}
 			/*if (sam.message.listResponseMessage){
