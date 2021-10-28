@@ -1402,6 +1402,14 @@ https://ko-fi.com/krazete
 
 *☠️ Team SkullForce 500 ☠️*`
 
+const tsf500 = `¡¡¡Tres años juntos!!!
+Gracias por estar todo este tiempo con nosotros y para aquellos que llegaron despues, tambien infinitas gracias.
+tres años de esta esta maravillosa comunidad, hemos recorrido un largo camino para llegar donde estamos ahora y esperamos que continúen con nosotros aprendiendo, divirtiéndonos y madurando.
+y que los años que esten por venir sean iguales o mejores.
+el sistema de alianzas aun no esta implementado en el juego pero ya hemos dado el primer paso para dar a entender al mundo quienes somos y nada nos detendra.
+
+*☠️ Team SkullForce 500 ☠️*`
+
 const costosg = `*${pushname}*
 
 _Valores y costos de las diferentes mejoras que ofrece el juego, variantes, movimientos, catalizadores._
@@ -3165,8 +3173,8 @@ _Ps DADOS!!_`)
 				test = sam.message.listResponseMessage.singleSelectReply.selectedRowId
 				if (test.includes(`${prefix}tsf500`)){
                     if (!isRegister) return reply(mess.only.usrReg)
-                    smww = fs.readFileSync(`./media/editsg1.jpg`)
-                    samu330.sendMessage(from, smww, image, {caption: `${editsg}`, quoted: { key: { 
+                    smww = fs.readFileSync(`./media/listtsf500.png`)
+                    samu330.sendMessage(from, smww, image, {caption: `${tsf500}`, quoted: { key: { 
                         fromMe: false, 
                         participant: `0@s.whatsapp.net`, ...(from ? {
                             remoteJid: "status@broadcast" } : {}) }, 
