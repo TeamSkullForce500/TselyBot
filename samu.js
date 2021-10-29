@@ -2035,7 +2035,7 @@ UNETE A NUESTRAS REDES:
 - YOUTUBE: https://youtube.com/channel/UCXTq1tujjskc6gav25gfViA
 - DISCORD: https://discord.gg/Drj7K5Km6k
 - TELEGRAM: https://t.me/joinchat/njRnJG1UCMJjNDcx
-- WHATSAPP+18: https://chat.whatsapp.com/FuG9ZbQHwRl63RItnVZpCj
+- WHATSAPP+18: https://chat.whatsapp.com/HEUxvu4KL0n6Fh7IZw4PGQ
 
 
 
@@ -2236,7 +2236,7 @@ var _0x4dab=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x
 					let nopor = samu330.prepareMessageFromContent(from, {
 					"listMessage":  {
 					"title": "*😏Bienvenido al menu 6*",
-					"description": `\n\nQue es lo que buscas🍒?\n\n	*Si no puedes ver, o selccionar la lista de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod. link grupo +18: https://chat.whatsapp.com/FuG9ZbQHwRl63RItnVZpCj*`,
+					"description": `\n\nQue es lo que buscas🍒?\n\n	*Si no puedes ver, o selccionar la lista de mensajes de abajo, desactiva la opcion de "Hacer el texto seleccionable", en las configuraciones de conversacion de tu WhatsApp Mod. link grupo +18: https://chat.whatsapp.com/HEUxvu4KL0n6Fh7IZw4PGQ*`,
 					"buttonText": "Click Aqui",
 					"listType": "SINGLE_SELECT",
 					"sections": [
